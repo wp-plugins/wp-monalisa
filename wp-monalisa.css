@@ -1,0 +1,70 @@
+/* style for smiley comment form box */
+div.wpml_commentbox {
+    font-size: 8px; 
+    border: 0px solid;
+    padding: 1px;
+    text-align:center;
+    overflow:hidden;
+}
+
+div.wpml_commentbox_text {
+    font-size: 8px; 
+    border: 0px solid;
+    padding: 1px;
+    text-align:center;
+}
+
+/* style for metabox in edit dialog */ 
+div.wpml_metabox {
+    font-size: 8px; 
+    border: 0px solid;
+    padding: 1px;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+
+/* style for icon and text div container */ 
+div.wpml_ico_both {
+    font-size: 8px; 
+    border: 0px solid;
+    padding: 1px;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+    float: left;
+    height: 45px;  
+}
+
+/* style for icon only div container */ 
+div.wpml_ico_icon {
+    font-size: 8px; 
+    border: 0px solid;
+    padding: 1px;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+    float: left;
+    height: 30px; 
+}
+
+/* style for icon only div container */ 
+div.wpml_ico_text {
+    font-size: 8px; 
+    border: 0px solid;
+    padding: 1px;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+    float: left;
+    height: 10px;  
+}
+
+/* style for icon */
+img.wpml_ico { 
+    border-spacing:2px;
+    border-collapse:collapse; 
+    margin-left:auto; 
+    margin-right:auto; 
+}

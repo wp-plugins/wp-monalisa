@@ -1,0 +1,140 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: wp-monalisa v0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-05-16 23:59+0200\n"
+"PO-Revision-Date: 2009-05-17 00:00+0100\n"
+"Last-Translator: Hans Matzen <webmaster ät tuxlog dot  de>\n"
+"Language-Team: Hans Matzen <webmaster@tuxlog.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+
+#: wpml_admin.php:78
+msgid "Settings saved"
+msgstr "Einstellungen gespeichert"
+
+#: wpml_admin.php:94
+msgid "Deleted record "
+msgstr "Satz löschen"
+
+#: wpml_admin.php:117
+msgid "Emoticon allready used. Record not inserted"
+msgstr "Emoticon bereits vorhanden. Der Satz konnte nicht gespeichert werden."
+
+#: wpml_admin.php:137
+msgid "Emoticon allready used. Record not updated"
+msgstr "Emoticon bereits vorhanden. Der Satz konnte nicht geändert werden."
+
+#: wpml_admin.php:151
+msgid "Records updated"
+msgstr "Sätze aktualisiert"
+
+#: wpml_admin.php:160
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: wpml_admin.php:166
+msgid "Iconpath"
+msgstr "Icon-Verzeichnis"
+
+#: wpml_admin.php:169
+msgid ""
+"You are about to change the iconpath.\\n"
+" Please be careful and make sure the icons are still accessible.\\n"
+" To update your settings klick Save Settings"
+msgstr ""
+"Sie sind dabei das Icon-Verzeichnis zu ändern.\\n"
+" Bitte achten Sie darauf, das sich die Icons in diesem Verzeichnis befinden müssen.\\n"
+" Um die neue Einstellung zu speichern klicken Sie Einstellungen speichern"
+
+#: wpml_admin.php:172
+msgid "Show smilies on edit"
+msgstr "Smilies im Edit-Dialog anzeigen"
+
+#: wpml_admin.php:178
+msgid "Show smilies on comment"
+msgstr "Smilies im Kommentarformular anzeigen"
+
+#: wpml_admin.php:182
+msgid "Comment Textarea ID"
+msgstr "ID des Kommentar-Textfelds"
+
+#: wpml_admin.php:183
+msgid ""
+"You are about to change the id of the textarea of your comment form.\\n"
+" Please make sure you enter the correct id, to make wp-monalisa work correctly"
+msgstr ""
+"Sie sind dabei die ID des Kommentar-Textfelds zu ändern.\\n"
+" Bitte prüfen Sie ob die ID korrekt ist, da wp-monalisa sonst nicht in Kommentaren funktioniert."
+
+#: wpml_admin.php:185
+msgid "Replace emoticons with html-images"
+msgstr "Ersetze Emoticons durch HTML Images"
+
+#: wpml_admin.php:188
+msgid "Show emoticons in selection as"
+msgstr "Zeige Emoticons in der Auswahl als"
+
+#: wpml_admin.php:190
+#: wpml_admin.php:218
+msgid "Icon"
+msgstr "Icon"
+
+#: wpml_admin.php:191
+msgid "Text"
+msgstr "Text"
+
+#: wpml_admin.php:192
+msgid "Both"
+msgstr "beide"
+
+#: wpml_admin.php:198
+msgid "Save Settings"
+msgstr "Einstellungen speichern"
+
+#: wpml_admin.php:211
+msgid "Smilies"
+msgstr "Smilies"
+
+#: wpml_admin.php:217
+msgid "Emoticon"
+msgstr "Emoticon"
+
+#: wpml_admin.php:219
+msgid "On Post"
+msgstr "in Posts"
+
+#: wpml_admin.php:220
+msgid "On Comment"
+msgstr "in Kommentaren"
+
+#: wpml_admin.php:226
+#: wpml_admin.php:302
+msgid "Save"
+msgstr "Speichern"
+
+#: wpml_admin.php:226
+#: wpml_admin.php:302
+msgid "Delete marked"
+msgstr "markierte löschen"
+
+#: wpml_admin.php:229
+msgid "New Entry"
+msgstr "Neuer Eintrag"
+
+#: wpml_edit.php:53
+#: wpml_edit.php:57
+msgid "wp-Monalisa"
+msgstr "wp-Monalisa"
+
+#~ msgid "Disable wordpress smilies"
+#~ msgstr "Wordpress smilies deaktiveren"
+
