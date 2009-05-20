@@ -1,6 +1,5 @@
 === Plugin Name ===
-Authors: tuxlog, woodstock
-Contributors: woodstock
+Contributors: tuxlog, woodstock
 Donate link: http://www.tuxlog.de/
 Tags: wordpress, plugin, smiley, smilies, monalisa, comments, post, edit
 Requires at least: 2.7
