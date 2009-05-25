@@ -14,9 +14,9 @@ function smile2edit(textid,smile,replace)
 
     // einzufügenden text ermitteln
     if ( replace == 1)
-	itext = "<img class='wpml_ico' src='" + smile + "' />";
+	itext = "<img class='wpml_ico' alt='' src='" + smile + "' />";
     else
-	itext = smile;
+	itext = smile + " "; // add space to separate smilies
     
     // editor objekt holen, falls vorhanden
     if ( typeof tinyMCE != "undefined" )
@@ -49,9 +49,9 @@ function smile2comment(textid,smile,replace){
 	return;
     }
     if ( replace == 1)
-	insert_text("<img class='wpml_ico' src='" + smile + "' />", tarea);
+	insert_text("<img class='wpml_ico' alt='' src='" + smile + "' />", tarea);
     else
-	insert_text(smile, tarea);
+	insert_text(smile + " ", tarea); // add space to separate smilies
 }
 
 /*

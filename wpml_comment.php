@@ -83,7 +83,8 @@ function wpml_comment($postid=0)
 	    $out .='<div class="wpml_ico_icon" onclick="smile2comment(\''.
 		$av['commenttextid'].'\',\''.addslashes($smile).'\','.$repl.');">'."\n";
 	    $out .= "<img class='wpml_ico' name='icoimg".$res->tid.
-		"' id='icoimg".$res->tid."' src='$ico_url' />&nbsp;";
+		"' id='icoimg".$res->tid."' src='$ico_url' alt='".
+		addslashes($smile)."' />&nbsp;";
 	    $out .= "</div>\n";
 	    
 	}
@@ -95,7 +96,8 @@ function wpml_comment($postid=0)
 		$av['commenttextid'].'\',\''.addslashes($smile).'\','.$repl.');">'."\n";
 	    
 	    $out .= "<img class='wpml_ico' name='icoimg".$res->tid.
-		"' id='icoimg".$res->tid."' src='$ico_url' />&nbsp;";
+		"' id='icoimg".$res->tid."' src='$ico_url' alt='".
+		addslashes($smile)."' />&nbsp;";
 	    $out .= "<br />" . $res->emoticon ; 
 	    $out .= "</div>\n";
 	}

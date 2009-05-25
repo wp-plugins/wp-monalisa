@@ -52,6 +52,20 @@ function wpml_map_emoticons()
     // table name
     $wpml_table = $wpdb->prefix . "monalisa";
 
+    // extend array allowedtags with img tag if necessary
+    // to make sure the comment smilies dont geat lost
+    if ( $av['oncomment']==1 and $av['replaceicon']==1)
+    {
+	global $allowedtags;
+	if ( ! array_key_exists("img",$allowedtags) )
+	{
+	    $allowedtags['img'] = array( 'src' => array(), 
+					 'alt' => array(), 
+					 'class' => array() );
+	}
+    }
+    
+
     // select all valid smiley entries
     $sql="select tid,emoticon,iconfile from $wpml_table where ( oncomment=".$av['oncomment']." and oncomment=1 ) or ( onpost=".$av['onedit']." and onpost=1 ) order by tid;";
 
@@ -155,15 +169,20 @@ function wpml_convert_emoticons($text)
 //
 if( !function_exists('scandir') ) {
     function scandir($directory, $sorting_order = 0) {
-        $dh  = opendir($directory);
-        while( false !== ($filename = readdir($dh)) ) {
-            $files[] = $filename;
-        }
-        if( $sorting_order == 0 ) {
-            sort($files);
-        } else {
-            rsort($files);
-        }
+        $dh  = @opendir($directory);
+	$files=array();
+
+	if ($dh)
+	{
+	    while( false !== ($filename = readdir($dh)) ) {
+		$files[] = $filename;
+	    }
+	    if( $sorting_order == 0 ) {
+		sort($files);
+	    } else {
+		rsort($files);
+	    }
+	}
         return($files);
     }
 }

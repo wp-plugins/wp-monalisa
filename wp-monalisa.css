@@ -4,7 +4,7 @@ div.wpml_commentbox {
     border: 0px solid;
     padding: 1px;
     text-align:center;
-    overflow:hidden;
+    overflow:hidden; 
 }
 
 div.wpml_commentbox_text {
@@ -15,7 +15,7 @@ div.wpml_commentbox_text {
 }
 
 /* style for metabox in edit dialog */ 
-div.wpml_metabox {
+div#wpml_metabox {
     font-size: 8px; 
     border: 0px solid;
     padding: 1px;
@@ -46,7 +46,7 @@ div.wpml_ico_icon {
     margin-left:auto;
     margin-right:auto;
     float: left;
-    height: 30px; 
+    height: 30px;
 }
 
 /* style for icon only div container */ 

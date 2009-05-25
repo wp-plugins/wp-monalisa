@@ -4,7 +4,7 @@ Donate link: http://www.tuxlog.de/
 Tags: wordpress, plugin, smiley, smilies, monalisa, comments, post, edit
 Requires at least: 2.7
 Tested up to: 2.8
-Stable tag: 0.1
+Stable tag: 0.2
 
 wp-monalisa is the plugin that smiles at you like monalisa does. place the smilies of your choice in posts, pages or comments.
 
@@ -25,6 +25,11 @@ Features:
 * extend or replace wordpress smiley replacement
 * while edit posts or pages, pops-up in a draggable meta-box
 * extends your comment form to give you visitors the freedom to smile :-)
+
+Credits:
+Thanks go to all who support this plugin, with  hints and suggestions for improvment and specially to
+
+* Michal Maciejewski, polish translation
 
 == Installation ==
 
@@ -51,3 +56,10 @@ Plase check and double check the path to your smiley directory.
 
 == History ==
 2009-05-17 v0.1	   Initial release 
+
+2009-05-22 v0.2	   added alt attribute to img tags, to produce correct xhtml,
+	   	   fixed german translation, added import dialog to import 
+		   phpbb3 smiley packages, added space after shortcode insertion
+		   automatically extend array allowedtags when oncomment and 
+		   replace options are set, improve error handling with 
+		   directory a bit, added polish translation

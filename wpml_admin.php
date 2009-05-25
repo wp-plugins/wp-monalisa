@@ -26,16 +26,20 @@ require_once('wpml_func.php');
 //
 function wpml_admin_init() 
 {
-    if (function_exists('add_options_page')) {
-	//add_options_page('wp-Monalisa', 'wp-Monalisa', 6, 
-	//		 basename(__FILE__), 'wpml_admin');
+    if (function_exists('add_options_page')) 
+    {
 	add_menu_page('wp-Monalisa', 'wp-Monalisa', 6, 
-			 basename(__FILE__), 'wpml_admin',
-			 site_url("/wp-content/plugins/wp-monalisa") . '/smiley.png');
+		      basename(__FILE__), 'wpml_admin',
+		      site_url("/wp-content/plugins/wp-monalisa") . '/smiley.png');
     }
     wp_enqueue_script('wpml_admin',
 		      '/' . PLUGINDIR . '/wp-monalisa/wpml_admin.js');
-
+    
+    // add thickbox and jquery for import interface 
+    //wp_enqueue_script( 'jquery' );
+    wp_enqueue_script( 'thickbox' );
+    wp_enqueue_style( 'thickbox' );
+    
 } 
 
 //
@@ -52,7 +56,6 @@ function wpml_admin()
   // optionen einlesen
   $av = unserialize(get_option("wpml-opts"));
   
-
   //
   // post operationen
   //
@@ -72,7 +75,7 @@ function wpml_admin()
       if ( is_dir(ABSPATH . stripslashes($_POST['iconpath']) ))
 	  $av['icondir']     = stripslashes($_POST['iconpath']);
       else
-	  admin_message("Iconpath is no valid directory, resetting it. Please enter the path relative to the wordpress main directory.","wpml");
+	  admin_message( __("Iconpath is no valid directory, resetting it. Please enter the path relative to the wordpress main directory.","wpml") );
       
       update_option("wpml-opts",serialize($av));
       admin_message( __("Settings saved","wpml") );
@@ -209,8 +212,13 @@ function wpml_admin()
  $out .= '</table>'."\n";
   
   // add submit button to form
-  $out .= '<p class="submit"><input type="submit" name="updateopts" value="'.__('Save Settings','wpml').' &raquo;" /></p></form></div><hr />'."\n";
-  
+  $out .= '<p class="submit"><input type="submit" name="updateopts" value="'.__('Save Settings','wpml').' &raquo;" /></p></form>'."\n";
+
+  // add link to import interface
+  $out .= '<div style="text-align:right"><a href="../wp-content/plugins/wp-monalisa/wpml_import.php?height=600&amp;width=400" class="thickbox" Title="">'.__("Import Smiley-Package","wpml").'</a></div>'."\n";
+
+  $out .= "</div><hr />\n";
+
   echo $out;
 
   //
@@ -219,10 +227,16 @@ function wpml_admin()
   
   // icon file list on disk
   $flist = scandir(ABSPATH . $av['icondir']);
-  
+
   $out = "";
   $out .= "<div class=\"wrap\">";
   $out .= "<h2>".__("Smilies","wpml")."</h2>\n"; 
+  
+  if ( empty($flist) )
+  {
+      admin_message( __("Iconpath is empty or invalid","wpml") );
+  }
+  
   $out .= '<form name="editicons" id="editicons" method="post" action="">';
   $out .= '<input type="hidden" name="action" value="editicons" />';
   $out .= "<table class=\"widefat\">\n";
@@ -248,8 +262,9 @@ function wpml_admin()
   $icon_select_html="";
   // file loop
   foreach($flist as $iconfile) 
-  {
-      if (substr($iconfile,0,1) != ".") {
+  { 
+      $ext = substr($iconfile,strlen($iconfile)-3,3);
+      if ($ext == "gif") {
 	  $icon_select_html .= "<option value='".$iconfile."' ";
 	  $icon_select_html .= ">".$iconfile."</option>\n";
       }
@@ -278,7 +293,8 @@ function wpml_admin()
       // file loop
       foreach($flist as $iconfile) 
       {
-	  if (substr($iconfile,0,1) != ".") {
+	  $ext = substr($iconfile,strlen($iconfile)-3,3);
+	  if ($ext == "gif") {
 	      $icon_select_html .= "<option value='".$iconfile."' ";
 	      if ($iconfile == $res->iconfile)
 		  $icon_select_html .= 'selected="selected"';
