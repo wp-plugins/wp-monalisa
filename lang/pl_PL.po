@@ -1,0 +1,174 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: wp-Monalisa 0.1 po polsku\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-05-22 07:52+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Michał Maciejewski <admin@inwit.pl>\n"
+"Language-Team: Galareta 1 Man Band <admin@inwit.pl>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Poedit-Language: Polish\n"
+"X-Poedit-Country: POLAND\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: ..\\\n"
+"X-Poedit-KeywordsList: __;_e;_c;__ngettext:1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: wpml_admin.php:78
+msgid ""
+"Iconpath is no valid directory, resetting it. Please enter the path relative "
+"to the wordpress main directory."
+msgstr ""
+"Błędna ścieżka dostępu do obrazków, przywracam poprzednią. Podaj prawidłową "
+"ścieżkę od głównego katalogu WordPressa. "
+
+#: wpml_admin.php:81
+msgid "Settings saved"
+msgstr "Zapisano zmiany."
+
+#: wpml_admin.php:97
+msgid "Deleted record "
+msgstr "Usunięto pozycję"
+
+#: wpml_admin.php:120
+msgid "Emoticon allready used. Record not inserted"
+msgstr "Emotikonka już istnieje. Pozycja nie została dodana do bazy."
+
+#: wpml_admin.php:154
+msgid "Emoticon allready used. Record not updated"
+msgstr "Emotikonka już istnieje. Pozycja nie została uaktualniona."
+
+#: wpml_admin.php:168
+msgid "Records updated"
+msgstr "Baza została uaktualniona."
+
+#: wpml_admin.php:177
+msgid "Settings"
+msgstr "- ustawienia"
+
+#: wpml_admin.php:183
+msgid "Iconpath"
+msgstr "Ścieżka dostępu do obrazków"
+
+#: wpml_admin.php:186
+msgid ""
+"You are about to change the iconpath.\\n Please be careful and make sure the "
+"icons are still accessible.\\n To update your settings klick Save Settings"
+msgstr ""
+"Zamierzasz zmienić ścieżkę dostępu do obrazków.\\nProszę upewnij się, że "
+"obrazki będą dostępne po zmianie.\\nAby dokonać zmiany kliknij \\'OK\\' i "
+"ponownie \\'Zapisz zmiany\\'."
+
+#: wpml_admin.php:189
+msgid "Show smilies on edit"
+msgstr "Włącz wtyczkę w oknie edycji"
+
+#: wpml_admin.php:195
+msgid "Show smilies on comment"
+msgstr "Włącz wtyczkę w komentarzach"
+
+#: wpml_admin.php:199
+msgid "Comment Textarea ID"
+msgstr "ID elementu Textarea do komentowania"
+
+#: wpml_admin.php:200
+msgid ""
+"You are about to change the id of the textarea of your comment form.\\n "
+"Please make sure you enter the correct id, to make wp-monalisa work correctly"
+msgstr ""
+"Zamierzasz zmienić ID elementu Textarea do wpisywania komentarzy.\\nUpewnij "
+"się, że podajesz prawidłowe ID, aby wtyczka mogła działać.\\nAby dokonać "
+"zmiany kliknij \\'OK\\' i ponownie \\'Zapisz zmiany\\'."
+
+#: wpml_admin.php:202
+msgid "Replace emoticons with html-images"
+msgstr "Zamieniaj teksty na obrazki"
+
+#: wpml_admin.php:205
+msgid "Show emoticons in selection as"
+msgstr "W okienku wyboru pokazuj"
+
+#: wpml_admin.php:207 wpml_admin.php:246
+msgid "Icon"
+msgstr "Obrazki"
+
+#: wpml_admin.php:208
+msgid "Text"
+msgstr "Teksty"
+
+#: wpml_admin.php:209
+msgid "Both"
+msgstr "Wszystko"
+
+#: wpml_admin.php:215
+msgid "Save Settings"
+msgstr "Zapisz zmiany"
+
+#: wpml_admin.php:218
+msgid "Import Smiley-Package"
+msgstr ""
+
+#: wpml_admin.php:233
+msgid "Smilies"
+msgstr "Baza emotikonek"
+
+#: wpml_admin.php:237
+msgid "Iconpath is empty or invalid"
+msgstr ""
+
+#: wpml_admin.php:245
+msgid "Emoticon"
+msgstr "Emotikonka"
+
+#: wpml_admin.php:247
+msgid "On Post"
+msgstr "Pokaż w oknie edycji"
+
+#: wpml_admin.php:248
+msgid "On Comment"
+msgstr "Pokaż w komentarzach"
+
+#: wpml_admin.php:254 wpml_admin.php:330
+msgid "Save"
+msgstr "Zapisz"
+
+#: wpml_admin.php:254 wpml_admin.php:330
+msgid "Delete marked"
+msgstr "Usuń zaznaczone"
+
+#: wpml_admin.php:257
+msgid "New Entry"
+msgstr "Nowa pozycja w bazie"
+
+#: wpml_edit.php:53 wpml_edit.php:57
+msgid "wp-Monalisa"
+msgstr "wp-Monalisa"
+
+#: wpml_import.php:41
+#, fuzzy
+msgid "Smilies deleted."
+msgstr "Baza emotikonek"
+
+#: wpml_import.php:78
+msgid "Import"
+msgstr ""
+
+#: wpml_import.php:81
+msgid "Select smiley package"
+msgstr ""
+
+#: wpml_import.php:101
+msgid "Delete current smilies before import"
+msgstr ""
+
+#: wpml_import.php:107
+msgid "Start import"
+msgstr ""
+
+#: wpml_import.php:110
+msgid "Close"
+msgstr ""

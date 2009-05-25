@@ -1,0 +1,176 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: wp-monalisa v0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-05-22 07:52+0200\n"
+"PO-Revision-Date: 2009-05-22 07:53+0100\n"
+"Last-Translator: Hans Matzen <webmaster ät tuxlog dot  de>\n"
+"Language-Team: Hans Matzen <webmaster@tuxlog.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+
+#: wpml_admin.php:78
+msgid "Iconpath is no valid directory, resetting it. Please enter the path relative to the wordpress main directory."
+msgstr "Das Icon-Verzeichnis ist ungültig und wurde nicht gespeichert. Bitte gebe einen Pfad ausgehend vom Wordpress Verzeichnis an."
+
+#: wpml_admin.php:81
+msgid "Settings saved"
+msgstr "Einstellungen gespeichert"
+
+#: wpml_admin.php:97
+msgid "Deleted record "
+msgstr "Satz löschen"
+
+#: wpml_admin.php:120
+msgid "Emoticon allready used. Record not inserted"
+msgstr "Emoticon bereits vorhanden. Der Satz konnte nicht gespeichert werden."
+
+#: wpml_admin.php:154
+msgid "Emoticon allready used. Record not updated"
+msgstr "Emoticon bereits vorhanden. Der Satz konnte nicht geändert werden."
+
+#: wpml_admin.php:168
+msgid "Records updated"
+msgstr "Sätze aktualisiert"
+
+#: wpml_admin.php:177
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: wpml_admin.php:183
+msgid "Iconpath"
+msgstr "Icon-Verzeichnis"
+
+#: wpml_admin.php:186
+msgid ""
+"You are about to change the iconpath.\\n"
+" Please be careful and make sure the icons are still accessible.\\n"
+" To update your settings klick Save Settings"
+msgstr ""
+"Sie sind dabei das Icon-Verzeichnis zu ändern.\\n"
+" Bitte achten Sie darauf, das sich die Icons in diesem Verzeichnis befinden müssen.\\n"
+" Um die neue Einstellung zu speichern klicken Sie Einstellungen speichern"
+
+#: wpml_admin.php:189
+msgid "Show smilies on edit"
+msgstr "Smilies im Edit-Dialog anzeigen"
+
+#: wpml_admin.php:195
+msgid "Show smilies on comment"
+msgstr "Smilies im Kommentarformular anzeigen"
+
+#: wpml_admin.php:199
+msgid "Comment Textarea ID"
+msgstr "ID des Kommentar-Textfelds"
+
+#: wpml_admin.php:200
+msgid ""
+"You are about to change the id of the textarea of your comment form.\\n"
+" Please make sure you enter the correct id, to make wp-monalisa work correctly"
+msgstr ""
+"Sie sind dabei die ID des Kommentar-Textfelds zu ändern.\\n"
+" Bitte prüfen Sie ob die ID korrekt ist, da wp-monalisa sonst nicht in Kommentaren funktioniert."
+
+#: wpml_admin.php:202
+msgid "Replace emoticons with html-images"
+msgstr "Ersetze Emoticons durch HTML Images"
+
+#: wpml_admin.php:205
+msgid "Show emoticons in selection as"
+msgstr "Zeige Emoticons in der Auswahl als"
+
+#: wpml_admin.php:207
+#: wpml_admin.php:246
+msgid "Icon"
+msgstr "Icon"
+
+#: wpml_admin.php:208
+msgid "Text"
+msgstr "Text"
+
+#: wpml_admin.php:209
+msgid "Both"
+msgstr "beide"
+
+#: wpml_admin.php:215
+msgid "Save Settings"
+msgstr "Einstellungen speichern"
+
+#: wpml_admin.php:218
+msgid "Import Smiley-Package"
+msgstr "Smiley-Paket einlesen"
+
+#: wpml_admin.php:233
+msgid "Smilies"
+msgstr "Smilies"
+
+#: wpml_admin.php:237
+msgid "Iconpath is empty or invalid"
+msgstr "Das Icon-Verzeichnis ist leer oder ungültig."
+
+#: wpml_admin.php:245
+msgid "Emoticon"
+msgstr "Emoticon"
+
+#: wpml_admin.php:247
+msgid "On Post"
+msgstr "in Posts"
+
+#: wpml_admin.php:248
+msgid "On Comment"
+msgstr "in Kommentaren"
+
+#: wpml_admin.php:254
+#: wpml_admin.php:330
+msgid "Save"
+msgstr "Speichern"
+
+#: wpml_admin.php:254
+#: wpml_admin.php:330
+msgid "Delete marked"
+msgstr "markierte löschen"
+
+#: wpml_admin.php:257
+msgid "New Entry"
+msgstr "Neuer Eintrag"
+
+#: wpml_edit.php:53
+#: wpml_edit.php:57
+msgid "wp-Monalisa"
+msgstr "wp-Monalisa"
+
+#: wpml_import.php:41
+msgid "Smilies deleted."
+msgstr "Smilies gelöscht"
+
+#: wpml_import.php:78
+msgid "Import"
+msgstr "Einlesen"
+
+#: wpml_import.php:81
+msgid "Select smiley package"
+msgstr "Smiley-Paket auswählen"
+
+#: wpml_import.php:101
+msgid "Delete current smilies before import"
+msgstr "Smilies vor dem einlesen löschen"
+
+#: wpml_import.php:107
+msgid "Start import"
+msgstr "Einlesen starten"
+
+#: wpml_import.php:110
+msgid "Close"
+msgstr "Schliessen"
+
+#~ msgid "Disable wordpress smilies"
+#~ msgstr "Wordpress smilies deaktiveren"
+

@@ -1,0 +1,163 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-05-22 07:52+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: wpml_admin.php:78
+msgid ""
+"Iconpath is no valid directory, resetting it. Please enter the path relative "
+"to the wordpress main directory."
+msgstr ""
+
+#: wpml_admin.php:81
+msgid "Settings saved"
+msgstr ""
+
+#: wpml_admin.php:97
+msgid "Deleted record "
+msgstr ""
+
+#: wpml_admin.php:120
+msgid "Emoticon allready used. Record not inserted"
+msgstr ""
+
+#: wpml_admin.php:154
+msgid "Emoticon allready used. Record not updated"
+msgstr ""
+
+#: wpml_admin.php:168
+msgid "Records updated"
+msgstr ""
+
+#: wpml_admin.php:177
+msgid "Settings"
+msgstr ""
+
+#: wpml_admin.php:183
+msgid "Iconpath"
+msgstr ""
+
+#: wpml_admin.php:186
+msgid ""
+"You are about to change the iconpath.\\n Please be careful and make sure the "
+"icons are still accessible.\\n To update your settings klick Save Settings"
+msgstr ""
+
+#: wpml_admin.php:189
+msgid "Show smilies on edit"
+msgstr ""
+
+#: wpml_admin.php:195
+msgid "Show smilies on comment"
+msgstr ""
+
+#: wpml_admin.php:199
+msgid "Comment Textarea ID"
+msgstr ""
+
+#: wpml_admin.php:200
+msgid ""
+"You are about to change the id of the textarea of your comment form.\\n "
+"Please make sure you enter the correct id, to make wp-monalisa work correctly"
+msgstr ""
+
+#: wpml_admin.php:202
+msgid "Replace emoticons with html-images"
+msgstr ""
+
+#: wpml_admin.php:205
+msgid "Show emoticons in selection as"
+msgstr ""
+
+#: wpml_admin.php:207 wpml_admin.php:246
+msgid "Icon"
+msgstr ""
+
+#: wpml_admin.php:208
+msgid "Text"
+msgstr ""
+
+#: wpml_admin.php:209
+msgid "Both"
+msgstr ""
+
+#: wpml_admin.php:215
+msgid "Save Settings"
+msgstr ""
+
+#: wpml_admin.php:218
+msgid "Import Smiley-Package"
+msgstr ""
+
+#: wpml_admin.php:233
+msgid "Smilies"
+msgstr ""
+
+#: wpml_admin.php:237
+msgid "Iconpath is empty or invalid"
+msgstr ""
+
+#: wpml_admin.php:245
+msgid "Emoticon"
+msgstr ""
+
+#: wpml_admin.php:247
+msgid "On Post"
+msgstr ""
+
+#: wpml_admin.php:248
+msgid "On Comment"
+msgstr ""
+
+#: wpml_admin.php:254 wpml_admin.php:330
+msgid "Save"
+msgstr ""
+
+#: wpml_admin.php:254 wpml_admin.php:330
+msgid "Delete marked"
+msgstr ""
+
+#: wpml_admin.php:257
+msgid "New Entry"
+msgstr ""
+
+#: wpml_edit.php:53 wpml_edit.php:57
+msgid "wp-Monalisa"
+msgstr ""
+
+#: wpml_import.php:41
+msgid "Smilies deleted."
+msgstr ""
+
+#: wpml_import.php:78
+msgid "Import"
+msgstr ""
+
+#: wpml_import.php:81
+msgid "Select smiley package"
+msgstr ""
+
+#: wpml_import.php:101
+msgid "Delete current smilies before import"
+msgstr ""
+
+#: wpml_import.php:107
+msgid "Start import"
+msgstr ""
+
+#: wpml_import.php:110
+msgid "Close"
+msgstr ""
