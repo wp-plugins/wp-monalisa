@@ -100,3 +100,18 @@ function switch_row(tid,direction)
 
 }
 
+function wpml_markall(objid)
+{
+    // get newvalue for checkboxes
+    newval  = document.getElementById(objid).checked;
+
+    // set top and bottom checkbox to new value
+    document.getElementById("markall").checked  = newval;
+    document.getElementById("markall1").checked = newval;
+
+    // set row checkboxes to new value
+    list = document.getElementsByClassName("wpml_mark");
+    for (i = 0; i < list.length; i++) {
+	list[i].checked = newval;
+    }
+}

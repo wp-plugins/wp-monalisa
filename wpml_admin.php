@@ -148,7 +148,8 @@ function wpml_admin()
 	      if ($_POST['emoticon'.$j] == $_POST['emoticon'.$i])
 		  $vorhanden += 1;
 	  }
-	  // wenn öfter als einmal, erfolgt kein update
+	  
+          // wenn öfter als einmal, erfolgt kein update
 	  if ($vorhanden > 1)
 	  {
 	      admin_message( __("Emoticon allready used. Record not updated","wpml") );   
@@ -239,23 +240,26 @@ function wpml_admin()
   
   $out .= '<form name="editicons" id="editicons" method="post" action="">';
   $out .= '<input type="hidden" name="action" value="editicons" />';
-  $out .= "<table class=\"widefat\">\n";
+
+  // submit knöpfe ausgeben
+  $out .= '<div class="tablenav"><input type="submit" name="updateicons" value="'.__('Save','wpml').' &raquo;" class="button-secondary" />&nbsp;&nbsp;&nbsp;<input type="submit" name="deletemarked" value="'.__('Delete marked','wpml').' &raquo;" class="button-secondary" /></div>'."\n";
+  
+  
+$out .= "<table class=\"widefat\">\n";
   $out .= "<thead><tr>\n";
-  $out .= '<th scope="col" style="text-align: center">&nbsp;</th>'."\n";
+  $out .= '<th scope="col" style="text-align:center"><input style="margin-left: 0;" id="markall" type="checkbox" onchange="wpml_markall(\'markall\');" />&nbsp;</th>'."\n";
   $out .= '<th scope="col">'.__('Emoticon',"wpml")."</th>"."\n";
-  $out .= '<th scope="col" colspan="2" style="text-align: center">'.__("Icon","wpml").'</th>'."\n";
+  $out .= '<th scope="col" colspan="2" style="text-align: left">'.__("Icon","wpml").'</th>'."\n";
   $out .= '<th scope="col">'.__('On Post',"wpml").'</th>'."\n";
   $out .= '<th scope="col">'.__('On Comment',"wpml").'</th>'."\n";
   $out .= '<th scope="col">&nbsp;</th>'."\n";
   $out .= '<th scope="col">&nbsp;</th>'."\n";
   $out .= '</tr></thead>'."\n";
   
-  // submit knöpfe ausgeben
-  $out .= '<tr><td colspan="8" class="submit"><input type="submit" name="updateicons" value="'.__('Save','wpml').' &raquo;" />&nbsp;&nbsp;&nbsp;<input type="submit" name="deletemarked" value="'.__('Delete marked','wpml').' &raquo;" /></td></tr>'."\n";
   
   // zeile fuer neueintrag
   $out .= '<tr><td align="center"><b>'. __("New Entry",'wpml').":</b></td>";
-  $out .= '<td><input name="NEWemoticon" id="NEWemoticon" type="text" value="" size="15" /></td>'."\n";
+  $out .= '<td><input name="NEWemoticon" id="NEWemoticon" type="text" value="" size="15" maxlength="25" /></td>'."\n";
   $out .= '<td>';
    $out .= '<select name="NEWicon" id="NEWicon" onchange="updateImage(\''.site_url($av['icondir']).'\',\'NEW\')">'."\n";
   // build select html for iconfile
@@ -271,7 +275,7 @@ function wpml_admin()
   }
   $out .= $icon_select_html . "</select></td>\n";
   $out .= '<td><img class="wpml_ico" name="icoimg" id="icoimg" src="' . 
-      site_url($av['icondir']).'/01smile.gif" /></td>';
+      site_url($av['icondir']).'/wpml_smile.gif" /></td>';
   $out .= '<td><input name="NEWonpost" id="NEWonpost" type="checkbox" value="1" /></td>'."\n";
   $out .= '<td><input name="NEWoncomment" id="NEWoncomment" type="checkbox" value="1" />'."\n";
   $out .= '<script type="text/javascript">updateImage("'.site_url($av['icondir']).'","NEW")</script></td>';
@@ -285,6 +289,7 @@ function wpml_admin()
   $lastnum = count($results)-1;
   $count   = 0;
   $tid=0;
+  $alternate = false;
   // icon loop
   foreach($results as $res) 
   {  
@@ -303,8 +308,14 @@ function wpml_admin()
       }
       
       $tid = $res->tid;
-      $out .= '<tr><td align="center"><input name="mark'.$tid.'" id="mark'.$tid.'" type="checkbox" value="'. $tid.'" />&nbsp;</td>';
-      $out .= '<td><input name="emoticon'.$tid.'" id="emoticon'.$tid.'" type="text" value="'. $res->emoticon.'" size="15" /></td>'."\n";
+      // hintegrund farbe für jede zweite zeile
+      if ($alternate)
+	  $out .= '<tr class="alternate">';
+      else
+	  $out .= '<tr>';
+      $alternate = !$alternate;
+      $out .= '<td align="center"><input class="wpml_mark" name="mark'.$tid.'" id="mark'.$tid.'" type="checkbox" value="'. $tid.'" />&nbsp;</td>';
+      $out .= '<td><input name="emoticon'.$tid.'" id="emoticon'.$tid.'" type="text" value="'. $res->emoticon.'" size="15" maxlength="25" /></td>'."\n";
 
       $out .= '<td>';
       $out .= '<select name="icon'.$tid.'" id="icon'.$tid.
@@ -328,9 +339,21 @@ function wpml_admin()
       $out .= "</tr>\n";
       $count ++; // zaehler erhöhen
   } 
+  
+  $out .= "<tfoot><tr>\n";
+  $out .= '<th scope="col" style="text-align:center"><input style="margin-left: 0;" id="markall1" type="checkbox" onchange="wpml_markall(\'markall1\');" />&nbsp;</th>'."\n";
+  $out .= '<th scope="col">'.__('Emoticon',"wpml")."</th>"."\n";
+  $out .= '<th scope="col" colspan="2" style="text-align:left">'.__("Icon","wpml").'</th>'."\n";
+  $out .= '<th scope="col">'.__('On Post',"wpml").'</th>'."\n";
+  $out .= '<th scope="col">'.__('On Comment',"wpml").'</th>'."\n";
+  $out .= '<th scope="col">&nbsp;</th>'."\n";
+  $out .= '<th scope="col">&nbsp;</th>'."\n";
+  $out .= '</tr></tfoot>'."\n";
+  $out .= "</table>";
+
   // submit knöpfe ausgeben
-  $out .= '<tr><td colspan="8" class="submit"><input type="submit" name="updateicons" value="'.__('Save','wpml').' &raquo;" />&nbsp;&nbsp;&nbsp;<input type="submit" name="deletemarked" value="'.__('Delete marked','wpml').' &raquo;" /></td></tr>'."\n";
-  $out .= '</table></form></div>'."\n";
+  $out .= '<div class="tablenav"><input type="submit" name="updateicons" value="'.__('Save','wpml').' &raquo;" class="button-secondary" />&nbsp;&nbsp;&nbsp;<input type="submit" name="deletemarked" value="'.__('Delete marked','wpml').' &raquo;" class="button-secondary" /></div>'."\n";
+  $out .= '</form></div>'."\n";
   
   echo $out;
 }

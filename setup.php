@@ -32,7 +32,7 @@ function wp_monalisa_install()
 	$sql = "create table ".$wpdb->prefix."monalisa 
           (
             tid integer not null auto_increment,
-            emoticon varchar(10) NOT NULL,
+            emoticon varchar(25) NOT NULL,
             iconfile varchar(40) NOT NULL,
             onpost tinyint NOT NULL,
             oncomment tinyint NOT NULL,
@@ -41,23 +41,23 @@ function wp_monalisa_install()
 	$results = $wpdb->query($sql);
         	
 	$smilies_init = array(
-	    ':bye:'      => 'bye.gif',
-	    ':good:'     => 'good.gif',   
-	    ':negative:' => 'negative.gif',  
-	    ':scratch:'  => 'scratch.gif',  
-	    ':wacko:'    => 'wacko.gif',     
-	    ':yahoo:'    => 'yahoo.gif',
-	    'B-)'        => 'cool.gif',  
-	    ':heart:'    => 'heart.gif',  
-	    ':rose:'     => 'rose.gif',      
-	    ':-)'        => 'smile.gif',    
-	    ':whistle:'  => 'whistle3.gif',  
-	    ':yes:'      => 'yes.gif',
-	    ':cry:'      => 'cry.gif',   
-	    ':mail:'     => 'mail.gif',   
-	    ':-('        => 'sad.gif',       
-	    ':unsure:'   => 'unsure.gif',   
-	    ';-)'        => 'wink.gif');
+	    ':bye:'      => 'wpml_bye.gif',
+	    ':good:'     => 'wpml_good.gif',   
+	    ':negative:' => 'wpml_negative.gif',  
+	    ':scratch:'  => 'wpml_scratch.gif',  
+	    ':wacko:'    => 'wpml_wacko.gif',     
+	    ':yahoo:'    => 'wpml_yahoo.gif',
+	    'B-)'        => 'wpml_cool.gif',  
+	    ':heart:'    => 'wpml_heart.gif',  
+	    ':rose:'     => 'wpml_rose.gif',      
+	    ':-)'        => 'wpml_smile.gif',    
+	    ':whistle:'  => 'wpml_whistle3.gif',  
+	    ':yes:'      => 'wpml_yes.gif',
+	    ':cry:'      => 'wpml_cry.gif',   
+	    ':mail:'     => 'wpml_mail.gif',   
+	    ':-('        => 'wpml_sad.gif',       
+	    ':unsure:'   => 'wpml_unsure.gif',   
+	    ';-)'        => 'wpml_wink.gif');
 
 	// ein paar smilies einfuegen
 	$sql1 = "insert into ".$wpdb->prefix."monalisa values ";
@@ -74,7 +74,13 @@ function wp_monalisa_install()
 	    $results = $wpdb->query($sql1 . $sql2);  
 	
 	}
-    }
+    } else
+    {
+	// tabelle schon vorhanden, hier folgen die updates und alters
+	// spaltenbreite der spalte emoticon auf 25 verändern
+	$sql = "alter table ".$wpdb->prefix."monalisa modify column emoticon varchar(25) not null;";
+	$results = $wpdb->query($sql);
+    }    
     
     // Optionen / Parameter
     
