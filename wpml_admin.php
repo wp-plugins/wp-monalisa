@@ -110,7 +110,7 @@ function wpml_admin()
       $maxnum = $wpdb->get_var($sql);
 
       // neuen satz anlegen
-      if ( $_POST['NEWemoticon'] != "" )
+      if ( trim($_POST['NEWemoticon']) != "" )
       {
 	  // pruefen ob bereits ein satz mit dem gleichen emoticon vorhanden ist
 	  $sql  = "select count(*) from $wpml_table where emoticon='".$_POST['NEWemoticon']."';";
@@ -121,7 +121,7 @@ function wpml_admin()
 	  } else {
 	      // satz einfuegen
 	      $sql  = "insert into $wpml_table (tid,emoticon,iconfile,onpost,oncomment) values (0,";
-	      $sql .= "'".$_POST['NEWemoticon']."',";
+	      $sql .= "'".trim($_POST['NEWemoticon'])."',";
 	      $sql .= "'".$_POST['NEWicon']."',";
 	      $sql .= ($_POST['NEWonpost']=="1"?"1":"0") . "," . 
 		  ($_POST['NEWoncomment']=="1"?"1":"0") . ");";
@@ -158,7 +158,7 @@ function wpml_admin()
 	      // durch das where tid=$i werden nur vorhandene sätze upgedated
 	      // exitiert kein satz mit tid=$i wird auch kein satz gefunden
 	      $sql  = "update $wpml_table ";
-	      $sql .= "set emoticon='" . $_POST['emoticon'.$i]."',";
+	      $sql .= "set emoticon='" . trim($_POST['emoticon'.$i])."',";
 	      $sql .= " iconfile='"    . $_POST['icon'.$i]."',";
 	      $sql .= " onpost="       . ($_POST['onpost'.$i]   == "1"?"1":"0") . ",";
 	      $sql .= " oncomment="    . ($_POST['oncomment'.$i]== "1"?"1":"0") . " ";

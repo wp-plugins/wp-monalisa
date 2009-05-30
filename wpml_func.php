@@ -31,6 +31,26 @@ if ( !function_exists('admin_message') )
 }
 
 //
+// this function compares the length of k1 and k2 and returns
+// 0 if equal, 1 if k1 shorter than k2, -1 if k1 is longer than k2
+// it is used to sort the wpml_smilies array by length of key 
+// beginning with the longest key
+//
+function compare_length($k1,$k2)
+{
+    $res = 0;
+    $l1  = strlen(trim($k1));
+    $l2  = strlen(trim($k2));
+
+    if ($l1 < $l2)
+	$res = 1;
+    else if ($l1 > $l2)
+	$res = -1;
+
+    return $res;
+}
+
+//
 // the next functions are an adoption of wordpress 2.8 functions
 // to change the behaviour as wanted for wp-monalisa
 // thanks to all who worked on this.
@@ -84,8 +104,12 @@ function wpml_map_emoticons()
 	
     }
 
+    // sort smiley array by length of key beginning with longest key
+    // and make sure the longest containing smiley is replaced first
+    uksort($wpml_smilies, "compare_length");
+
     // build regexp search string
-    $wpml_search = '/(?:\s|^)';
+    $wpml_search = '/(\s|^)';
    
     $subchar = '';
     foreach ( (array) $wpml_smilies as $smiley => $img ) {
@@ -106,10 +130,11 @@ function wpml_map_emoticons()
 	$wpml_search .= preg_quote($rest);
     }
 
-    $wpml_search .= ')(?:\s|$)/m';
+    $wpml_search .= ')(\s|$)/m';
 
     if ( count($wpml_smilies) == 0 )
 	$wpml_search="";
+
 }
 
 //
