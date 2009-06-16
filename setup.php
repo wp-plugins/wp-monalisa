@@ -33,7 +33,7 @@ function wp_monalisa_install()
           (
             tid integer not null auto_increment,
             emoticon varchar(25) NOT NULL,
-            iconfile varchar(40) NOT NULL,
+            iconfile varchar(80) NOT NULL,
             onpost tinyint NOT NULL,
             oncomment tinyint NOT NULL,
             primary key(tid)
@@ -79,6 +79,10 @@ function wp_monalisa_install()
 	// tabelle schon vorhanden, hier folgen die updates und alters
 	// spaltenbreite der spalte emoticon auf 25 verändern
 	$sql = "alter table ".$wpdb->prefix."monalisa modify column emoticon varchar(25) not null;";
+	$results = $wpdb->query($sql);
+
+	// spaltenbreite der spalte iconfile auf 80 verändern
+	$sql = "alter table ".$wpdb->prefix."monalisa modify column iconfile varchar(80) not null;";
 	$results = $wpdb->query($sql);
     }    
     

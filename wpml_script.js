@@ -16,7 +16,7 @@ function smile2edit(textid,smile,replace)
     if ( replace == 1)
 	itext = "<img class='wpml_ico' alt='' src='" + smile + "' />";
     else
-	itext = smile + " "; // add space to separate smilies
+	itext = " " + smile + " "; // add space to separate smilies
     
     // editor objekt holen, falls vorhanden
     if ( typeof tinyMCE != "undefined" )
@@ -51,7 +51,7 @@ function smile2comment(textid,smile,replace){
     if ( replace == 1)
 	insert_text("<img class='wpml_ico' alt='' src='" + smile + "' />", tarea);
     else
-	insert_text(smile + " ", tarea); // add space to separate smilies
+	insert_text(" " + smile + " ", tarea); // add space to separate smilies
 }
 
 /*

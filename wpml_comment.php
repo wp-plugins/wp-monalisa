@@ -55,9 +55,18 @@ function wpml_comment($postid=0)
 	$out .= "<div class='wpml_commentbox_text'>\n";
     else
 	$out .= "<div class='wpml_commentbox'>\n";
-
+    
+    $double_check = array(); // array um doppelte auszuschliessen
     foreach($results as $res) 
     {
+	// prüfe ob icon schon ausgegeben, 
+	// wenn ja überspringe es, 
+	// wenn nein merken
+	if ( in_array($res->iconfile, $double_check) )
+	    continue;
+	else
+	    $double_check[] = $res->iconfile;
+
 	$ico_url = site_url($av['icondir']) . '/' . $res->iconfile; 
 	if ( $av['replaceicon'] == 0)
 	{

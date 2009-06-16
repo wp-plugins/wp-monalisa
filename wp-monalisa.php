@@ -1,9 +1,9 @@
-<?php
-/*
+<?php 
+/* 
 Plugin Name: wp-Monalisa
 Plugin URI: http://www.tuxlog.de/wordpress/2009/wp-monalisa/
 Description: wp-Monalisa is the plugin that smiles at you like monalisa does. place the smilies of your choice in posts, pages or comments. 
-Version: 0.4
+Version: 0.5
 Author: Hans Matzen <webmaster at tuxlog dot de>
 Author URI: http://www.tuxlog.de
 */
@@ -68,7 +68,8 @@ function wp_monalisa_init()
 
     // javascript hinzufügen
     wp_enqueue_script('wpml_script',
-        	      '/' . PLUGINDIR . '/wp-monalisa/wpml_script.js');
+        	      '/' . PLUGINDIR . '/wp-monalisa/wpml_script.js',
+		      array(), "9999");
 }
 
 

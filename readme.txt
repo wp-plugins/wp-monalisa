@@ -4,7 +4,7 @@ Donate link: http://www.tuxlog.de/
 Tags: wordpress, plugin, smiley, smilies, monalisa, comments, post, edit
 Requires at least: 2.7
 Tested up to: 2.8
-Stable tag: 0.4
+Stable tag: 0.5
 
 wp-monalisa is the plugin that smiles at you like monalisa does. place the smilies of your choice in posts, pages or comments.
 
@@ -71,11 +71,20 @@ Plase check and double check the path to your smiley directory.
 		   directory a bit, added polish translation
 2009-05-29 v0.3	   renamed default icons with prefix wpml_ to get a more or less
 		   unique name and prevent override, modified row width 
-		   of row emoticon to 25, add maxlength attribute=25 to input 
-		   fields for emoticons, added screenshot for import dialog, 
-		   styled admin dialog a bit more wordpress like (alternate 
-		   background color for table, buttons outside the table, 
-		   added checkall box)
-2009-05-30 v0.4    fixed trimming whitespace from emoticons in admin dialog, fixed 
-	   	   replace algorithm, now search for longest substring first and can
-		   handle any whitespace situation
+		   of column emoticon to 25, add maxlength attribute=25 
+		   to input fields for emoticons, added screenshot for 
+		   import dialog, styled admin dialog a bit more wordpress 
+		   like (alternate background color for table, buttons 
+		   outside the table, added checkall box)
+
+2009-05-30 v0.4    fixed trimming whitespace from emoticons in admin dialog, 
+	   	   fixed replace algorithm, now search for longest substring 
+		   first and can handle any whitespace situation
+
+2009-06-16 v0.5	   added dummy version to javascript includes to hide	
+	   	   wordpress version, insert smilies with trailing space 
+		   to make sure the shortcodes can be found, set default 
+		   smiley to correct file name, now png icons are also 
+		   supported, surpress showing smilies mor than once if
+		   more than one shortcode is defined for the same file,
+		   modified column width of column iconfile to 80

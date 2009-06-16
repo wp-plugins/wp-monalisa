@@ -33,12 +33,12 @@ function wpml_admin_init()
 		      site_url("/wp-content/plugins/wp-monalisa") . '/smiley.png');
     }
     wp_enqueue_script('wpml_admin',
-		      '/' . PLUGINDIR . '/wp-monalisa/wpml_admin.js');
+		      '/' . PLUGINDIR . '/wp-monalisa/wpml_admin.js',
+		      array(), "9999");
     
     // add thickbox and jquery for import interface 
-    //wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'thickbox' );
-    wp_enqueue_style( 'thickbox' );
+    wp_enqueue_style ( 'thickbox' );
     
 } 
 
@@ -268,7 +268,7 @@ $out .= "<table class=\"widefat\">\n";
   foreach($flist as $iconfile) 
   { 
       $ext = substr($iconfile,strlen($iconfile)-3,3);
-      if ($ext == "gif") {
+      if ($ext == "gif" || $ext == 'png') {
 	  $icon_select_html .= "<option value='".$iconfile."' ";
 	  $icon_select_html .= ">".$iconfile."</option>\n";
       }
@@ -299,7 +299,7 @@ $out .= "<table class=\"widefat\">\n";
       foreach($flist as $iconfile) 
       {
 	  $ext = substr($iconfile,strlen($iconfile)-3,3);
-	  if ($ext == "gif") {
+	  if ($ext == "gif" || $ext == "png") {
 	      $icon_select_html .= "<option value='".$iconfile."' ";
 	      if ($iconfile == $res->iconfile)
 		  $icon_select_html .= 'selected="selected"';
@@ -322,7 +322,7 @@ $out .= "<table class=\"widefat\">\n";
 	  '" onchange="updateImage(\''.site_url($av['icondir'])."',".$tid.')">'."\n";
       $out .= $icon_select_html . "</select></td>\n";
       $out .= '<td><img class="wpml_ico" name="icoimg'.$tid.'" id="icoimg'.$tid.'" src="' . 
-	  site_url($av['icondir']).'/01smile.gif" />';
+	  site_url($av['icondir']).'/wpml_smile.gif" />';
       $out .= '<script type="text/javascript">updateImage("'.site_url($av['icondir']).'","'.$tid.'")</script></td>';
 
       $out .= '<td><input name="onpost'.$tid.'" id="onpost'.$tid.'" type="checkbox" value="1"'.($res->onpost=="1"?'checked="checked"':"").' /></td>'."\n";
