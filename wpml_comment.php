@@ -43,7 +43,10 @@ function wpml_comment($postid=0)
     
     // optionen einlesen
     $av = unserialize(get_option("wpml-opts"));
-    
+    // abfangen wenn wert nicht gesetzt oder 0 ist, dann nehmen wir einfach 1
+    if ( (int) $av['smiliesperrow'] == 0)
+	$av['smiliesperrow'] = 1;
+
      // icons lesen
     $sql="select tid,emoticon,iconfile from $wpml_table where oncomment=1 order by tid;";
     $results = $wpdb->get_results($sql);
@@ -56,7 +59,14 @@ function wpml_comment($postid=0)
     else
 	$out .= "<div class='wpml_commentbox'>\n";
     
+    
+    if  ( $av['showastable'] == 1 && $av['showicon'] == 1 )
+    {
+	$out .= "<table class='wpml_smiley_table' >";
+    }
+    
     $double_check = array(); // array um doppelte auszuschliessen
+    $sm_count = 0;
     foreach($results as $res) 
     {
 	// prüfe ob icon schon ausgegeben, 
@@ -67,6 +77,17 @@ function wpml_comment($postid=0)
 	else
 	    $double_check[] = $res->iconfile;
 
+
+	// prüfe ob eine neue zeile anfängt
+	if ( ( $sm_count == 0 || 
+	       $sm_count % $av['smiliesperrow'] == 0 ) && 
+		 $av['showastable'] == 1 && 
+		 $av['showicon'] == 1 
+	    )
+	{
+	    $out .= "<tr class='wpml_smiley_row' >";
+	}
+
 	$ico_url = site_url($av['icondir']) . '/' . $res->iconfile; 
 	if ( $av['replaceicon'] == 0)
 	{
@@ -76,6 +97,7 @@ function wpml_comment($postid=0)
 	    $smile = $ico_url;
 	    $repl = 1;
 	}
+
 
 	// icon nur als text ausgeben
 	if ( $av['showicon'] == 0 )
@@ -89,12 +111,24 @@ function wpml_comment($postid=0)
 	// icon nur als bild ausgeben
 	if ( $av['showicon'] == 1 )
 	{
-	    $out .='<div class="wpml_ico_icon" onclick="smile2comment(\''.
-		$av['commenttextid'].'\',\''.addslashes($smile).'\','.$repl.');">'."\n";
-	    $out .= "<img class='wpml_ico' name='icoimg".$res->tid.
-		"' id='icoimg".$res->tid."' src='$ico_url' alt='".
-		addslashes($smile)."' />&nbsp;";
-	    $out .= "</div>\n";
+	    if ( $av['showastable'] == 0 )
+	    {
+		$out .='<div class="wpml_ico_icon" onclick="smile2comment(\''.
+		    $av['commenttextid'].'\',\''.addslashes($smile).'\','.$repl.');">'."\n";
+		$out .= "<img class='wpml_ico' name='icoimg".$res->tid.
+		    "' id='icoimg".$res->tid."' src='$ico_url' alt='".
+		    addslashes($smile)."' />&nbsp;";
+		$out .= "</div>\n";
+	    } 
+	    else  // output as a table
+	    {
+		$out .='<td class="wpml_ico_icon" onclick="smile2comment(\''.
+		    $av['commenttextid'].'\',\''.addslashes($smile).'\','.$repl.');">'."\n";
+		$out .= "<img class='wpml_ico' name='icoimg".$res->tid.
+		    "' id='icoimg".$res->tid."' src='$ico_url' alt='".
+		    addslashes($smile)."' />&nbsp;";
+		$out .= "</td>\n";	
+	    }
 	    
 	}
 
@@ -110,9 +144,27 @@ function wpml_comment($postid=0)
 	    $out .= "<br />" . $res->emoticon ; 
 	    $out .= "</div>\n";
 	}
+	
+	// inc smiley count
+	$sm_count++;
 
+        // prüfe ob eine zeile fertig ist
+	if ( ( $sm_count > 0 && 
+	       $sm_count % $av['smiliesperrow'] == 0 )  && 
+	     $av['showastable'] == 1 && 
+	     $av['showicon'] == 1
+	    )
+	{
+	    $out .= "</tr>";
+	}
 
     }
+
+    if  ( $av['showastable'] == 1  && $av['showicon'] == 1 )
+    {
+	$out .= "</table>";
+    }
+
     $out .= "</div>\n"; 
     $out .= '<div style="clear:both;">&nbsp;</div>';
 
