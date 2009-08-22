@@ -82,6 +82,7 @@ function wpml_metabox()
     else
 	$out .= "<div class='wpml_commentbox'>\n";
     
+
     $double_check = array(); // array um doppelte auszuschliessen
     foreach($results as $res) 
     {
@@ -92,6 +93,16 @@ function wpml_metabox()
 	    continue;
 	else
 	    $double_check[] = $res->iconfile;
+
+	// prüfe ob eine neue zeile anfängt, bei tabellenausgabe
+	if ( ( $sm_count == 0 || 
+	       $sm_count % $av['smiliesperrow'] == 0 ) && 
+	     $av['showastable'] == 1 && 
+		 $av['showicon'] == 1 
+	    )
+	{
+	    $out .= "<tr class='wpml_smiley_row' >";
+	}
 
 	$ico_url = site_url($av['icondir']) . '/' . $res->iconfile; 
 	
@@ -120,7 +131,7 @@ function wpml_metabox()
 		addslashes($smile).'\','.$repl.');">'."\n";
 	    $out .= "<img class='wpml_ico' name='icoimg".$res->tid.
 		"' id='icoimg".$res->tid."' src='$ico_url' />&nbsp;";
-	     $out .= "</div>";
+	    $out .= "</div>";
 	}
 
 	// icon als bild und text ausgeben
@@ -134,6 +145,7 @@ function wpml_metabox()
 	    $out .= "</div>\n";
 	}
     }
+
     $out .= "</div>"; 
     $out .= '<div style="clear:both;">&nbsp;</div>';
 

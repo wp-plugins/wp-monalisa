@@ -4,7 +4,7 @@ Donate link: http://www.tuxlog.de/
 Tags: wordpress, plugin, smiley, smilies, monalisa, comments, post, edit
 Requires at least: 2.7
 Tested up to: 2.8
-Stable tag: 0.5
+Stable tag: 0.6
 
 wp-monalisa is the plugin that smiles at you like monalisa does. place the smilies of your choice in posts, pages or comments.
 
@@ -60,31 +60,43 @@ Plase check and double check the path to your smiley directory.
 3. wp-Monalisa extends the comment form
 4. wp-Monalisa import thickbox dialog
 
-== History ==
-2009-05-17 v0.1	   Initial release 
+== Changelog ==
 
-2009-05-22 v0.2	   added alt attribute to img tags, to produce correct xhtml,
-	   	   fixed german translation, added import dialog to import 
-		   phpbb3 smiley packages, added space after shortcode insertion
-		   automatically extend array allowedtags when oncomment and 
-		   replace options are set, improve error handling with 
-		   directory a bit, added polish translation
-2009-05-29 v0.3	   renamed default icons with prefix wpml_ to get a more or less
-		   unique name and prevent override, modified row width 
-		   of column emoticon to 25, add maxlength attribute=25 
-		   to input fields for emoticons, added screenshot for 
-		   import dialog, styled admin dialog a bit more wordpress 
-		   like (alternate background color for table, buttons 
-		   outside the table, added checkall box)
+= v0.6 (2009-08-18) =
+* changed readme to support new changelog feature at wordpress.org
+* new option, smilies can also be output in a table (only for comments)
+* added support for user specific css file to improve support for automatic update
+* fixed handling of slashes in emoticons
+* fixed handling of trailing spaces in emoticons
 
-2009-05-30 v0.4    fixed trimming whitespace from emoticons in admin dialog, 
-	   	   fixed replace algorithm, now search for longest substring 
-		   first and can handle any whitespace situation
+= v0.5 (2009-06-16) =
+* added dummy version to javascript includes to hide wordpress version
+* insert smilies with trailing space to make sure the shortcodes can be found
+* set default smiley to correct file name
+* now png icons are also supported
+* surpress showing smilies more than once if more than one shortcode is defined for the same file
+* modified column width of column iconfile to 80
 
-2009-06-16 v0.5	   added dummy version to javascript includes to hide	
-	   	   wordpress version, insert smilies with trailing space 
-		   to make sure the shortcodes can be found, set default 
-		   smiley to correct file name, now png icons are also 
-		   supported, surpress showing smilies mor than once if
-		   more than one shortcode is defined for the same file,
-		   modified column width of column iconfile to 80
+= v0.4 (2009-05-30) =
+* fixed trimming whitespace from emoticons in admin dialog
+* fixed replace algorithm, now search for longest substring first and can handle any whitespace situation
+
+= v0.3 (2009-05-29) =
+* renamed default icons with prefix wpml_ to get a more or less unique name and prevent override
+* modified row width of column emoticon to 25
+* add maxlength attribute=25 to input fields for emoticons
+* added screenshot for import dialog
+* styled admin dialog a bit more wordpress like (alternate background color for table, buttons outside the table, added checkall box)
+
+= v0.2 (2009-05-22) =
+* added alt attribute to img tags, to produce correct xhtml
+* fixed german translation
+* added import dialog to import phpbb3 smiley packages
+* added space after shortcode insertion
+* automatically extend array allowedtags when oncomment and replace options are set
+* improve error handling with directory a bit
+* added polish translation
+
+= v0.1 (2009-05-17) =
+* Initial release
+

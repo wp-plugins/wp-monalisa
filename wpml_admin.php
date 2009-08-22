@@ -68,6 +68,9 @@ function wpml_admin()
       $av['oncomment']        = $_POST['oncomment'];
       $av['showicon']         = $_POST['showicon'];
       $av['replaceicon']      = $_POST['replaceicon'];
+      $av['showastable']      = $_POST['showastable'];
+      $av['smiliesperrow']    = (int) $_POST['smiliesperrow'];
+
       if ( $_POST['commenttextid']=="" )
 	  $av['commenttextid'] = "comment";
       else
@@ -204,14 +207,23 @@ function wpml_admin()
   $out .= '<td><input name="replaceicon" id="replaceicon" type="checkbox" value="1"'.($av['replaceicon']=="1"?'checked=checked':""). ' /></td>'."\n";
 
   $out .= '<th scope="row" valign="top"><label for="showicon">'.__('Show emoticons in selection as','wpml').':</label></th>'."\n";
-  $out .= '<td><select name="showicon" id="showicon">'."\n";
+  $out .= '<td><select name="showicon" id="showicon" onchange="wpml_admin_switch();" >'."\n";
   $out .= '<option value="1"'.($av['showicon']=="1"?'selected="selected"':"").'>'.__("Icon",'wpml').'</option>';
   $out .= '<option value="0"'.($av['showicon']=="0"?'selected="selected"':"").'>'.__("Text",'wpml').'</option>';
   $out .= '<option value="2"'.($av['showicon']=="2"?'selected="selected"':"").'>'.__("Both",'wpml').'</option>';
-  $out .= "</select></td>\n";
+  $out .= "</select></td></tr>\n";
 
- $out .= '</table>'."\n";
-  
+  // smilies als table anzeigen
+  $out .= '<tr><th scope="row" valign="top"><label for="showastable">'.__('Show smilies in a table','wpml').':</label></th>'."\n";
+  $out .= '<td><input name="showastable" id="showastable" type="checkbox" value="1"'.($av['showastable']=="1"?'checked=checked':""). ' onchange="wpml_admin_switch();" /></td>'."\n";
+  $out .= '<th scope="row" valign="top"><label for="smiliesperrow">'.__('Smilies per row','wpml').':</label></th>'."\n";
+  $out .= '<td><input name="smiliesperrow" id="smiliesperrow" type="text" value="'. 
+      $av['smiliesperrow'] . '" size="3" maxlength="3" /></td>'."\n";
+  $out .="</tr>\n";
+
+  $out .= '</table>'."\n";
+  $out .= '<script  type="text/javascript">wpml_admin_switch();</script>';
+
   // add submit button to form
   $out .= '<p class="submit"><input type="submit" name="updateopts" value="'.__('Save Settings','wpml').' &raquo;" /></p></form>'."\n";
 

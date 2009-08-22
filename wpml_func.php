@@ -113,7 +113,7 @@ function wpml_map_emoticons()
    
     $subchar = '';
     foreach ( (array) $wpml_smilies as $smiley => $img ) {
-	$smiley = wptexturize($smiley);
+	$smiley = wptexturize(trim($smiley));
 	$firstchar = substr($smiley, 0, 1);
 	$rest = substr($smiley, 1);
 
@@ -127,7 +127,7 @@ function wpml_map_emoticons()
 	} else {
 	    $wpml_search .= '|';
 	}
-	$wpml_search .= preg_quote($rest);
+	$wpml_search .= preg_quote($rest, '/');
     }
 
     $wpml_search .= ')(\s|$)/m';
@@ -161,7 +161,6 @@ function wpml_translate_emoticon($smiley) {
 function wpml_convert_emoticons($text) 
 {
     global $wpml_search;
-
     // no smilies to change, return original text
     if ( empty($wpml_search) )
 	return $text;
