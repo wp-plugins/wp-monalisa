@@ -121,10 +121,8 @@ function wpml_admin_switch()
     v=document.editopts.showicon.value;
     if ( v==1) // show only icon
     {
-	// document.editopts.smiliesperrow.disabled=false;
 	document.editopts.showastable.disabled=false;
     } else {
-	// document.editopts.smiliesperrow.disabled=true;
 	document.editopts.showastable.disabled=true;	
     }
 
@@ -134,5 +132,13 @@ function wpml_admin_switch()
 	document.editopts.smiliesperrow.disabled=false;
     } else {
 	document.editopts.smiliesperrow.disabled=true;
+    } 
+  
+    t=document.editopts.showaspulldown.checked;
+    if ( t==true) // showaspulldown is active
+    {
+	document.editopts.smilies1strow.disabled=false;
+    } else {
+	document.editopts.smilies1strow.disabled=true;
     } 
 }

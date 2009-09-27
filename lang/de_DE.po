@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wp-monalisa v0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-16 19:41+0200\n"
-"PO-Revision-Date: 2009-08-16 19:42+0100\n"
+"POT-Creation-Date: 2009-09-19 21:01+0200\n"
+"PO-Revision-Date: 2009-09-19 21:04+0100\n"
 "Last-Translator: Hans Matzen <webmaster ät tuxlog dot  de>\n"
 "Language-Team: Hans Matzen <webmaster@tuxlog.de>\n"
 "MIME-Version: 1.0\n"
@@ -17,39 +17,39 @@ msgstr ""
 "X-Poedit-Language: German\n"
 "X-Poedit-Country: GERMANY\n"
 
-#: wpml_admin.php:81
+#: wpml_admin.php:87
 msgid "Iconpath is no valid directory, resetting it. Please enter the path relative to the wordpress main directory."
 msgstr "Das Icon-Verzeichnis ist ungültig und wurde nicht gespeichert. Bitte gebe einen Pfad ausgehend vom Wordpress Verzeichnis an."
 
-#: wpml_admin.php:84
+#: wpml_admin.php:90
 msgid "Settings saved"
 msgstr "Einstellungen gespeichert"
 
-#: wpml_admin.php:100
+#: wpml_admin.php:106
 msgid "Deleted record "
 msgstr "Satz löschen"
 
-#: wpml_admin.php:123
+#: wpml_admin.php:129
 msgid "Emoticon allready used. Record not inserted"
 msgstr "Emoticon bereits vorhanden. Der Satz konnte nicht gespeichert werden."
 
-#: wpml_admin.php:158
+#: wpml_admin.php:164
 msgid "Emoticon allready used. Record not updated"
 msgstr "Emoticon bereits vorhanden. Der Satz konnte nicht geändert werden."
 
-#: wpml_admin.php:172
+#: wpml_admin.php:178
 msgid "Records updated"
 msgstr "Sätze aktualisiert"
 
-#: wpml_admin.php:181
+#: wpml_admin.php:187
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: wpml_admin.php:187
+#: wpml_admin.php:193
 msgid "Iconpath"
 msgstr "Icon-Verzeichnis"
 
-#: wpml_admin.php:190
+#: wpml_admin.php:196
 msgid ""
 "You are about to change the iconpath.\\n"
 " Please be careful and make sure the icons are still accessible.\\n"
@@ -59,19 +59,19 @@ msgstr ""
 " Bitte achten Sie darauf, das sich die Icons in diesem Verzeichnis befinden müssen.\\n"
 " Um die neue Einstellung zu speichern klicken Sie Einstellungen speichern"
 
-#: wpml_admin.php:193
+#: wpml_admin.php:199
 msgid "Show smilies on edit"
 msgstr "Smilies im Edit-Dialog anzeigen"
 
-#: wpml_admin.php:199
+#: wpml_admin.php:205
 msgid "Show smilies on comment"
 msgstr "Smilies im Kommentarformular anzeigen"
 
-#: wpml_admin.php:203
+#: wpml_admin.php:209
 msgid "Comment Textarea ID"
 msgstr "ID des Kommentar-Textfelds"
 
-#: wpml_admin.php:204
+#: wpml_admin.php:210
 msgid ""
 "You are about to change the id of the textarea of your comment form.\\n"
 " Please make sure you enter the correct id, to make wp-monalisa work correctly"
@@ -79,85 +79,130 @@ msgstr ""
 "Sie sind dabei die ID des Kommentar-Textfelds zu ändern.\\n"
 " Bitte prüfen Sie ob die ID korrekt ist, da wp-monalisa sonst nicht in Kommentaren funktioniert."
 
-#: wpml_admin.php:206
+#: wpml_admin.php:212
 msgid "Replace emoticons with html-images"
 msgstr "Ersetze Emoticons durch HTML Images"
 
-#: wpml_admin.php:209
+#: wpml_admin.php:215
 msgid "Show emoticons in selection as"
 msgstr "Zeige Emoticons in der Auswahl als"
 
-#: wpml_admin.php:211
-#: wpml_admin.php:264
-#: wpml_admin.php:358
+#: wpml_admin.php:217
+#: wpml_admin.php:336
+#: wpml_admin.php:439
 msgid "Icon"
 msgstr "Icon"
 
-#: wpml_admin.php:212
+#: wpml_admin.php:218
 msgid "Text"
 msgstr "Text"
 
-#: wpml_admin.php:213
+#: wpml_admin.php:219
 msgid "Both"
 msgstr "beide"
 
-#: wpml_admin.php:217
+#: wpml_admin.php:224
 msgid "Show smilies in a table"
 msgstr "Smilies als Tabelle ausgeben"
 
-#: wpml_admin.php:219
+#: wpml_admin.php:226
 msgid "Smilies per row"
 msgstr "Smilies pro Zeile"
 
-#: wpml_admin.php:228
+#: wpml_admin.php:234
+msgid "Show smilies as Pulldown"
+msgstr "Smilies als Klappliste anzeigen"
+
+#: wpml_admin.php:236
+msgid "Smilies in 1st row"
+msgstr "Anzahl Smilies in der ersten Zeile"
+
+#: wpml_admin.php:245
 msgid "Save Settings"
 msgstr "Einstellungen speichern"
 
-#: wpml_admin.php:231
+#: wpml_admin.php:248
 msgid "Import Smiley-Package"
 msgstr "Smiley-Paket einlesen"
 
-#: wpml_admin.php:246
+#: wpml_admin.php:249
+msgid "Export Smiley-Package (pak-Format)"
+msgstr "Smiley-Paket exportieren (pak-Format)"
+
+#: wpml_admin.php:264
 msgid "Smilies"
 msgstr "Smilies"
 
-#: wpml_admin.php:250
+#: wpml_admin.php:268
 msgid "Iconpath is empty or invalid"
 msgstr "Das Icon-Verzeichnis ist leer oder ungültig."
 
-#: wpml_admin.php:257
-#: wpml_admin.php:367
+#: wpml_admin.php:314
+#: wpml_admin.php:329
+#: wpml_admin.php:448
+#: wpml_admin.php:462
 msgid "Save"
 msgstr "Speichern"
 
-#: wpml_admin.php:257
-#: wpml_admin.php:367
+#: wpml_admin.php:314
+#: wpml_admin.php:448
 msgid "Delete marked"
 msgstr "markierte löschen"
 
-#: wpml_admin.php:263
-#: wpml_admin.php:357
+#: wpml_admin.php:318
+#: wpml_admin.php:452
+msgid "Show all"
+msgstr "Alle anzeigen"
+
+#: wpml_admin.php:327
+#: wpml_admin.php:461
+msgid "Lines per Page:"
+msgstr "Zeilen pro Seite:"
+
+#: wpml_admin.php:335
+#: wpml_admin.php:438
 msgid "Emoticon"
 msgstr "Emoticon"
 
-#: wpml_admin.php:265
-#: wpml_admin.php:359
+#: wpml_admin.php:337
+#: wpml_admin.php:440
 msgid "On Post"
 msgstr "in Posts"
 
-#: wpml_admin.php:266
-#: wpml_admin.php:360
+#: wpml_admin.php:338
+#: wpml_admin.php:441
 msgid "On Comment"
 msgstr "in Kommentaren"
 
-#: wpml_admin.php:273
+#: wpml_admin.php:345
 msgid "New Entry"
 msgstr "Neuer Eintrag"
+
+#: wpml_comment.php:177
+msgid "less..."
+msgstr "weniger..."
+
+#: wpml_comment.php:178
+msgid "more..."
+msgstr "mehr..."
 
 #: wpml_edit.php:53
 #: wpml_edit.php:57
 msgid "wp-Monalisa"
 msgstr "wp-Monalisa"
+
+#: wpml_export.php:71
+msgid "Export"
+msgstr "Export"
+
+#: wpml_export.php:83
+msgid "You can mark the .pak-export with Ctrl-a, copy it with Ctrl-c and paste it to your favourite editor with Ctrl-v."
+msgstr "Mit Strg-a können alle Daten markiert, mit Strg-c kopiert und mit Strg-v in einem anderen Editor eingefügt werden."
+
+#: wpml_export.php:87
+#: wpml_import.php:111
+msgid "Close"
+msgstr "Schliessen"
 
 #: wpml_import.php:41
 msgid "Smilies deleted."
@@ -178,10 +223,6 @@ msgstr "Smilies vor dem einlesen löschen"
 #: wpml_import.php:108
 msgid "Start import"
 msgstr "Einlesen starten"
-
-#: wpml_import.php:111
-msgid "Close"
-msgstr "Schliessen"
 
 #~ msgid "Disable wordpress smilies"
 #~ msgstr "Wordpress smilies deaktiveren"

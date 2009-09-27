@@ -95,3 +95,21 @@ td.wpml_ico_icon {
     float: left;
     height: 30px;
 }
+
+/* style für die navigation beim ajax auf und zu klappen */
+div.wpml_nav {
+    font-size: 11px; 
+    border: 0px solid;
+    padding: 1px;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+    float: left;
+    height: 11px;
+}
+
+div.wpml_nav:hover {
+    color:#147;
+    text-decoration:underline; 
+    cursor:pointer;
+}

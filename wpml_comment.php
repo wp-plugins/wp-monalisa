@@ -46,6 +46,8 @@ function wpml_comment($postid=0)
     // abfangen wenn wert nicht gesetzt oder 0 ist, dann nehmen wir einfach 1
     if ( (int) $av['smiliesperrow'] == 0)
 	$av['smiliesperrow'] = 1;
+    if ( (int) $av['smilies1strow'] == 0)
+	$av['smilies1strow'] = 7;
 
      // icons lesen
     $sql="select tid,emoticon,iconfile from $wpml_table where oncomment=1 order by tid;";
@@ -157,18 +159,38 @@ function wpml_comment($postid=0)
 	{
 	    $out .= "</tr>";
 	}
-
-    }
+	
+	if  ( $av['showaspulldown'] == 1  && $av['smilies1strow'] == $sm_count )
+	{
+	    $out1strow = $out;
+	}
+	
+    } // ende foreach
 
     if  ( $av['showastable'] == 1  && $av['showicon'] == 1 )
     {
 	$out .= "</table>";
+	$out1strow .= "</table>";
     }
 
-    $out .= "</div>\n"; 
+    if  ( $av['showaspulldown'] == 1 ) {
+	$out .= "<div class='wpml_nav' id='buttonl' >".__("less...","wpml")."</div>"; 
+	$out1strow .= "<div class='wpml_nav' id='buttonm' >".__("more...","wpml")."</div>";
+    } 
+    
+    $out .= "</div>\n";
+    $out1strow .= "</div>\n";
     $out .= '<div style="clear:both;">&nbsp;</div>';
+    $out1strow .= '<div style="clear:both;">&nbsp;</div>'."\n";
+    // img ids tauschen um eindeutigkeit zu gewaehrleisten, da es osnt zu xhtml fehlern kommt
+    $out1strow=str_replace("icoimg","hicoimg",$out1strow);
 
-
-    echo $out;
+    if  ( $av['showaspulldown'] != 1 )
+	echo $out;
+    else {
+	// nur erste zeile ausgeben
+	echo '<div id="smiley1" >' . $out1strow . "</div>";
+	echo '<div id="smiley2" style="display:none;">' . $out . "</div>";
+    }
 }
 ?>

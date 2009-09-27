@@ -80,4 +80,19 @@ function insert_text(stxt,obj)
     }
 }
 
-
+/*
+  diese funktion(en) dient zum auf und zuklappen der gesamten smilies
+  im comment form und zwar ajax-like
+*/
+jQuery(function() {
+	// show all smilies
+	jQuery("#buttonm").click(function() {
+		jQuery("#smiley1").toggle("slow");
+		jQuery("#smiley2").toggle("slow");
+	    });	
+	// hide all smilies
+        jQuery("#buttonl").click(function() {
+		jQuery("#smiley2").toggle("slow");
+		jQuery("#smiley1").toggle("slow");
+	    });
+    });

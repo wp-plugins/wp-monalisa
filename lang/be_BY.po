@@ -1,142 +1,148 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Monalisa\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-09-19 21:01+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Fat Cow <zhr@tut.by>\n"
+"Language-Team: ilyuha <iliamrv@ya.ru>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Language: Belarusian\n"
+"X-Poedit-Country: BELARUS\n"
 
 #: wpml_admin.php:87
 msgid ""
 "Iconpath is no valid directory, resetting it. Please enter the path relative "
 "to the wordpress main directory."
 msgstr ""
+"Шлях да дырэкторыі абразкоў паказаны некарэктна, скіньце яго. Увядзіце шлях, "
+"адносны дырэкторыі wordpress "
 
 #: wpml_admin.php:90
 msgid "Settings saved"
-msgstr ""
+msgstr "Налады захаваны"
 
 #: wpml_admin.php:106
 msgid "Deleted record "
-msgstr ""
+msgstr "Запіс выдалена"
 
 #: wpml_admin.php:129
 msgid "Emoticon allready used. Record not inserted"
-msgstr ""
+msgstr "Абразок ужо выкарыстоўваецца. Запіс не ўстаўлена"
 
 #: wpml_admin.php:164
 msgid "Emoticon allready used. Record not updated"
-msgstr ""
+msgstr "Смайлік ужо выкарыстоўваецца. Запіс не абноўлена."
 
 #: wpml_admin.php:178
 msgid "Records updated"
-msgstr ""
+msgstr "Записьи абноўлены."
 
 #: wpml_admin.php:187
 msgid "Settings"
-msgstr ""
+msgstr "Налады"
 
 #: wpml_admin.php:193
 msgid "Iconpath"
-msgstr ""
+msgstr "Шлях да абразка"
 
 #: wpml_admin.php:196
 msgid ""
 "You are about to change the iconpath.\\n Please be careful and make sure the "
 "icons are still accessible.\\n To update your settings klick Save Settings"
 msgstr ""
+"Змена шляху да абразка.\\n Please be careful and make sure the icons are "
+"still accessible.\\nДля одновления налад націсніце Абнавіць налады"
 
 #: wpml_admin.php:199
 msgid "Show smilies on edit"
-msgstr ""
+msgstr "Паказаць смайлы пры рэдагаванні"
 
 #: wpml_admin.php:205
 msgid "Show smilies on comment"
-msgstr ""
+msgstr "Паказаць смайлы пры каментаванні"
 
 #: wpml_admin.php:209
 msgid "Comment Textarea ID"
-msgstr ""
+msgstr "ID палі ўводу каментара"
 
 #: wpml_admin.php:210
 msgid ""
 "You are about to change the id of the textarea of your comment form.\\n "
 "Please make sure you enter the correct id, to make wp-monalisa work correctly"
-msgstr ""
+msgstr "Змена ID формы каментавання.\\n Пераканаецеся, што id карэктны."
 
 #: wpml_admin.php:212
 msgid "Replace emoticons with html-images"
-msgstr ""
+msgstr "Замяніць абразкі html-аналогамі"
 
 #: wpml_admin.php:215
 msgid "Show emoticons in selection as"
-msgstr ""
+msgstr "Паказваць иконкикак"
 
 #: wpml_admin.php:217 wpml_admin.php:336 wpml_admin.php:439
 msgid "Icon"
-msgstr ""
+msgstr "Абразок"
 
 #: wpml_admin.php:218
 msgid "Text"
-msgstr ""
+msgstr "Тэкст"
 
 #: wpml_admin.php:219
 msgid "Both"
-msgstr ""
+msgstr "Абодва"
 
 #: wpml_admin.php:224
+#, fuzzy
 msgid "Show smilies in a table"
-msgstr ""
+msgstr "Паказаць смайлы пры рэдагаванні"
 
 #: wpml_admin.php:226
+#, fuzzy
 msgid "Smilies per row"
-msgstr ""
+msgstr "Смайлы"
 
 #: wpml_admin.php:234
+#, fuzzy
 msgid "Show smilies as Pulldown"
-msgstr ""
+msgstr "Паказаць смайлы пры рэдагаванні"
 
 #: wpml_admin.php:236
+#, fuzzy
 msgid "Smilies in 1st row"
-msgstr ""
+msgstr "Смайлы"
 
 #: wpml_admin.php:245
 msgid "Save Settings"
-msgstr ""
+msgstr "Захаваць налады"
 
 #: wpml_admin.php:248
 msgid "Import Smiley-Package"
-msgstr ""
+msgstr "Імпарт набору смайлікаў"
 
 #: wpml_admin.php:249
+#, fuzzy
 msgid "Export Smiley-Package (pak-Format)"
-msgstr ""
+msgstr "Імпарт набору смайлікаў"
 
 #: wpml_admin.php:264
 msgid "Smilies"
-msgstr ""
+msgstr "Смайлы"
 
 #: wpml_admin.php:268
 msgid "Iconpath is empty or invalid"
-msgstr ""
+msgstr "Шлях да абразкоў пусты ці няправільны"
 
 #: wpml_admin.php:314 wpml_admin.php:329 wpml_admin.php:448 wpml_admin.php:462
 msgid "Save"
-msgstr ""
+msgstr "Захаваць"
 
 #: wpml_admin.php:314 wpml_admin.php:448
 msgid "Delete marked"
-msgstr ""
+msgstr "Выдаліць адзначанае"
 
 #: wpml_admin.php:318 wpml_admin.php:452
 msgid "Show all"
@@ -148,19 +154,19 @@ msgstr ""
 
 #: wpml_admin.php:335 wpml_admin.php:438
 msgid "Emoticon"
-msgstr ""
+msgstr "Абразок"
 
 #: wpml_admin.php:337 wpml_admin.php:440
 msgid "On Post"
-msgstr ""
+msgstr "У пасце"
 
 #: wpml_admin.php:338 wpml_admin.php:441
 msgid "On Comment"
-msgstr ""
+msgstr "У каментары"
 
 #: wpml_admin.php:345
 msgid "New Entry"
-msgstr ""
+msgstr "Новы элемент"
 
 #: wpml_comment.php:177
 msgid "less..."
@@ -172,11 +178,12 @@ msgstr ""
 
 #: wpml_edit.php:53 wpml_edit.php:57
 msgid "wp-Monalisa"
-msgstr ""
+msgstr "wp-Monalisa"
 
 #: wpml_export.php:71
+#, fuzzy
 msgid "Export"
-msgstr ""
+msgstr "Імпарт"
 
 #: wpml_export.php:83
 msgid ""
@@ -186,24 +193,24 @@ msgstr ""
 
 #: wpml_export.php:87 wpml_import.php:111
 msgid "Close"
-msgstr ""
+msgstr "Зачыніць"
 
 #: wpml_import.php:41
 msgid "Smilies deleted."
-msgstr ""
+msgstr "Смайлы выдалены."
 
 #: wpml_import.php:78
 msgid "Import"
-msgstr ""
+msgstr "Імпарт"
 
 #: wpml_import.php:81
 msgid "Select smiley package"
-msgstr ""
+msgstr "Абраць набор смайлаў"
 
 #: wpml_import.php:101
 msgid "Delete current smilies before import"
-msgstr ""
+msgstr "Выдаліць бягучыя смайлы перад імпартам"
 
 #: wpml_import.php:108
 msgid "Start import"
-msgstr ""
+msgstr "Пачатак імпарту"

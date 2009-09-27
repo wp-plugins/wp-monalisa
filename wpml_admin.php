@@ -53,9 +53,13 @@ function wpml_admin()
   // table name
   $wpml_table = $wpdb->prefix . "monalisa";
 
+  // base url for links
+  $thisform = "admin.php?page=wpml_admin.php";
+
   // optionen einlesen
   $av = unserialize(get_option("wpml-opts"));
-  
+  $av['wpml-linesperpage'] = get_option("wpml-linesperpage");
+
   //
   // post operationen
   //
@@ -70,6 +74,8 @@ function wpml_admin()
       $av['replaceicon']      = $_POST['replaceicon'];
       $av['showastable']      = $_POST['showastable'];
       $av['smiliesperrow']    = (int) $_POST['smiliesperrow'];
+      $av['showaspulldown']   = $_POST['showaspulldown'];
+      $av['smilies1strow']    = (int) $_POST['smilies1strow'];
 
       if ( $_POST['commenttextid']=="" )
 	  $av['commenttextid'] = "comment";
@@ -79,7 +85,7 @@ function wpml_admin()
 	  $av['icondir']     = stripslashes($_POST['iconpath']);
       else
 	  admin_message( __("Iconpath is no valid directory, resetting it. Please enter the path relative to the wordpress main directory.","wpml") );
-      
+
       update_option("wpml-opts",serialize($av));
       admin_message( __("Settings saved","wpml") );
   }
@@ -213,12 +219,23 @@ function wpml_admin()
   $out .= '<option value="2"'.($av['showicon']=="2"?'selected="selected"':"").'>'.__("Both",'wpml').'</option>';
   $out .= "</select></td></tr>\n";
 
-  // smilies als table anzeigen
+  // smilies als tabelle anzeigen
+  // smiley tabelle
   $out .= '<tr><th scope="row" valign="top"><label for="showastable">'.__('Show smilies in a table','wpml').':</label></th>'."\n";
   $out .= '<td><input name="showastable" id="showastable" type="checkbox" value="1"'.($av['showastable']=="1"?'checked=checked':""). ' onchange="wpml_admin_switch();" /></td>'."\n";
   $out .= '<th scope="row" valign="top"><label for="smiliesperrow">'.__('Smilies per row','wpml').':</label></th>'."\n";
   $out .= '<td><input name="smiliesperrow" id="smiliesperrow" type="text" value="'. 
       $av['smiliesperrow'] . '" size="3" maxlength="3" /></td>'."\n";
+  $out .="</tr>\n";
+
+ 
+  // smilies zum aufklappen
+  // smiley pull-down
+  $out .= '<tr><th scope="row" valign="top"><label for="showaspulldow">'.__('Show smilies as Pulldown','wpml').':</label></th>'."\n";
+  $out .= '<td><input name="showaspulldown" id="showaspulldown" type="checkbox" value="1"'.($av['showaspulldown']=="1"?'checked=checked':""). ' onchange="wpml_admin_switch();" /></td>'."\n";
+  $out .= '<th scope="row" valign="top"><label for="smilies1strow">'.__('Smilies in 1st row','wpml').':</label></th>'."\n";
+  $out .= '<td><input name="smilies1strow" id="smilies1strow" type="text" value="'. 
+      $av['smilies1strow'] . '" size="3" maxlength="3" /></td>'."\n";
   $out .="</tr>\n";
 
   $out .= '</table>'."\n";
@@ -227,8 +244,9 @@ function wpml_admin()
   // add submit button to form
   $out .= '<p class="submit"><input type="submit" name="updateopts" value="'.__('Save Settings','wpml').' &raquo;" /></p></form>'."\n";
 
-  // add link to import interface
-  $out .= '<div style="text-align:right"><a href="../wp-content/plugins/wp-monalisa/wpml_import.php?height=600&amp;width=400" class="thickbox" Title="">'.__("Import Smiley-Package","wpml").'</a></div>'."\n";
+  // add link to import/export interface
+  $out .= '<div style="text-align:right"><a href="../wp-content/plugins/wp-monalisa/wpml_import.php?height=600&amp;width=400" class="thickbox" Title="">'.__("Import Smiley-Package","wpml").'</a>&nbsp;&nbsp;&nbsp;'."\n";
+  $out .= '<a href="../wp-content/plugins/wp-monalisa/wpml_export.php?height=640&amp;width=540" class="thickbox" Title="">'.__("Export Smiley-Package (pak-Format)","wpml").'</a></div>'."\n";
 
   $out .= "</div><hr />\n";
 
@@ -249,15 +267,69 @@ function wpml_admin()
   {
       admin_message( __("Iconpath is empty or invalid","wpml") );
   }
+   
+
+  // naviagtion leiste
+  // anzahl der smilies holen
+  $sql="select count(*) as anz from ".$wpml_table;
+  $res = $wpdb->get_row($sql);
+  $all_lines = $res->anz;
   
+  // aufgerufene seite auslesen
+  if (isset($_GET['activepage']))
+      $active_page= (int) $_GET['activepage'];
+  else
+      $active_page=1;
+
+  // zeilen pro seite aus dem formular holen aber nur das geänderte feld
+  $lines_per_page= $av['wpml-linesperpage'];
+  if ( isset($_POST["set_lines_per_page1_x"]) || 
+       isset($_POST["set_lines_per_page2_x"]) ||
+       isset($_POST["updateicons"]) ) {
+      if (isset($_POST['lines_per_page1']) && isset($_POST['lines_per_page2']) ) {
+	  if ($av['wpml-linesperpage'] == $_POST['lines_per_page1'])
+	      $lines_per_page = (int) $_POST['lines_per_page2'];
+	  else
+	      $lines_per_page = (int) $_POST['lines_per_page1'];
+	  $av['wpml-linesperpage'] = $lines_per_page;
+	  update_option("wpml-linesperpage",$lines_per_page);
+	  // wenn die anzahl der zeilen veraendert wurde auf erste seite springen
+	  $active_page=1;
+      }
+  }
+
+  // just in case option is not yet set
+  if (! $lines_per_page > 0)
+      $lines_per_page = 10;
+  
+  $maxpage = ($all_lines / $lines_per_page);
+  if ($all_lines % $lines_per_page > 0)
+      $maxpage +=1;
+  
+  // icons
   $out .= '<form name="editicons" id="editicons" method="post" action="">';
   $out .= '<input type="hidden" name="action" value="editicons" />';
 
   // submit knöpfe ausgeben
-  $out .= '<div class="tablenav"><input type="submit" name="updateicons" value="'.__('Save','wpml').' &raquo;" class="button-secondary" />&nbsp;&nbsp;&nbsp;<input type="submit" name="deletemarked" value="'.__('Delete marked','wpml').' &raquo;" class="button-secondary" /></div>'."\n";
-  
-  
-$out .= "<table class=\"widefat\">\n";
+  $out .= '<div class="tablenav"><input type="submit" name="updateicons" value="'.__('Save','wpml').' &raquo;" class="button-secondary" />&nbsp;&nbsp;&nbsp;<input type="submit" name="deletemarked" value="'.__('Delete marked','wpml').' &raquo;" class="button-secondary" />'."\n";
+
+  // seitennaviagtion ausgeben
+  $out .= "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+  $out .= "<a href=\"$thisform&amp;activepage=0\">". __("Show all","wpml") . "</a>&nbsp;&nbsp;"; 
+  $out .= "<a href=\"$thisform&amp;activepage=" . (string) ($active_page-1 < 1?1:$active_page-1) ."\">&lt;</a>&nbsp;"; 
+  for ($i=1;$i < ($all_lines / $lines_per_page)+1;$i++) { 
+      if ( $active_page == $i ) 
+	  $out .= "<b>". $i . "</b>&nbsp;";  
+      else 
+	  $out .= "<a href=\"$thisform&amp;activepage=$i\">". $i . "</a>&nbsp;"; 
+  } 
+  $out .="<a href=\"$thisform&amp;activepage=" . (string) ($active_page+1 > $maxpage?$active_page:$active_page+1) . "\">&gt;</a>&nbsp;&nbsp;"; 
+  $out .= __("Lines per Page:","wpml")."<input style=\"font-size:10px\" type='text' name='lines_per_page1' value='".$lines_per_page."' size='4' />";
+  $naviconfile = site_url(PLUGINDIR . "/wp-monalisa/yes.png");
+  $out .='<input type="image" align="top" name="set_lines_per_page1" src="' . $naviconfile .'" alt="'.__("Save","wpml").'" /></div>';
+
+  // icon zeilen ausgeben
+  $out .= "<table class=\"widefat\">\n";
   $out .= "<thead><tr>\n";
   $out .= '<th scope="col" style="text-align:center"><input style="margin-left: 0;" id="markall" type="checkbox" onchange="wpml_markall(\'markall\');" />&nbsp;</th>'."\n";
   $out .= '<th scope="col">'.__('Emoticon',"wpml")."</th>"."\n";
@@ -295,7 +367,16 @@ $out .= "<table class=\"widefat\">\n";
 
   // jetzt kommen die vorhandenen eintraege
   // select all icon entries
-  $sql="select tid,emoticon,iconfile,onpost,oncomment from $wpml_table order by tid;";
+  $sql="select tid,emoticon,iconfile,onpost,oncomment from $wpml_table order by tid ";
+  
+  // die satzgrenzen (erster/letzter)  fuer den select ermitteln
+  if ($active_page > 0 ) {
+      $lstart = ($active_page -1) * $lines_per_page;
+      $lcount = $lines_per_page;
+      $sql .= " limit $lstart,$lcount";
+  }
+  
+  // select ausfuehren
   $results = $wpdb->get_results($sql);
   // zaehler um ersten und letzten zu erkennen
   $lastnum = count($results)-1;
@@ -364,7 +445,23 @@ $out .= "<table class=\"widefat\">\n";
   $out .= "</table>";
 
   // submit knöpfe ausgeben
-  $out .= '<div class="tablenav"><input type="submit" name="updateicons" value="'.__('Save','wpml').' &raquo;" class="button-secondary" />&nbsp;&nbsp;&nbsp;<input type="submit" name="deletemarked" value="'.__('Delete marked','wpml').' &raquo;" class="button-secondary" /></div>'."\n";
+  $out .= '<div class="tablenav"><input type="submit" name="updateicons" value="'.__('Save','wpml').' &raquo;" class="button-secondary" />&nbsp;&nbsp;&nbsp;<input type="submit" name="deletemarked" value="'.__('Delete marked','wpml').' &raquo;" class="button-secondary" />'."\n";
+
+  // seitennaviagtion ausgeben
+  $out .= "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+  $out .= "<a href=\"$thisform&amp;activepage=0\">". __("Show all","wpml") . "</a>&nbsp;&nbsp;"; 
+  $out .= "<a href=\"$thisform&amp;activepage=" . (string) ($active_page-1 < 1?1:$active_page-1) ."\">&lt;</a>&nbsp;"; 
+  for ($i=1;$i < ($all_lines / $lines_per_page)+1;$i++) { 
+      if ( $active_page == $i ) 
+	  $out .= "<b>". $i . "</b>&nbsp;";  
+      else 
+	  $out .= "<a href=\"$thisform&amp;activepage=$i\">". $i . "</a>&nbsp;"; 
+  } 
+  $out .="<a href=\"$thisform&amp;activepage=" . (string) ($active_page+1 > $maxpage?$active_page:$active_page+1) . "\">&gt;</a>&nbsp;&nbsp;"; 
+  $out .= __("Lines per Page:","wpml")."<input style=\"font-size:10px\" type='text' name='lines_per_page2' value='".$lines_per_page."' size='4' />"; 
+  $out .='<input type="image" align="top" name="set_lines_per_page2" src="' . $naviconfile .'" alt="'.__("Save","wpml").'" /></div>';
+  
+
   $out .= '</form></div>'."\n";
   
   echo $out;
