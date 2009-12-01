@@ -65,9 +65,14 @@ function wpml_map_emoticons()
     
     $av = unserialize(get_option("wpml-opts"));
 
+    // null werte auf 0 setzen für sql abfrage
+    if (is_null($av['onedit'])) $av['onedit']=0;
+    if (is_null($av['oncomment'])) $av['oncomment']=0;
+
     // if disabled do nothing but return
-    if ($av['onedit']==0 and $av['oncomment']==0)
+    if ($av['onedit']==0 and $av['oncomment']==0) 
 	return;
+
 
     // table name
     $wpml_table = $wpdb->prefix . "monalisa";
@@ -90,7 +95,7 @@ function wpml_map_emoticons()
     $sql="select tid,emoticon,iconfile from $wpml_table where ( oncomment=".$av['oncomment']." and oncomment=1 ) or ( onpost=".$av['onedit']." and onpost=1 ) order by tid;";
 
     $results = $wpdb->get_results($sql);
-    
+
     // icon url begin including directory
     $ico_url = site_url($av['icondir']);
     

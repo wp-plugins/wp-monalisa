@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wp-monalisa v0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-19 21:01+0200\n"
-"PO-Revision-Date: 2009-09-19 21:04+0100\n"
+"POT-Creation-Date: 2009-11-30 07:08+0100\n"
+"PO-Revision-Date: 2009-11-30 07:09+0100\n"
 "Last-Translator: Hans Matzen <webmaster ät tuxlog dot  de>\n"
 "Language-Team: Hans Matzen <webmaster@tuxlog.de>\n"
 "MIME-Version: 1.0\n"
@@ -88,8 +88,8 @@ msgid "Show emoticons in selection as"
 msgstr "Zeige Emoticons in der Auswahl als"
 
 #: wpml_admin.php:217
-#: wpml_admin.php:336
-#: wpml_admin.php:439
+#: wpml_admin.php:342
+#: wpml_admin.php:353
 msgid "Icon"
 msgstr "Icon"
 
@@ -117,64 +117,68 @@ msgstr "Smilies als Klappliste anzeigen"
 msgid "Smilies in 1st row"
 msgstr "Anzahl Smilies in der ersten Zeile"
 
-#: wpml_admin.php:245
+#: wpml_admin.php:246
+msgid "Please turn off Options -> Write -> 'Convert emoticons like...' to use wp-Monalisa smilies)."
+msgstr "Bitte deaktiviere: Einstellungen -> Schreiben -> 'Wandle Emoticons wie...', um die wp-Monalisa Smilies zu verwenden."
+
+#: wpml_admin.php:249
 msgid "Save Settings"
 msgstr "Einstellungen speichern"
 
-#: wpml_admin.php:248
+#: wpml_admin.php:254
 msgid "Import Smiley-Package"
 msgstr "Smiley-Paket einlesen"
 
-#: wpml_admin.php:249
+#: wpml_admin.php:255
 msgid "Export Smiley-Package (pak-Format)"
 msgstr "Smiley-Paket exportieren (pak-Format)"
 
-#: wpml_admin.php:264
+#: wpml_admin.php:270
 msgid "Smilies"
 msgstr "Smilies"
 
-#: wpml_admin.php:268
+#: wpml_admin.php:274
 msgid "Iconpath is empty or invalid"
 msgstr "Das Icon-Verzeichnis ist leer oder ungültig."
 
-#: wpml_admin.php:314
-#: wpml_admin.php:329
-#: wpml_admin.php:448
-#: wpml_admin.php:462
+#: wpml_admin.php:320
+#: wpml_admin.php:335
+#: wpml_admin.php:457
+#: wpml_admin.php:471
 msgid "Save"
 msgstr "Speichern"
 
-#: wpml_admin.php:314
-#: wpml_admin.php:448
+#: wpml_admin.php:320
+#: wpml_admin.php:457
 msgid "Delete marked"
 msgstr "markierte löschen"
 
-#: wpml_admin.php:318
-#: wpml_admin.php:452
+#: wpml_admin.php:324
+#: wpml_admin.php:461
 msgid "Show all"
 msgstr "Alle anzeigen"
 
-#: wpml_admin.php:327
-#: wpml_admin.php:461
+#: wpml_admin.php:333
+#: wpml_admin.php:470
 msgid "Lines per Page:"
 msgstr "Zeilen pro Seite:"
 
-#: wpml_admin.php:335
-#: wpml_admin.php:438
+#: wpml_admin.php:341
+#: wpml_admin.php:352
 msgid "Emoticon"
 msgstr "Emoticon"
 
-#: wpml_admin.php:337
-#: wpml_admin.php:440
+#: wpml_admin.php:343
+#: wpml_admin.php:354
 msgid "On Post"
 msgstr "in Posts"
 
-#: wpml_admin.php:338
-#: wpml_admin.php:441
+#: wpml_admin.php:344
+#: wpml_admin.php:355
 msgid "On Comment"
 msgstr "in Kommentaren"
 
-#: wpml_admin.php:345
+#: wpml_admin.php:362
 msgid "New Entry"
 msgstr "Neuer Eintrag"
 
@@ -191,15 +195,15 @@ msgstr "mehr..."
 msgid "wp-Monalisa"
 msgstr "wp-Monalisa"
 
-#: wpml_export.php:71
+#: wpml_export.php:72
 msgid "Export"
 msgstr "Export"
 
-#: wpml_export.php:83
+#: wpml_export.php:84
 msgid "You can mark the .pak-export with Ctrl-a, copy it with Ctrl-c and paste it to your favourite editor with Ctrl-v."
 msgstr "Mit Strg-a können alle Daten markiert, mit Strg-c kopiert und mit Strg-v in einem anderen Editor eingefügt werden."
 
-#: wpml_export.php:87
+#: wpml_export.php:88
 #: wpml_import.php:111
 msgid "Close"
 msgstr "Schliessen"

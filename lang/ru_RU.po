@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Monalisa\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-19 21:01+0200\n"
+"POT-Creation-Date: 2009-11-30 07:08+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Hans Matzen <webmaster ät tuxlog dot  de>\n"
 "Language-Team: Fat Cow <zhr@tut.by>\n"
@@ -83,7 +83,7 @@ msgstr "Заменить иконки html-аналогами"
 msgid "Show emoticons in selection as"
 msgstr "Показывать иконкикак"
 
-#: wpml_admin.php:217 wpml_admin.php:336 wpml_admin.php:439
+#: wpml_admin.php:217 wpml_admin.php:342 wpml_admin.php:353
 msgid "Icon"
 msgstr "Иконка"
 
@@ -115,56 +115,62 @@ msgstr "Показать смайлы при редактировании"
 msgid "Smilies in 1st row"
 msgstr "Смайлы"
 
-#: wpml_admin.php:245
+#: wpml_admin.php:246
+msgid ""
+"Please turn off Options -> Write -> 'Convert emoticons like...' to use wp-"
+"Monalisa smilies)."
+msgstr ""
+
+#: wpml_admin.php:249
 msgid "Save Settings"
 msgstr "Сохранить настройки"
 
-#: wpml_admin.php:248
+#: wpml_admin.php:254
 msgid "Import Smiley-Package"
 msgstr "Импорт набора смайликов"
 
-#: wpml_admin.php:249
+#: wpml_admin.php:255
 #, fuzzy
 msgid "Export Smiley-Package (pak-Format)"
 msgstr "Импорт набора смайликов"
 
-#: wpml_admin.php:264
+#: wpml_admin.php:270
 msgid "Smilies"
 msgstr "Смайлы"
 
-#: wpml_admin.php:268
+#: wpml_admin.php:274
 msgid "Iconpath is empty or invalid"
 msgstr "Путь к иконкам пустой или неправильный"
 
-#: wpml_admin.php:314 wpml_admin.php:329 wpml_admin.php:448 wpml_admin.php:462
+#: wpml_admin.php:320 wpml_admin.php:335 wpml_admin.php:457 wpml_admin.php:471
 msgid "Save"
 msgstr "Сохранить"
 
-#: wpml_admin.php:314 wpml_admin.php:448
+#: wpml_admin.php:320 wpml_admin.php:457
 msgid "Delete marked"
 msgstr "Удалить отмеченное"
 
-#: wpml_admin.php:318 wpml_admin.php:452
+#: wpml_admin.php:324 wpml_admin.php:461
 msgid "Show all"
 msgstr ""
 
-#: wpml_admin.php:327 wpml_admin.php:461
+#: wpml_admin.php:333 wpml_admin.php:470
 msgid "Lines per Page:"
 msgstr ""
 
-#: wpml_admin.php:335 wpml_admin.php:438
+#: wpml_admin.php:341 wpml_admin.php:352
 msgid "Emoticon"
 msgstr "Иконка"
 
-#: wpml_admin.php:337 wpml_admin.php:440
+#: wpml_admin.php:343 wpml_admin.php:354
 msgid "On Post"
 msgstr "В посте"
 
-#: wpml_admin.php:338 wpml_admin.php:441
+#: wpml_admin.php:344 wpml_admin.php:355
 msgid "On Comment"
 msgstr "В комментарии"
 
-#: wpml_admin.php:345
+#: wpml_admin.php:362
 msgid "New Entry"
 msgstr "Новый элемент"
 
@@ -180,18 +186,18 @@ msgstr ""
 msgid "wp-Monalisa"
 msgstr "wp-Monalisa"
 
-#: wpml_export.php:71
+#: wpml_export.php:72
 #, fuzzy
 msgid "Export"
 msgstr "Импорт"
 
-#: wpml_export.php:83
+#: wpml_export.php:84
 msgid ""
 "You can mark the .pak-export with Ctrl-a, copy it with Ctrl-c and paste it "
 "to your favourite editor with Ctrl-v."
 msgstr ""
 
-#: wpml_export.php:87 wpml_import.php:111
+#: wpml_export.php:88 wpml_import.php:111
 msgid "Close"
 msgstr "Закрыть"
 
