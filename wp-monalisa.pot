@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-30 07:08+0100\n"
+"POT-Creation-Date: 2009-12-19 11:44+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,126 +46,130 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: wpml_admin.php:193
-msgid "Iconpath"
-msgstr ""
-
-#: wpml_admin.php:196
-msgid ""
-"You are about to change the iconpath.\\n Please be careful and make sure the "
-"icons are still accessible.\\n To update your settings klick Save Settings"
-msgstr ""
-
-#: wpml_admin.php:199
-msgid "Show smilies on edit"
-msgstr ""
-
-#: wpml_admin.php:205
-msgid "Show smilies on comment"
-msgstr ""
-
-#: wpml_admin.php:209
-msgid "Comment Textarea ID"
-msgstr ""
-
-#: wpml_admin.php:210
-msgid ""
-"You are about to change the id of the textarea of your comment form.\\n "
-"Please make sure you enter the correct id, to make wp-monalisa work correctly"
-msgstr ""
-
-#: wpml_admin.php:212
-msgid "Replace emoticons with html-images"
-msgstr ""
-
-#: wpml_admin.php:215
-msgid "Show emoticons in selection as"
-msgstr ""
-
-#: wpml_admin.php:217 wpml_admin.php:342 wpml_admin.php:353
-msgid "Icon"
-msgstr ""
-
-#: wpml_admin.php:218
-msgid "Text"
-msgstr ""
-
-#: wpml_admin.php:219
-msgid "Both"
-msgstr ""
-
-#: wpml_admin.php:224
-msgid "Show smilies in a table"
-msgstr ""
-
-#: wpml_admin.php:226
-msgid "Smilies per row"
-msgstr ""
-
-#: wpml_admin.php:234
-msgid "Show smilies as Pulldown"
-msgstr ""
-
-#: wpml_admin.php:236
-msgid "Smilies in 1st row"
-msgstr ""
-
-#: wpml_admin.php:246
+#: wpml_admin.php:192
 msgid ""
 "Please turn off Options -> Write -> 'Convert emoticons like...' to use wp-"
 "Monalisa smilies)."
 msgstr ""
 
-#: wpml_admin.php:249
+#: wpml_admin.php:198
+msgid "Iconpath"
+msgstr ""
+
+#: wpml_admin.php:201
+msgid ""
+"You are about to change the iconpath.\\n Please be careful and make sure the "
+"icons are still accessible.\\n To update your settings klick Save Settings"
+msgstr ""
+
+#: wpml_admin.php:204
+msgid "Show smilies on edit"
+msgstr ""
+
+#: wpml_admin.php:210
+msgid "Show smilies on comment"
+msgstr ""
+
+#: wpml_admin.php:214
+msgid "Comment Textarea ID"
+msgstr ""
+
+#: wpml_admin.php:215
+msgid ""
+"You are about to change the id of the textarea of your comment form.\\n "
+"Please make sure you enter the correct id, to make wp-monalisa work correctly"
+msgstr ""
+
+#: wpml_admin.php:217
+msgid "Replace emoticons with html-images"
+msgstr ""
+
+#: wpml_admin.php:220
+msgid "Show emoticons in selection as"
+msgstr ""
+
+#: wpml_admin.php:222 wpml_admin.php:345 wpml_admin.php:356
+msgid "Icon"
+msgstr ""
+
+#: wpml_admin.php:223
+msgid "Text"
+msgstr ""
+
+#: wpml_admin.php:224
+msgid "Both"
+msgstr ""
+
+#: wpml_admin.php:229
+msgid "Show smilies in a table"
+msgstr ""
+
+#: wpml_admin.php:231
+msgid "Smilies per row"
+msgstr ""
+
+#: wpml_admin.php:239
+msgid "Show smilies as Pulldown"
+msgstr ""
+
+#: wpml_admin.php:241
+msgid "Smilies in 1st row"
+msgstr ""
+
+#: wpml_admin.php:252
 msgid "Save Settings"
 msgstr ""
 
-#: wpml_admin.php:254
+#: wpml_admin.php:257
 msgid "Import Smiley-Package"
 msgstr ""
 
-#: wpml_admin.php:255
+#: wpml_admin.php:258
 msgid "Export Smiley-Package (pak-Format)"
 msgstr ""
 
-#: wpml_admin.php:270
+#: wpml_admin.php:273
 msgid "Smilies"
 msgstr ""
 
-#: wpml_admin.php:274
+#: wpml_admin.php:277
 msgid "Iconpath is empty or invalid"
 msgstr ""
 
-#: wpml_admin.php:320 wpml_admin.php:335 wpml_admin.php:457 wpml_admin.php:471
+#: wpml_admin.php:323 wpml_admin.php:338 wpml_admin.php:472 wpml_admin.php:486
 msgid "Save"
 msgstr ""
 
-#: wpml_admin.php:320 wpml_admin.php:457
+#: wpml_admin.php:323 wpml_admin.php:472
 msgid "Delete marked"
 msgstr ""
 
-#: wpml_admin.php:324 wpml_admin.php:461
+#: wpml_admin.php:327 wpml_admin.php:476
 msgid "Show all"
 msgstr ""
 
-#: wpml_admin.php:333 wpml_admin.php:470
+#: wpml_admin.php:336 wpml_admin.php:485
 msgid "Lines per Page:"
 msgstr ""
 
-#: wpml_admin.php:341 wpml_admin.php:352
+#: wpml_admin.php:344 wpml_admin.php:355
 msgid "Emoticon"
 msgstr ""
 
-#: wpml_admin.php:343 wpml_admin.php:354
+#: wpml_admin.php:346 wpml_admin.php:357
 msgid "On Post"
 msgstr ""
 
-#: wpml_admin.php:344 wpml_admin.php:355
+#: wpml_admin.php:347 wpml_admin.php:358
 msgid "On Comment"
 msgstr ""
 
-#: wpml_admin.php:362
+#: wpml_admin.php:365
 msgid "New Entry"
+msgstr ""
+
+#: wpml_admin.php:398
+msgid "not mapped yet"
 msgstr ""
 
 #: wpml_comment.php:177

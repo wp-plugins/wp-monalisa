@@ -215,7 +215,7 @@ function wpml_admin()
    $out .= '<td><input name="commenttextid" id="commenttextid" type="text" value="'. $av['commenttextid'].'" size="20" onchange="alert(\''.__('You are about to change the id of the textarea of your comment form.\n Please make sure you enter the correct id, to make wp-monalisa work correctly',"wpml").'\');" /></td></tr>'."\n"; 
 
   $out .= '<tr><th scope="row" valign="top"><label for="replaceicon">'.__('Replace emoticons with html-images','wpml').':</label></th>'."\n";
-  $out .= '<td><input name="replaceicon" id="replaceicon" type="checkbox" value="1"'.($av['replaceicon']=="1"?'checked=checked':""). ' /></td>'."\n";
+  $out .= '<td><input name="replaceicon" id="replaceicon" type="checkbox" value="1" '.($av['replaceicon']=="1"?'checked="checked"':""). ' /></td>'."\n";
 
   $out .= '<th scope="row" valign="top"><label for="showicon">'.__('Show emoticons in selection as','wpml').':</label></th>'."\n";
   $out .= '<td><select name="showicon" id="showicon" onchange="wpml_admin_switch();" >'."\n";
@@ -227,7 +227,7 @@ function wpml_admin()
   // smilies als tabelle anzeigen
   // smiley tabelle
   $out .= '<tr><th scope="row" valign="top"><label for="showastable">'.__('Show smilies in a table','wpml').':</label></th>'."\n";
-  $out .= '<td><input name="showastable" id="showastable" type="checkbox" value="1"'.($av['showastable']=="1"?'checked=checked':""). ' onchange="wpml_admin_switch();" /></td>'."\n";
+  $out .= '<td><input name="showastable" id="showastable" type="checkbox" value="1" '.($av['showastable']=="1"?'checked="checked"':""). ' onchange="wpml_admin_switch();" /></td>'."\n";
   $out .= '<th scope="row" valign="top"><label for="smiliesperrow">'.__('Smilies per row','wpml').':</label></th>'."\n";
   $out .= '<td><input name="smiliesperrow" id="smiliesperrow" type="text" value="'. 
       $av['smiliesperrow'] . '" size="3" maxlength="3" /></td>'."\n";
@@ -237,7 +237,7 @@ function wpml_admin()
   // smilies zum aufklappen
   // smiley pull-down
   $out .= '<tr><th scope="row" valign="top"><label for="showaspulldown">'.__('Show smilies as Pulldown','wpml').':</label></th>'."\n";
-  $out .= '<td><input name="showaspulldown" id="showaspulldown" type="checkbox" value="1"'.($av['showaspulldown']=="1"?'checked=checked':""). ' onchange="wpml_admin_switch();" /></td>'."\n";
+  $out .= '<td><input name="showaspulldown" id="showaspulldown" type="checkbox" value="1" '.($av['showaspulldown']=="1"?'checked="checked"':""). ' onchange="wpml_admin_switch();" /></td>'."\n";
   $out .= '<th scope="row" valign="top"><label for="smilies1strow">'.__('Smilies in 1st row','wpml').':</label></th>'."\n";
   $out .= '<td><input name="smilies1strow" id="smilies1strow" type="text" value="'. 
       $av['smilies1strow'] . '" size="3" maxlength="3" /></td>'."\n";
@@ -342,7 +342,7 @@ function wpml_admin()
   $out .= "<thead><tr>\n";
   $out .= '<th scope="col" style="text-align:center"><input style="margin-left: 0;" id="markall" type="checkbox" onchange="wpml_markall(\'markall\');" />&nbsp;</th>'."\n";
   $out .= '<th scope="col">'.__('Emoticon',"wpml")."</th>"."\n";
-  $out .= '<th scope="col" colspan="2" style="text-align: left">'.__("Icon","wpml").'</th>'."\n";
+  $out .= '<th scope="col" colspan="2" style="text-align: left">'.__("Icon","wpml").'<br />(* '.__('not mapped yet',"wpml").')</th>'."\n";
   $out .= '<th scope="col">'.__('On Post',"wpml").'</th>'."\n";
   $out .= '<th scope="col">'.__('On Comment',"wpml").'</th>'."\n";
   $out .= '<th scope="col">&nbsp;</th>'."\n";
@@ -353,7 +353,7 @@ function wpml_admin()
   $out .= "<tfoot><tr>\n";
   $out .= '<th scope="col" style="text-align:center"><input style="margin-left: 0;" id="markall1" type="checkbox" onchange="wpml_markall(\'markall1\');" />&nbsp;</th>'."\n";
   $out .= '<th scope="col">'.__('Emoticon',"wpml")."</th>"."\n";
-  $out .= '<th scope="col" colspan="2" style="text-align:left">'.__("Icon","wpml").'</th>'."\n";
+   $out .= '<th scope="col" colspan="2" style="text-align: left">'.__("Icon","wpml").'<br />(* '.__('not mapped yet',"wpml").')</th>'."\n";
   $out .= '<th scope="col">'.__('On Post',"wpml").'</th>'."\n";
   $out .= '<th scope="col">'.__('On Comment',"wpml").'</th>'."\n";
   $out .= '<th scope="col">&nbsp;</th>'."\n";
@@ -368,13 +368,25 @@ function wpml_admin()
    $out .= '<select name="NEWicon" id="NEWicon" onchange="updateImage(\''.site_url($av['icondir']).'\',\'NEW\')">'."\n";
   // build select html for iconfile
   $icon_select_html="";
+  // fetch compare list to sign unused files
+  $clist=array();
+  $notused="";
+  $sql="select iconfile from $wpml_table;";
+  $results = $wpdb->get_results($sql);
+  foreach ($results as $i)
+      array_push($clist,$i->iconfile);
+
   // file loop
   foreach($flist as $iconfile) 
   { 
+      if ( in_array($iconfile, $clist) )
+	  $notused="";
+      else
+	  $notused="*";
       $ext = substr($iconfile,strlen($iconfile)-3,3);
       if ($ext == "gif" || $ext == 'png') {
 	  $icon_select_html .= "<option value='".$iconfile."' ";
-	  $icon_select_html .= ">".$iconfile."</option>\n";
+	  $icon_select_html .= ">".$iconfile.$notused."</option>\n";
       }
   }
   $out .= $icon_select_html . "</select></td>\n";
@@ -383,7 +395,7 @@ function wpml_admin()
   $out .= '<td><input name="NEWonpost" id="NEWonpost" type="checkbox" value="1" /></td>'."\n";
   $out .= '<td><input name="NEWoncomment" id="NEWoncomment" type="checkbox" value="1" />'."\n";
   $out .= '<script type="text/javascript">updateImage("'.site_url($av['icondir']).'","NEW")</script></td>';
-  $out .= "<td>&nbsp;</td><td>&nbsp;</td></tr>\n";
+  $out .= "<td colspan='2'>&nbsp;</td></tr>\n";
 
   // jetzt kommen die vorhandenen eintraege
   // select all icon entries
