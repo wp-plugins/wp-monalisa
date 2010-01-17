@@ -180,7 +180,7 @@ function wpml_comment($postid=0)
     
     $out .= "</div>\n";
     $out1strow .= "</div>\n";
-    $out .= '<div style="clear:both;">&nbsp;</div>';
+    $out .= '<div style="clear:both;display:none">&nbsp;</div>';
     $out1strow .= '<div style="clear:both;">&nbsp;</div>'."\n";
     // img ids tauschen um eindeutigkeit zu gewaehrleisten, da es osnt zu xhtml fehlern kommt
     $out1strow=str_replace("icoimg","hicoimg",$out1strow);

@@ -66,7 +66,7 @@ function wpml_admin()
   //
   // allgemeine optionen updaten
   //
-  if ( $_POST['action'] == "editopts" )
+  if ( isset($_POST['action']) and $_POST['action'] == "editopts" )
   {
       $av['onedit']           = $_POST['onedit'];
       $av['oncomment']        = $_POST['oncomment'];
@@ -93,7 +93,9 @@ function wpml_admin()
   //
   // es sollen datensätze gelöscht werden
   //
-  if ( $_POST['action'] == "editicons" and isset ( $_POST['deletemarked']) )
+  if ( isset($_POST['action']) and 
+       $_POST['action'] == "editicons" and 
+       isset ( $_POST['deletemarked']) )
   {
       $sql="select max(tid) from $wpml_table;";
       $maxnum = $wpdb->get_var($sql);
@@ -111,7 +113,9 @@ function wpml_admin()
   //
   // icon mapping ändern oder neu anlegen
   //
-  if ( $_POST['action'] == "editicons"  and isset ( $_POST['updateicons']) )
+  if ( isset($_POST['action']) and 
+       $_POST['action'] == "editicons"  and 
+       isset ( $_POST['updateicons']) )
   { 
       // hoechste satz-id ermitteln bevor ggf. ein neuer satz hinzukommt
       // denn der neue satz darf/muss nicht upgedated werden
