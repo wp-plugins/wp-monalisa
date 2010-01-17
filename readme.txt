@@ -3,8 +3,8 @@ Contributors: tuxlog, woodstock
 Donate link: http://www.tuxlog.de/
 Tags: wordpress, plugin, smiley, smilies, monalisa, comments, post, edit
 Requires at least: 2.7
-Tested up to: 2.8
-Stable tag: 0.7
+Tested up to: 2.9.1
+Stable tag: 1.0
 
 wp-monalisa is the plugin that smiles at you like monalisa does. place the smilies of your choice in posts, pages or comments.
 
@@ -61,6 +61,22 @@ Plase check and double check the path to your smiley directory.
 4. wp-Monalisa import thickbox dialog
 
 == Changelog ==
+
+= v1.0 (2010-01-17) =
+* fixed wrong initial value for show as table option
+* added alt attribute to admin dialog icons (xhtml fix)
+* set floating control div to display:none in wpml_comments.php
+* added support for autoupdate to prevent auto delete of private smilies and custom css
+* fixed undefined index warning in wpml_admin.php
+
+= v0.9 (2009-12-19) =
+* fixed invalid xhtml in admin dialog
+* mark iconfiles not yet mapped with a star
+
+= v0.8 (2009-11-30) =
+* fixed invalid XHTML in admin dialog
+* fixed strange behaviour when deactivating smilies on comments results in null
+* added hint to deactivate wordpress smilies fpr wp-monalisa
 
 = v0.7 (2009-09-27) =
 * added russian translation, thanks to Fat Cow (http://www.blog.fatcow.com)
