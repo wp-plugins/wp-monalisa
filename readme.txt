@@ -26,6 +26,8 @@ Features:
 * while edit posts or pages, pops-up in a draggable meta-box
 * extends your comment form to give you visitors the freedom to smile :-)
 
+The video shows a short overview of what wp-monalisa can do for you. [youtube http://www.youtube.com/watch?v=uHXlELn27ko]
+
 Credits:
 Thanks go to all who support this plugin, with  hints and suggestions for improvment and specially to
 
@@ -44,6 +46,15 @@ If you update from a former version please do not forget to deactivate and actia
 
 
 == Frequently Asked Questions ==
+
+= Are there any Tutorials? =
+
+Yes, there are have a look at http://www.tuxlog.de/keinwindowsmehr/2009/wp-monalisa/ or try these screencasts to learn how to install, configure and use wp-monalisa 
+Installation: [youtube http://www.youtube.com/watch?v=5w8hiteU8gA]
+Configure: [youtube http://www.youtube.com/watch?v=614Gso38v5g]
+Use: [youtube http://www.youtube.com/watch?v=uHXlELn27ko]
+Import/Export of Smilies: [youtube http://www.youtube.com/watch?v=cedwN0u_XRI]
+
 
 = wp-monalisa does not work with comments. What now? =
 
