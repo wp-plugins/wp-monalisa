@@ -60,6 +60,27 @@ function smile2comment(textid,smile,replace){
 */
 function insert_text(stxt,obj)
 {
+    try { 
+	// pruefe of fckeditor aktiv ist entweder 
+	// als comment editor oder als text editor
+	if(typeof window.CKEDITOR.instances.comment!='undefined')
+	{
+	    // wenn ja, nutzen wir die fckeditor funktion 
+	    // um den text einzufügen
+	    window.CKEDITOR.instances.comment.insertHtml(stxt);
+	    return;
+	}
+	
+	if(typeof CKEDITOR.instances.content!='undefined')
+	{
+	    // wenn ja, nutzen wir die fckeditor funktion 
+	    // um den text einzufügen
+	    CKEDITOR.instances.content.insertHtml(stxt);
+	    return;
+	}
+    }
+    catch(e) {}
+
     if(document.selection)
     {
 	obj.focus();
@@ -78,6 +99,8 @@ function insert_text(stxt,obj)
     {
 	obj.value += stxt;
     }
+
+  
 }
 
 /*

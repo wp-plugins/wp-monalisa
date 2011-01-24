@@ -130,7 +130,7 @@ function wpml_metabox()
 	    $out .='<div class="wpml_ico_icon" onclick="smile2edit(\'content\',\''.
 		addslashes($smile).'\','.$repl.');">'."\n";
 	    $out .= "<img class='wpml_ico' name='icoimg".$res->tid.
-		"' id='icoimg".$res->tid."' src='$ico_url' />&nbsp;";
+		"' id='icoimg".$res->tid."' src='$ico_url' alt='wp-monalisa icon' />&nbsp;";
 	    $out .= "</div>";
 	}
 

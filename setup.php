@@ -108,7 +108,7 @@ function wp_monalisa_install()
         // smilies als table struktur anzeigen
 	$av['showastable'] = 0;
         // smilies pro reihe in der tabelle
-	$av['showastable'] = 15;
+	$av['smiliesperrow'] = 15;
 
 
 	add_option( "wpml-opts", serialize($av) );
