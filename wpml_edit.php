@@ -115,6 +115,11 @@ function wpml_metabox()
 	    $repl = 1;
 	}
 	
+	// tooltip html bauen
+	$ico_tt="";
+	if ( $av['icontooltip'] == 1)
+	    $ico_tt = " title='" .addslashes($smile) . "' ";
+
 	// icon nur als text ausgeben
 	if ( $av['showicon'] == 0 )
 	{
@@ -130,7 +135,7 @@ function wpml_metabox()
 	    $out .='<div class="wpml_ico_icon" onclick="smile2edit(\'content\',\''.
 		addslashes($smile).'\','.$repl.');">'."\n";
 	    $out .= "<img class='wpml_ico' name='icoimg".$res->tid.
-		"' id='icoimg".$res->tid."' src='$ico_url' />&nbsp;";
+		"' id='icoimg".$res->tid."' src='$ico_url' alt='wp-monalisa icon' $ico_tt />&nbsp;";
 	    $out .= "</div>";
 	}
 
@@ -140,7 +145,7 @@ function wpml_metabox()
 	    $out .='<div class="wpml_ico_both" onclick="smile2edit(\'content\',\''.
 		addslashes($smile).'\','.$repl.');">'."\n";
 	    $out .= "<img class='wpml_ico' name='icoimg".$res->tid.
-		"' id='icoimg".$res->tid."' src='$ico_url' />&nbsp;";
+		"' id='icoimg".$res->tid."' src='$ico_url' alt='wp-monalisa icon' $ico_tt/>&nbsp;";
 	    $out .= "<br />" . $res->emoticon ; 
 	    $out .= "</div>\n";
 	}

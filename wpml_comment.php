@@ -100,6 +100,10 @@ function wpml_comment($postid=0)
 	    $repl = 1;
 	}
 
+	// tooltip html bauen
+	$ico_tt="";
+	if ( $av['icontooltip'] == 1)
+	    $ico_tt = " title='" .addslashes($smile) . "' ";
 
 	// icon nur als text ausgeben
 	if ( $av['showicon'] == 0 )
@@ -119,7 +123,7 @@ function wpml_comment($postid=0)
 		    $av['commenttextid'].'\',\''.addslashes($smile).'\','.$repl.');">'."\n";
 		$out .= "<img class='wpml_ico' name='icoimg".$res->tid.
 		    "' id='icoimg".$res->tid."' src='$ico_url' alt='".
-		    addslashes($smile)."' />&nbsp;";
+		    addslashes($smile)."' $ico_tt />&nbsp;";
 		$out .= "</div>\n";
 	    } 
 	    else  // output as a table
@@ -128,7 +132,7 @@ function wpml_comment($postid=0)
 		    $av['commenttextid'].'\',\''.addslashes($smile).'\','.$repl.');">'."\n";
 		$out .= "<img class='wpml_ico' name='icoimg".$res->tid.
 		    "' id='icoimg".$res->tid."' src='$ico_url' alt='".
-		    addslashes($smile)."' />&nbsp;";
+		    addslashes($smile)."' $ico_tt />&nbsp;";
 		$out .= "</td>\n";	
 	    }
 	    
@@ -142,7 +146,7 @@ function wpml_comment($postid=0)
 	    
 	    $out .= "<img class='wpml_ico' name='icoimg".$res->tid.
 		"' id='icoimg".$res->tid."' src='$ico_url' alt='".
-		addslashes($smile)."' />&nbsp;";
+		addslashes($smile)."' $ico_tt />&nbsp;";
 	    $out .= "<br />" . $res->emoticon ; 
 	    $out .= "</div>\n";
 	}
@@ -180,7 +184,7 @@ function wpml_comment($postid=0)
     
     $out .= "</div>\n";
     $out1strow .= "</div>\n";
-    $out .= '<div style="clear:both;">&nbsp;</div>';
+    $out .= '<div style="clear:both;display:none">&nbsp;</div>';
     $out1strow .= '<div style="clear:both;">&nbsp;</div>'."\n";
     // img ids tauschen um eindeutigkeit zu gewaehrleisten, da es osnt zu xhtml fehlern kommt
     $out1strow=str_replace("icoimg","hicoimg",$out1strow);
