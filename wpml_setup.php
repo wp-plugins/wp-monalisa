@@ -109,7 +109,8 @@ function wp_monalisa_install()
 	$av['showastable'] = 0;
         // smilies pro reihe in der tabelle
 	$av['smiliesperrow'] = 15;
-
+	// tooltipp fuer icons anzeigen
+	$av['icontooltip'] = 1;
 
 	add_option( "wpml-opts", serialize($av) );
     }

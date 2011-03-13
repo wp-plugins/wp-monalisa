@@ -76,6 +76,7 @@ function wpml_admin()
       $av['smiliesperrow']    = (int) $_POST['smiliesperrow'];
       $av['showaspulldown']   = $_POST['showaspulldown'];
       $av['smilies1strow']    = (int) $_POST['smilies1strow'];
+      $av['icontooltip']      = $_POST['icontooltip'];
 
       if ( $_POST['commenttextid']=="" )
 	  $av['commenttextid'] = "comment";
@@ -246,6 +247,14 @@ function wpml_admin()
   $out .= '<td><input name="smilies1strow" id="smilies1strow" type="text" value="'. 
       $av['smilies1strow'] . '" size="3" maxlength="3" /></td>'."\n";
   $out .="</tr>\n";
+
+
+  // tooltips fuer icons anzeigen
+   $out .= '<tr><th scope="row" valign="top"><label for="icontooltip">'.__('Show tooltip for icons','wpml').':</label></th>'."\n";
+  $out .= '<td><input name="icontooltip" id="icontooltip" type="checkbox" value="1" '.($av['icontooltip']=="1"?'checked="checked"':""). ' /></td>'."\n";
+  $out .= '<th scope="row" valign="top">&nbsp;</label></th>'."\n";
+  $out .= '<td>&nbsp;</td>'."\n";
+  $out .= "</tr>\n";
 
   $out .= '</table>'."\n";
   $out .= '<script  type="text/javascript">wpml_admin_switch();</script>';
