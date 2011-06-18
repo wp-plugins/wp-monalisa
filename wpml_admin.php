@@ -26,6 +26,13 @@ require_once('wpml_func.php');
 //
 function wpml_admin_init() 
 {
+    // do not show admin options page in sub-blogs
+    if (function_exists('is_multisite') && is_multisite()) {
+	$siteid = $GLOBALS['blog_id'];
+	if ($siteid != 1)
+	    return;
+    }
+
     if (function_exists('add_options_page')) 
     {
 	add_menu_page('wp-Monalisa', 'wp-Monalisa', 6, 

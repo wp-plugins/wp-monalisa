@@ -29,6 +29,10 @@ function wpml_comment_init()
     // optionen einlesen
     $av = unserialize(get_option("wpml-opts"));
     
+     // in case we are on a multisite try get the settings from blog no one
+    if ($av == false)
+	$av = unserialize(get_blog_option(1, "wpml-opts"));
+
     // show smileys in commentform if not disabled
     if ( $av['oncomment'] == "1" )
 	add_action('comment_form','wpml_comment');
@@ -40,9 +44,17 @@ function wpml_comment($postid=0)
 
     // table name
     $wpml_table = $wpdb->prefix . "monalisa";
-    
+
+    if (function_exists('is_multisite') && is_multisite()) 
+	$wpml_table = $wpdb->base_prefix . "monalisa";
+ 
     // optionen einlesen
-    $av = unserialize(get_option("wpml-opts"));
+    $av = unserialize(get_option("wpml-opts")); 
+
+    // in case we are on a multisite try get the settings from blog no one
+    if ($av == false)
+	$av = unserialize(get_blog_option(1, "wpml-opts"));
+
     // abfangen wenn wert nicht gesetzt oder 0 ist, dann nehmen wir einfach 1
     if ( (int) $av['smiliesperrow'] == 0)
 	$av['smiliesperrow'] = 1;

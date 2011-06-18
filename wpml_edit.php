@@ -46,7 +46,11 @@ function wpml_edit_init()
 {
     // optionen einlesen
     $av = unserialize(get_option("wpml-opts"));
-    
+
+    // in case we are on a multisite try get the settings from blog no one
+    if ($av == false)
+	$av = unserialize(get_blog_option(1, "wpml-opts"));
+
     if (in_edit() and $av['onedit'] == "1") 
     { 
 	// meta boxen hinzufügen für posts und pages
@@ -66,9 +70,16 @@ function wpml_metabox()
 
     // table name
     $wpml_table = $wpdb->prefix . "monalisa";
-    
+
+    if (function_exists('is_multisite') && is_multisite()) 
+	$wpml_table = $wpdb->base_prefix . "monalisa";
+
     // optionen einlesen
     $av = unserialize(get_option("wpml-opts"));
+
+    // in case we are on a multisite try get the settings from blog no one
+    if ($av == false)
+	$av = unserialize(get_blog_option(1, "wpml-opts"));
 
     // icons lesen
     $sql="select tid,emoticon,iconfile from $wpml_table where onpost=1 order by tid;";
