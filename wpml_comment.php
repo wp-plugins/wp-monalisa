@@ -2,7 +2,7 @@
 
 /* This file is part of the wp-monalisa plugin for wordpress */
 
-/*  Copyright 2009  Hans Matzen  (email : webmaster at tuxlog.de)
+/*  Copyright 2009-2011  Hans Matzen  (email : webmaster at tuxlog.de)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -29,20 +29,39 @@ function wpml_comment_init()
     // optionen einlesen
     $av = unserialize(get_option("wpml-opts"));
     
+     // in case we are on a multisite try get the settings from blog no one
+    if ($av == false)
+	$av = unserialize(get_blog_option(1, "wpml-opts"));
+
     // show smileys in commentform if not disabled
-    if ( $av['oncomment'] == "1" )
-	add_action('comment_form','wpml_comment');
+    if ( $av['oncomment'] == "1" ) {
+		add_action('comment_form','wpml_comment');
+    } 
 }
 
 function wpml_comment($postid=0)
+{
+	echo get_wpml_comment($postid);
+}
+
+
+function get_wpml_comment($postid=0)
 {
     global $wpdb;
 
     // table name
     $wpml_table = $wpdb->prefix . "monalisa";
-    
+
+    if (function_exists('is_multisite') && is_multisite()) 
+	$wpml_table = $wpdb->base_prefix . "monalisa";
+ 
     // optionen einlesen
-    $av = unserialize(get_option("wpml-opts"));
+    $av = unserialize(get_option("wpml-opts")); 
+
+    // in case we are on a multisite try get the settings from blog no one
+    if ($av == false)
+	$av = unserialize(get_blog_option(1, "wpml-opts"));
+
     // abfangen wenn wert nicht gesetzt oder 0 ist, dann nehmen wir einfach 1
     if ( (int) $av['smiliesperrow'] == 0)
 	$av['smiliesperrow'] = 1;
@@ -100,6 +119,10 @@ function wpml_comment($postid=0)
 	    $repl = 1;
 	}
 
+	// tooltip html bauen
+	$ico_tt="";
+	if ( $av['icontooltip'] == 1)
+	    $ico_tt = " title='" .addslashes($smile) . "' ";
 
 	// icon nur als text ausgeben
 	if ( $av['showicon'] == 0 )
@@ -119,7 +142,7 @@ function wpml_comment($postid=0)
 		    $av['commenttextid'].'\',\''.addslashes($smile).'\','.$repl.');">'."\n";
 		$out .= "<img class='wpml_ico' name='icoimg".$res->tid.
 		    "' id='icoimg".$res->tid."' src='$ico_url' alt='".
-		    addslashes($smile)."' />&nbsp;";
+		    addslashes($smile)."' $ico_tt />&nbsp;";
 		$out .= "</div>\n";
 	    } 
 	    else  // output as a table
@@ -128,7 +151,7 @@ function wpml_comment($postid=0)
 		    $av['commenttextid'].'\',\''.addslashes($smile).'\','.$repl.');">'."\n";
 		$out .= "<img class='wpml_ico' name='icoimg".$res->tid.
 		    "' id='icoimg".$res->tid."' src='$ico_url' alt='".
-		    addslashes($smile)."' />&nbsp;";
+		    addslashes($smile)."' $ico_tt />&nbsp;";
 		$out .= "</td>\n";	
 	    }
 	    
@@ -142,7 +165,7 @@ function wpml_comment($postid=0)
 	    
 	    $out .= "<img class='wpml_ico' name='icoimg".$res->tid.
 		"' id='icoimg".$res->tid."' src='$ico_url' alt='".
-		addslashes($smile)."' />&nbsp;";
+		addslashes($smile)."' $ico_tt />&nbsp;";
 	    $out .= "<br />" . $res->emoticon ; 
 	    $out .= "</div>\n";
 	}
@@ -180,17 +203,17 @@ function wpml_comment($postid=0)
     
     $out .= "</div>\n";
     $out1strow .= "</div>\n";
-    $out .= '<div style="clear:both;">&nbsp;</div>';
+    $out .= '<div style="clear:both;display:none">&nbsp;</div>';
     $out1strow .= '<div style="clear:both;">&nbsp;</div>'."\n";
     // img ids tauschen um eindeutigkeit zu gewaehrleisten, da es osnt zu xhtml fehlern kommt
     $out1strow=str_replace("icoimg","hicoimg",$out1strow);
 
+ 
     if  ( $av['showaspulldown'] != 1 )
-	echo $out;
+		return $out;
     else {
-	// nur erste zeile ausgeben
-	echo '<div id="smiley1" >' . $out1strow . "</div>";
-	echo '<div id="smiley2" style="display:none;">' . $out . "</div>";
+		// nur erste zeile ausgeben
+		return '<div id="smiley1" >' . $out1strow . "</div>\n" . '<div id="smiley2" style="display:none;">' . $out . "</div>";
     }
 }
 ?>
