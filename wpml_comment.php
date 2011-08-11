@@ -2,7 +2,7 @@
 
 /* This file is part of the wp-monalisa plugin for wordpress */
 
-/*  Copyright 2009  Hans Matzen  (email : webmaster at tuxlog.de)
+/*  Copyright 2009-2011  Hans Matzen  (email : webmaster at tuxlog.de)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -34,11 +34,18 @@ function wpml_comment_init()
 	$av = unserialize(get_blog_option(1, "wpml-opts"));
 
     // show smileys in commentform if not disabled
-    if ( $av['oncomment'] == "1" )
-	add_action('comment_form','wpml_comment');
+    if ( $av['oncomment'] == "1" ) {
+		add_action('comment_form','wpml_comment');
+    } 
 }
 
 function wpml_comment($postid=0)
+{
+	echo get_wpml_comment($postid);
+}
+
+
+function get_wpml_comment($postid=0)
 {
     global $wpdb;
 
@@ -201,12 +208,12 @@ function wpml_comment($postid=0)
     // img ids tauschen um eindeutigkeit zu gewaehrleisten, da es osnt zu xhtml fehlern kommt
     $out1strow=str_replace("icoimg","hicoimg",$out1strow);
 
+ 
     if  ( $av['showaspulldown'] != 1 )
-	echo $out;
+		return $out;
     else {
-	// nur erste zeile ausgeben
-	echo '<div id="smiley1" >' . $out1strow . "</div>";
-	echo '<div id="smiley2" style="display:none;">' . $out . "</div>";
+		// nur erste zeile ausgeben
+		return '<div id="smiley1" >' . $out1strow . "</div>\n" . '<div id="smiley2" style="display:none;">' . $out . "</div>";
     }
 }
 ?>
