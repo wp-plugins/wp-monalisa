@@ -3,8 +3,8 @@ Contributors: tuxlog, woodstock
 Donate link: http://www.tuxlog.de/
 Tags: wordpress, plugin, smiley, smilies, monalisa, comments, post, edit
 Requires at least: 2.7
-Tested up to: 2.8
-Stable tag: 0.7
+Tested up to: 3.2
+Stable tag: 1.4
 
 wp-monalisa is the plugin that smiles at you like monalisa does. place the smilies of your choice in posts, pages or comments.
 
@@ -25,6 +25,9 @@ Features:
 * extend or replace wordpress smiley replacement
 * while edit posts or pages, pops-up in a draggable meta-box
 * extends your comment form to give you visitors the freedom to smile :-)
+* support for fckeditor (tested with v3.3.1)
+
+The video shows a short overview of what wp-monalisa can do for you. [youtube http://www.youtube.com/watch?v=uHXlELn27ko]
 
 Credits:
 Thanks go to all who support this plugin, with  hints and suggestions for improvment and specially to
@@ -45,6 +48,15 @@ If you update from a former version please do not forget to deactivate and actia
 
 == Frequently Asked Questions ==
 
+= Are there any Tutorials? =
+
+Yes, there are have a look at http://www.tuxlog.de/keinwindowsmehr/2009/wp-monalisa/ or try these screencasts to learn how to install, configure and use wp-monalisa 
+Installation: [youtube http://www.youtube.com/watch?v=5w8hiteU8gA]
+Configure: [youtube http://www.youtube.com/watch?v=614Gso38v5g]
+Use: [youtube http://www.youtube.com/watch?v=uHXlELn27ko]
+Import/Export of Smilies: [youtube http://www.youtube.com/watch?v=cedwN0u_XRI]
+
+
 = wp-monalisa does not work with comments. What now? =
 
 Please, check and double check that the id given in the admin dialog of wp-monalisa is the correct id of the comment form textare. This can usually happen if you changed your theme.
@@ -62,8 +74,40 @@ Plase check and double check the path to your smiley directory.
 
 == Changelog ==
 
+= v1.5 (2011-10-22) =
+* removed russian translation because of a restricton from wordpress.org
+
+= v1.4 (2011-08-08) =
+* added function get_wpml_comment() which returns the smiley-html-code to integrate within comment_form theme code
+
+= v1.3 (2011-05-03) =
+* added simple support for multisite installtions (smilies can be only maintained from mainblog and work on every blog which it is activated for) 
+
+= v1.2 (2011-03-13) =
+* fixed a problem with wp 3.1 in network mode, due to a different search path the wrong setup.php was included
+* added tooltip support for icons
+
+= v1.1 (2011-01-23) =
+* added support for fckeditor (tested with v3.3.1)
+
+= v1.0 (2010-01-17) =
+* fixed wrong initial value for show as table option
+* added alt attribute to admin dialog icons (xhtml fix)
+* set floating control div to display:none in wpml_comments.php
+* added support for autoupdate to prevent auto delete of private smilies and custom css
+* fixed undefined index warning in wpml_admin.php
+
+= v0.9 (2009-12-19) =
+* fixed invalid xhtml in admin dialog
+* mark iconfiles not yet mapped with a star
+
+= v0.8 (2009-11-30) =
+* fixed invalid XHTML in admin dialog
+* fixed strange behaviour when deactivating smilies on comments results in null
+* added hint to deactivate wordpress smilies fpr wp-monalisa
+
 = v0.7 (2009-09-27) =
-* added russian translation, thanks to Fat Cow (http://www.blog.fatcow.com)
+* added russian translation
 * added belorussian translation, thanks to ilyuha (http://antsar.info) 
 * added .pak export functionality
 * divided smiley-list into pages (smiley list navigator using jquery ajax)
