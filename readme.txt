@@ -73,6 +73,10 @@ Plase check and double check the path to your smiley directory.
 4. wp-Monalisa import thickbox dialog
 
 == Changelog ==
+
+= v1.5 (2011-10-22) =
+* removed russian translation because of a restricton from wordpress.org
+
 = v1.4 (2011-08-08) =
 * added function get_wpml_comment() which returns the smiley-html-code to integrate within comment_form theme code
 
@@ -103,7 +107,7 @@ Plase check and double check the path to your smiley directory.
 * added hint to deactivate wordpress smilies fpr wp-monalisa
 
 = v0.7 (2009-09-27) =
-* added russian translation, thanks to Fat Cow (http://www.blog.fatcow.com)
+* added russian translation
 * added belorussian translation, thanks to ilyuha (http://antsar.info) 
 * added .pak export functionality
 * divided smiley-list into pages (smiley list navigator using jquery ajax)
