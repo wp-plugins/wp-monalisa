@@ -259,7 +259,7 @@ function wpml_admin()
   // tooltips fuer icons anzeigen
    $out .= '<tr><th scope="row" valign="top"><label for="icontooltip">'.__('Show tooltip for icons','wpml').':</label></th>'."\n";
   $out .= '<td><input name="icontooltip" id="icontooltip" type="checkbox" value="1" '.($av['icontooltip']=="1"?'checked="checked"':""). ' /></td>'."\n";
-  $out .= '<th scope="row" valign="top">&nbsp;</label></th>'."\n";
+  $out .= '<th scope="row" valign="top">&nbsp;</th>'."\n";
   $out .= '<td>&nbsp;</td>'."\n";
   $out .= "</tr>\n";
 
