@@ -140,8 +140,8 @@ function get_wpml_comment($postid=0)
 	    {
 		$out .='<div class="wpml_ico_icon" onclick="smile2comment(\''.
 		    $av['commenttextid'].'\',\''.addslashes($smile).'\','.$repl.');">'."\n";
-		$out .= "<img class='wpml_ico' name='icoimg".$res->tid.
-		    "' id='icoimg".$res->tid."' src='$ico_url' alt='".
+		$out .= "<img class='wpml_ico' " .
+		    " id='icoimg".$res->tid."' src='$ico_url' alt='".
 		    addslashes($smile)."' $ico_tt />&nbsp;";
 		$out .= "</div>\n";
 	    } 
@@ -149,8 +149,8 @@ function get_wpml_comment($postid=0)
 	    {
 		$out .='<td class="wpml_ico_icon" onclick="smile2comment(\''.
 		    $av['commenttextid'].'\',\''.addslashes($smile).'\','.$repl.');">'."\n";
-		$out .= "<img class='wpml_ico' name='icoimg".$res->tid.
-		    "' id='icoimg".$res->tid."' src='$ico_url' alt='".
+		$out .= "<img class='wpml_ico' " . 
+		    " id='icoimg".$res->tid."' src='$ico_url' alt='".
 		    addslashes($smile)."' $ico_tt />&nbsp;";
 		$out .= "</td>\n";	
 	    }
