@@ -2,7 +2,7 @@
 
 /* This file is part of the wp-monalisa plugin for wordpress */
 
-/*  Copyright 2009  Hans Matzen  (email : webmaster at tuxlog.de)
+/*  Copyright 2009-2011  Hans Matzen  (email : webmaster at tuxlog.de)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -145,8 +145,7 @@ function wpml_metabox()
 	{
 	    $out .='<div class="wpml_ico_icon" onclick="smile2edit(\'content\',\''.
 		addslashes($smile).'\','.$repl.');">'."\n";
-	    $out .= "<img class='wpml_ico' name='icoimg".$res->tid.
-		"' id='icoimg".$res->tid."' src='$ico_url' alt='wp-monalisa icon' $ico_tt />&nbsp;";
+	    $out .= "<img class='wpml_ico' id='icoimg".$res->tid."' src='$ico_url' alt='wp-monalisa icon' $ico_tt />&nbsp;";
 	    $out .= "</div>";
 	}
 
@@ -155,8 +154,7 @@ function wpml_metabox()
 	{
 	    $out .='<div class="wpml_ico_both" onclick="smile2edit(\'content\',\''.
 		addslashes($smile).'\','.$repl.');">'."\n";
-	    $out .= "<img class='wpml_ico' name='icoimg".$res->tid.
-		"' id='icoimg".$res->tid."' src='$ico_url' alt='wp-monalisa icon' $ico_tt/>&nbsp;";
+	    $out .= "<img class='wpml_ico' id='icoimg".$res->tid."' src='$ico_url' alt='wp-monalisa icon' $ico_tt/>&nbsp;";
 	    $out .= "<br />" . $res->emoticon ; 
 	    $out .= "</div>\n";
 	}

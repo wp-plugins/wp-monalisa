@@ -113,3 +113,20 @@ div.wpml_nav:hover {
     text-decoration:underline; 
     cursor:pointer;
 }
+
+table.editform {
+	border-collapse: collapse;
+	border-spacing: 5px;
+}
+
+table.editform th {
+	vertical-align: center;
+}
+
+table.editform td {
+	padding: 10px;
+}
+
+td.td-center {
+	text-align: center;
+}
