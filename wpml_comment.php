@@ -47,7 +47,12 @@ function wpml_comment($postid=0)
 
 function get_wpml_comment($postid=0)
 {
-    global $wpdb;
+    global $wpdb,$post;
+    
+    // if this post is excluded return nothing :-)
+    $excludes = unserialize(get_option('wpml_excludes'));
+    if (is_array($excludes) and in_array($post->ID,$excludes)) 
+    	return "";
 
     // table name
     $wpml_table = $wpdb->prefix . "monalisa";

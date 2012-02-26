@@ -1,7 +1,7 @@
 <?php
 /* This file is part of the wp-monalisa plugin for wordpress */
 
-/*  Copyright 2009-2011  Hans Matzen  (email : webmaster at tuxlog.de)
+/*  Copyright 2009-2012  Hans Matzen  (email : webmaster at tuxlog.de)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -46,7 +46,6 @@ function wpml_admin_init()
     // add thickbox and jquery for import interface 
     wp_enqueue_script( 'thickbox' );
     wp_enqueue_style ( 'thickbox' );
-    
 } 
 
 //
@@ -197,6 +196,14 @@ function wpml_admin()
   $out = "";
 
   $out .= '<div class="wrap"><h2>wp-Monalisa '.__('Settings',"wpml").'</h2>';
+
+  // add support link
+  if (file_exists(plugin_dir_path(__FILE__) . "/support/supp.php")) {
+  	require_once(plugin_dir_path(__FILE__) . "/support/supp.php");
+  	$out .= tl_add_supp();
+  }
+  
+  
   $out .= '<div id="ajax-response"></div>'."\n"; 
   
   // hinweis auf wordpress smilies schalter deaktivieren
@@ -274,9 +281,10 @@ function wpml_admin()
   
 
   // add link to import/export interface
-  $out .= '<div style="text-align:right"><a href="../wp-content/plugins/wp-monalisa/wpml_import.php?height=600&amp;width=400" class="thickbox" >'.__("Import Smiley-Package","wpml").'</a>&nbsp;&nbsp;&nbsp;'."\n";
-  $out .= '<a href="../wp-content/plugins/wp-monalisa/wpml_export.php?height=640&amp;width=540" class="thickbox" >'.__("Export Smiley-Package (pak-Format)","wpml").'</a></div>'."\n";
-
+  $out .= '<div style="text-align:right;padding-bottom:10px;"><a class="button-secondary thickbox" href="../wp-content/plugins/wp-monalisa/wpml_import.php?height=600&amp;width=400" >'.__("Import Smiley-Package","wpml").'</a>&nbsp;&nbsp;&nbsp;'."\n";
+  $out .= '<a class="button-secondary thickbox" href="../wp-content/plugins/wp-monalisa/wpml_export.php?height=640&amp;width=540" class="thickbox" >'.__("Export Smiley-Package (pak-Format)","wpml").'</a></div>'."\n";
+   
+  
   $out .= "</div><hr />\n";
 
   echo $out;

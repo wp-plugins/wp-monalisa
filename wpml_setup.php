@@ -135,5 +135,6 @@ function wp_monalisa_deinstall()
   
   // remove options from wp_options
   delete_option("wpml-opts");
+  delete_option("wpml_excludes");
 }
 ?>
