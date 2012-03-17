@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wp-Monalisa 0.2 po polsku\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-25 09:10+0100\n"
+"POT-Creation-Date: 2012-03-03 07:40+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Michał Maciejewski <admin@inwit.pl>\n"
 "Language-Team: Galareta 1 Man Band <admin@inwit.pl>\n"
@@ -314,16 +314,20 @@ msgstr ""
 msgid "Your timezone setting"
 msgstr ""
 
-#: support/support.php:148
+#: support/support.php:145
+msgid "Active theme"
+msgstr ""
+
+#: support/support.php:149
 msgid ""
 "Fetching the plugin information from wordpress.org...this may take a while"
 msgstr ""
 
-#: support/support.php:150
+#: support/support.php:151
 msgid "Active Plugins"
 msgstr ""
 
-#: support/support.php:162
+#: support/support.php:163
 #, fuzzy
 msgid "Plugin Settings"
 msgstr "- ustawienia"

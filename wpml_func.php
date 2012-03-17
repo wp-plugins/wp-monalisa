@@ -119,7 +119,7 @@ function wpml_map_emoticons()
 	// store emoticon mapping to array for smiley translation
 	if ( ! array_key_exists($res->emoticon, $wpml_smilies) )
 	{
-	    $wpml_smilies[ wptexturize($res->emoticon) ] = $ico_url . "/" . $res->iconfile;	
+	    $wpml_smilies[ trim(wptexturize($res->emoticon)) ] = $ico_url . "/" . $res->iconfile;	
 	}
 	
     }
@@ -153,7 +153,7 @@ function wpml_map_emoticons()
     $wpml_search .= ')(\s|$)/m';
 
     if ( count($wpml_smilies) == 0 )
-	$wpml_search="";
+		$wpml_search="";
 
 }
 
@@ -164,9 +164,9 @@ function wpml_translate_emoticon($smiley) {
     global $wpml_smilies;
 
     if (count($smiley) == 0) {
-	return '';
+		return '';
     }
-
+    
     $smiley = trim(reset($smiley));
     $img = $wpml_smilies[$smiley];
     $smiley_masked = attribute_escape($smiley);

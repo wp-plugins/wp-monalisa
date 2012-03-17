@@ -202,8 +202,8 @@ function get_wpml_comment($postid=0)
     }
 
     if  ( $av['showaspulldown'] == 1 ) {
-	$out .= "<div class='wpml_nav' id='buttonl' >".__("less...","wpml")."</div>"; 
-	$out1strow .= "<div class='wpml_nav' id='buttonm' >".__("more...","wpml")."</div>";
+	$out .= "<div class='wpml_nav' id='buttonl' onclick='wpml_toggle_smilies();'>".__("less...","wpml")."</div>"; 
+	$out1strow .= "<div class='wpml_nav' id='buttonm' onclick='wpml_toggle_smilies();'>".__("more...","wpml")."</div>";
     } 
     
     $out .= "</div>\n";

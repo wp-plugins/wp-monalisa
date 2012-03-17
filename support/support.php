@@ -124,7 +124,7 @@ function switch_data() {
 </tr>
 <tr>
 <td><label for ="email"><?php _e("Enter your email address",$supp_td);?>:</label></td>
-<td><input type="text" id="email" class="regular-text" /></td>
+<td><input type="text" id="email" class="regular-text" value="<?php echo get_option('admin_email');?>"/></td>
 </tr>
 <tr>
 <td>&nbsp;</td>
@@ -142,7 +142,8 @@ function switch_data() {
 	  _e("Your wordpress language",$supp_td); echo ": ".WPLANG." <br/>";
       _e("Your local package",$supp_td); echo ": $wp_local_package <br/>";
       _e("Your timezone setting",$supp_td); echo ": ".get_option('gmt_offset') ."<br/>";
-  	  $general = "WP Version:".$wp_version."/"."Language:".WPLANG."/"."Local:".$wp_local_package."/"."Timezone:".get_option('gmt_offset');
+      _e("Active theme",$supp_td); echo ": " . get_current_theme() . "<br />";
+  	  $general = "WP Version:".$wp_version."/"."Language:".WPLANG."/"."Local:".$wp_local_package."/"."Timezone:".get_option('gmt_offset')."/"."Theme:".get_current_theme();
 ?>
 <input type="hidden" id="general" value="<?php echo $general;?>" />
 <input type="hidden" id="waitmessage" value="<?php _e("Fetching the plugin information from wordpress.org...this may take a while",$supp_td);?>" />
