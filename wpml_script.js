@@ -107,6 +107,7 @@ function insert_text(stxt,obj)
   diese funktion(en) dient zum auf und zuklappen der gesamten smilies
   im comment form und zwar ajax-like
 */
+/* does not work with bwp minify
 jQuery(function() {
 	// show all smilies
 	jQuery("#buttonm").click(function() {
@@ -119,3 +120,19 @@ jQuery(function() {
 		jQuery("#smiley1").toggle("slow");
 	    });
     });
+*/
+function wpml_toggle_smilies() {
+	jQuery("#smiley1").toggle("slow");
+	jQuery("#smiley2").toggle("slow");
+}
+
+//calls wpml_edit with a post call and the id of the post to disable comment smilies on
+//puts the returned string into the element with id message
+function wpml_comment_exclude(postid) {
+	jQuery("#wpml_messages").html('');
+	// ajax call to itself
+	jQuery.post("../wp-content/plugins/wp-monalisa/wpml_edit.php", {postid: postid}, 
+ 		function(data){jQuery("#wpml_messages").html(data);});
+ 
+	return false;
+}

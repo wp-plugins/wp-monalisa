@@ -1,7 +1,7 @@
 <?php
 /* This file is part of the wp-monalisa plugin for wordpress */
 
-/*  Copyright 2009  Hans Matzen  (email : webmaster at tuxlog dot de)
+/*  Copyright 2009-2011  Hans Matzen  (email : webmaster at tuxlog dot de)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -29,7 +29,22 @@ if ( !function_exists('admin_message') )
 	echo "</strong></p></div>\n";
     }
 }
-
+ 
+//
+// enqueue the wp-monalisa stylesheet individual or default
+// if no individual exists
+//
+function wpml_css() 
+{
+	$def  = "wp-monalisa-default.css";
+	$user = "wp-monalisa.css";
+	
+	if (file_exists( WP_PLUGIN_DIR . "/wp-monalisa/" . $user))
+	    $def =$user;
+	
+	wp_enqueue_style("wp-monalisa", plugins_url( $def, __FILE__));
+}
+    
 //
 // this function compares the length of k1 and k2 and returns
 // 0 if equal, 1 if k1 shorter than k2, -1 if k1 is longer than k2
@@ -104,7 +119,7 @@ function wpml_map_emoticons()
 	// store emoticon mapping to array for smiley translation
 	if ( ! array_key_exists($res->emoticon, $wpml_smilies) )
 	{
-	    $wpml_smilies[ wptexturize($res->emoticon) ] = $ico_url . "/" . $res->iconfile;	
+	    $wpml_smilies[ trim(wptexturize($res->emoticon)) ] = $ico_url . "/" . $res->iconfile;	
 	}
 	
     }
@@ -138,7 +153,7 @@ function wpml_map_emoticons()
     $wpml_search .= ')(\s|$)/m';
 
     if ( count($wpml_smilies) == 0 )
-	$wpml_search="";
+		$wpml_search="";
 
 }
 
@@ -149,9 +164,9 @@ function wpml_translate_emoticon($smiley) {
     global $wpml_smilies;
 
     if (count($smiley) == 0) {
-	return '';
+		return '';
     }
-
+    
     $smiley = trim(reset($smiley));
     $img = $wpml_smilies[$smiley];
     $smiley_masked = attribute_escape($smiley);

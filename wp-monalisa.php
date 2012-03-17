@@ -3,7 +3,7 @@
 Plugin Name: wp-Monalisa
 Plugin URI: http://www.tuxlog.de/wordpress/2009/wp-monalisa/
 Description: wp-Monalisa is the plugin that smiles at you like monalisa does. place the smilies of your choice in posts, pages or comments. 
-Version: 1.5
+Version: 1.9
 Author: Hans Matzen <webmaster at tuxlog dot de>
 Author URI: http://www.tuxlog.de
 */
@@ -52,34 +52,16 @@ function wp_monalisa_init()
 	$locale = 'en_US';
     if(function_exists('load_textdomain') and $locale != "en_US") 
 	load_textdomain("wpml",ABSPATH . "wp-content/plugins/wp-monalisa/lang/".$locale.".mo");
-    
-    //
-    // just return the css link
-    // this function is called via the wp_head hook
-    //
-    function wpml_css() 
-    {
-	$def  = "wp-monalisa-default.css";
-	$user = "wp-monalisa.css";
-	
-	if (file_exists( WP_PLUGIN_DIR . "/wp-monalisa/" . $user))
-	    $def =$user;
-	
-	$plugin_url = plugins_url("wp-monalisa/");
-	
-	echo '<link rel="stylesheet" id="wp-monalisa-css" href="'. 
-	    $plugin_url . $def . '" type="text/css" media="screen" />' ."\n";
-	
-    }
-    
+          
     // add css im header hinzufügen 
-    add_action('wp_head', 'wpml_css');
-    add_filter('admin_head', 'wpml_css');
+    add_action('wp_enqueue_scripts', 'wpml_css');
+    add_action('admin_print_styles', 'wpml_css');
 
+    
     // javascript hinzufügen
     wp_enqueue_script('wpml_script',
         	      '/' . PLUGINDIR . '/wp-monalisa/wpml_script.js',
-		      array('jquery'), "9999");
+		      array('jquery'), "9999");      	
 }
 
 

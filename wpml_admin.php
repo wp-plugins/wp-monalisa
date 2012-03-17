@@ -1,7 +1,7 @@
 <?php
 /* This file is part of the wp-monalisa plugin for wordpress */
 
-/*  Copyright 2009  Hans Matzen  (email : webmaster at tuxlog.de)
+/*  Copyright 2009-2012  Hans Matzen  (email : webmaster at tuxlog.de)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -46,7 +46,6 @@ function wpml_admin_init()
     // add thickbox and jquery for import interface 
     wp_enqueue_script( 'thickbox' );
     wp_enqueue_style ( 'thickbox' );
-    
 } 
 
 //
@@ -197,39 +196,47 @@ function wpml_admin()
   $out = "";
 
   $out .= '<div class="wrap"><h2>wp-Monalisa '.__('Settings',"wpml").'</h2>';
+
+  // add support link
+  if (file_exists(plugin_dir_path(__FILE__) . "/support/supp.php")) {
+  	require_once(plugin_dir_path(__FILE__) . "/support/supp.php");
+  	$out .= tl_add_supp();
+  }
+  
+  
   $out .= '<div id="ajax-response"></div>'."\n"; 
   
   // hinweis auf wordpress smilies schalter deaktivieren
   if (get_option("use_smilies") == "1")
       $out .= '<div class="error" id="error"><strong>' . __("Please turn off Options -> Write -> 'Convert emoticons like...' to use wp-Monalisa smilies).","wpml") . "</strong></div>\n";
 
-  $out .= '<form name="editopts" id="editopts" method="post" action="">';
+  $out .= '<form name="editopts" id="editopts" method="post" action="#">';
   $out .= '<input type="hidden" name="action" value="editopts" />';
 
-  $out .= '<table class="editform" cellspacing="5" cellpadding="5">';
-  $out .= '<tr><th scope="row" valign="top"><label for="iconpath">'.__('Iconpath','wpml').':</label></th>'."\n";
+  $out .= '<table class="editform">';
+  $out .= '<tr><th scope="row" ><label for="iconpath">'.__('Iconpath','wpml').':</label></th>'."\n";
 
   // icon verzeichnis
-  $out .= '<td colspan="5"><input name="iconpath" id="iconpath" type="text" value="'. $av['icondir'].'" size="70" onchange="alert(\''.__('You are about to change the iconpath.\n Please be careful and make sure the icons are still accessible.\n To update your settings klick Save Settings',"wpml").'\');" /></td></tr>'."\n"; 
+  $out .= '<td colspan="3"><input name="iconpath" id="iconpath" type="text" value="'. $av['icondir'].'" size="70" onchange="alert(\''.__('You are about to change the iconpath.\n Please be careful and make sure the icons are still accessible.\n To update your settings klick Save Settings',"wpml").'\');" /></td></tr>'."\n"; 
   
   // anzeige der smilies im editor
-  $out .= '<tr><th scope="row" valign="top"><label for="onedit">'.__('Show smilies on edit','wpml').':</label></th>'."\n";
+  $out .= '<tr><th scope="row" ><label for="onedit">'.__('Show smilies on edit','wpml').':</label></th>'."\n";
   $out .= '<td><input name="onedit" id="onedit" type="checkbox" value="1"'.($av['onedit']=="1"?'checked="checked"':"").' /></td>'."\n";
   
-  $out .= '<td>&nbsp;</td></tr>';
+  $out .= '<td>&nbsp;</td><td>&nbsp;</td></tr>';
  
    // anzeige der smilies für kommentare
-  $out .= '<tr><th scope="row" valign="top"><label for="oncomment">'.__('Show smilies on comment','wpml').':</label></th>'."\n";
+  $out .= '<tr><th scope="row" ><label for="oncomment">'.__('Show smilies on comment','wpml').':</label></th>'."\n";
   $out .= '<td><input name="oncomment" id="oncomment" type="checkbox" value="1"'.($av['oncomment']=="1"?'checked="checked"':"").'/></td>'."\n";
 
   // kommentar textarea id
- $out .= '<th scope="row" valign="top"><label for="commenttextid">'.__('Comment Textarea ID','wpml').':</label></th>'."\n";
+ $out .= '<th scope="row" ><label for="commenttextid">'.__('Comment Textarea ID','wpml').':</label></th>'."\n";
    $out .= '<td><input name="commenttextid" id="commenttextid" type="text" value="'. $av['commenttextid'].'" size="20" onchange="alert(\''.__('You are about to change the id of the textarea of your comment form.\n Please make sure you enter the correct id, to make wp-monalisa work correctly',"wpml").'\');" /></td></tr>'."\n"; 
 
-  $out .= '<tr><th scope="row" valign="top"><label for="replaceicon">'.__('Replace emoticons with html-images','wpml').':</label></th>'."\n";
+  $out .= '<tr><th scope="row" ><label for="replaceicon">'.__('Replace emoticons with html-images','wpml').':</label></th>'."\n";
   $out .= '<td><input name="replaceicon" id="replaceicon" type="checkbox" value="1" '.($av['replaceicon']=="1"?'checked="checked"':""). ' /></td>'."\n";
 
-  $out .= '<th scope="row" valign="top"><label for="showicon">'.__('Show emoticons in selection as','wpml').':</label></th>'."\n";
+  $out .= '<th scope="row" ><label for="showicon">'.__('Show emoticons in selection as','wpml').':</label></th>'."\n";
   $out .= '<td><select name="showicon" id="showicon" onchange="wpml_admin_switch();" >'."\n";
   $out .= '<option value="1"'.($av['showicon']=="1"?'selected="selected"':"").'>'.__("Icon",'wpml').'</option>';
   $out .= '<option value="0"'.($av['showicon']=="0"?'selected="selected"':"").'>'.__("Text",'wpml').'</option>';
@@ -238,9 +245,9 @@ function wpml_admin()
 
   // smilies als tabelle anzeigen
   // smiley tabelle
-  $out .= '<tr><th scope="row" valign="top"><label for="showastable">'.__('Show smilies in a table','wpml').':</label></th>'."\n";
+  $out .= '<tr><th scope="row" ><label for="showastable">'.__('Show smilies in a table','wpml').':</label></th>'."\n";
   $out .= '<td><input name="showastable" id="showastable" type="checkbox" value="1" '.($av['showastable']=="1"?'checked="checked"':""). ' onchange="wpml_admin_switch();" /></td>'."\n";
-  $out .= '<th scope="row" valign="top"><label for="smiliesperrow">'.__('Smilies per row','wpml').':</label></th>'."\n";
+  $out .= '<th scope="row" ><label for="smiliesperrow">'.__('Smilies per row','wpml').':</label></th>'."\n";
   $out .= '<td><input name="smiliesperrow" id="smiliesperrow" type="text" value="'. 
       $av['smiliesperrow'] . '" size="3" maxlength="3" /></td>'."\n";
   $out .="</tr>\n";
@@ -248,18 +255,18 @@ function wpml_admin()
  
   // smilies zum aufklappen
   // smiley pull-down
-  $out .= '<tr><th scope="row" valign="top"><label for="showaspulldown">'.__('Show smilies as Pulldown','wpml').':</label></th>'."\n";
+  $out .= '<tr><th scope="row" ><label for="showaspulldown">'.__('Show smilies as Pulldown','wpml').':</label></th>'."\n";
   $out .= '<td><input name="showaspulldown" id="showaspulldown" type="checkbox" value="1" '.($av['showaspulldown']=="1"?'checked="checked"':""). ' onchange="wpml_admin_switch();" /></td>'."\n";
-  $out .= '<th scope="row" valign="top"><label for="smilies1strow">'.__('Smilies in 1st row','wpml').':</label></th>'."\n";
+  $out .= '<th scope="row" ><label for="smilies1strow">'.__('Smilies in 1st row','wpml').':</label></th>'."\n";
   $out .= '<td><input name="smilies1strow" id="smilies1strow" type="text" value="'. 
       $av['smilies1strow'] . '" size="3" maxlength="3" /></td>'."\n";
   $out .="</tr>\n";
 
 
   // tooltips fuer icons anzeigen
-   $out .= '<tr><th scope="row" valign="top"><label for="icontooltip">'.__('Show tooltip for icons','wpml').':</label></th>'."\n";
+   $out .= '<tr><th scope="row" ><label for="icontooltip">'.__('Show tooltip for icons','wpml').':</label></th>'."\n";
   $out .= '<td><input name="icontooltip" id="icontooltip" type="checkbox" value="1" '.($av['icontooltip']=="1"?'checked="checked"':""). ' /></td>'."\n";
-  $out .= '<th scope="row" valign="top">&nbsp;</label></th>'."\n";
+  $out .= '<th scope="row" >&nbsp;</th>'."\n";
   $out .= '<td>&nbsp;</td>'."\n";
   $out .= "</tr>\n";
 
@@ -274,9 +281,10 @@ function wpml_admin()
   
 
   // add link to import/export interface
-  $out .= '<div style="text-align:right"><a href="../wp-content/plugins/wp-monalisa/wpml_import.php?height=600&amp;width=400" class="thickbox" >'.__("Import Smiley-Package","wpml").'</a>&nbsp;&nbsp;&nbsp;'."\n";
-  $out .= '<a href="../wp-content/plugins/wp-monalisa/wpml_export.php?height=640&amp;width=540" class="thickbox" >'.__("Export Smiley-Package (pak-Format)","wpml").'</a></div>'."\n";
-
+  $out .= '<div style="text-align:right;padding-bottom:10px;"><a class="button-secondary thickbox" href="../wp-content/plugins/wp-monalisa/wpml_import.php?height=600&amp;width=400" >'.__("Import Smiley-Package","wpml").'</a>&nbsp;&nbsp;&nbsp;'."\n";
+  $out .= '<a class="button-secondary thickbox" href="../wp-content/plugins/wp-monalisa/wpml_export.php?height=640&amp;width=540" class="thickbox" >'.__("Export Smiley-Package (pak-Format)","wpml").'</a></div>'."\n";
+   
+  
   $out .= "</div><hr />\n";
 
   echo $out;
@@ -336,7 +344,7 @@ function wpml_admin()
       $maxpage +=1;
   
   // icons
-  $out .= '<form name="editicons" id="editicons" method="post" action="">';
+  $out .= '<form name="editicons" id="editicons" method="post" action="#">';
   $out .= '<input type="hidden" name="action" value="editicons" />';
 
   // submit knöpfe ausgeben
@@ -355,7 +363,7 @@ function wpml_admin()
   $out .="<a href=\"$thisform&amp;activepage=" . (string) ($active_page+1 > $maxpage?$active_page:$active_page+1) . "\">&gt;</a>&nbsp;&nbsp;"; 
   $out .= __("Lines per Page:","wpml")."<input style=\"font-size:10px\" type='text' name='lines_per_page1' value='".$lines_per_page."' size='4' />";
   $naviconfile = site_url(PLUGINDIR . "/wp-monalisa/yes.png");
-  $out .='<input type="image" align="top" name="set_lines_per_page1" src="' . $naviconfile .'" alt="'.__("Save","wpml").'" /></div>';
+  $out .='<input type="image" name="set_lines_per_page1" src="' . $naviconfile .'" alt="'.__("Save","wpml").'" /></div>';
 
   // icon zeilen ausgeben
   $out .= "<table class=\"widefat\">\n";
@@ -382,7 +390,7 @@ function wpml_admin()
   
   // tabellenbody
   // zeile fuer neueintrag
-  $out .= '<tr><td align="center"><b>'. __("New Entry",'wpml').":</b></td>";
+  $out .= '<tr><td class="td-center"><b>'. __("New Entry",'wpml').":</b></td>";
   $out .= '<td><input name="NEWemoticon" id="NEWemoticon" type="text" value="" size="15" maxlength="25" /></td>'."\n";
   $out .= '<td>';
    $out .= '<select name="NEWicon" id="NEWicon" onchange="updateImage(\''.site_url($av['icondir']).'\',\'NEW\')">'."\n";
@@ -410,7 +418,7 @@ function wpml_admin()
       }
   }
   $out .= $icon_select_html . "</select></td>\n";
-  $out .= '<td><img class="wpml_ico" name="icoimg" id="icoimg" src="' . 
+  $out .= '<td><img class="wpml_ico" id="icoimg" src="' . 
       site_url($av['icondir']).'/wpml_smile.gif" alt="wp-monalisa icon"/></td>';
   $out .= '<td><input name="NEWonpost" id="NEWonpost" type="checkbox" value="1" /></td>'."\n";
   $out .= '<td><input name="NEWoncomment" id="NEWoncomment" type="checkbox" value="1" />'."\n";
@@ -459,14 +467,14 @@ function wpml_admin()
       else
 	  $out .= '<tr>';
       $alternate = !$alternate;
-      $out .= '<td align="center"><input class="wpml_mark" name="mark'.$tid.'" id="mark'.$tid.'" type="checkbox" value="'. $tid.'" />&nbsp;</td>';
+      $out .= '<td class="td-center"><input class="wpml_mark" name="mark'.$tid.'" id="mark'.$tid.'" type="checkbox" value="'. $tid.'" />&nbsp;</td>';
       $out .= '<td><input name="emoticon'.$tid.'" id="emoticon'.$tid.'" type="text" value="'. $res->emoticon.'" size="15" maxlength="25" /></td>'."\n";
 
       $out .= '<td>';
       $out .= '<select name="icon'.$tid.'" id="icon'.$tid.
 	  '" onchange="updateImage(\''.site_url($av['icondir'])."',".$tid.')">'."\n";
       $out .= $icon_select_html . "</select></td>\n";
-      $out .= '<td><img class="wpml_ico" name="icoimg'.$tid.'" id="icoimg'.$tid.'" src="' . 
+      $out .= '<td><img class="wpml_ico" id="icoimg'.$tid.'" src="' . 
 	  site_url($av['icondir']).'/wpml_smile.gif" alt="wp-monalisa icon" />';
       $out .= '<script type="text/javascript">updateImage("'.site_url($av['icondir']).'","'.$tid.'")</script></td>';
 
@@ -503,7 +511,7 @@ function wpml_admin()
   } 
   $out .="<a href=\"$thisform&amp;activepage=" . (string) ($active_page+1 > $maxpage?$active_page:$active_page+1) . "\">&gt;</a>&nbsp;&nbsp;"; 
   $out .= __("Lines per Page:","wpml")."<input style=\"font-size:10px\" type='text' name='lines_per_page2' value='".$lines_per_page."' size='4' />"; 
-  $out .='<input type="image" align="top" name="set_lines_per_page2" src="' . $naviconfile .'" alt="'.__("Save","wpml").'" /></div>';
+  $out .='<input type="image" name="set_lines_per_page2" src="' . $naviconfile .'" alt="'.__("Save","wpml").'" /></div>';
   
 
   $out .= '</form></div>'."\n";

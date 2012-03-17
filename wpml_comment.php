@@ -47,7 +47,12 @@ function wpml_comment($postid=0)
 
 function get_wpml_comment($postid=0)
 {
-    global $wpdb;
+    global $wpdb,$post;
+    
+    // if this post is excluded return nothing :-)
+    $excludes = unserialize(get_option('wpml_excludes'));
+    if (is_array($excludes) and in_array($post->ID,$excludes)) 
+    	return "";
 
     // table name
     $wpml_table = $wpdb->prefix . "monalisa";
@@ -140,8 +145,8 @@ function get_wpml_comment($postid=0)
 	    {
 		$out .='<div class="wpml_ico_icon" onclick="smile2comment(\''.
 		    $av['commenttextid'].'\',\''.addslashes($smile).'\','.$repl.');">'."\n";
-		$out .= "<img class='wpml_ico' name='icoimg".$res->tid.
-		    "' id='icoimg".$res->tid."' src='$ico_url' alt='".
+		$out .= "<img class='wpml_ico' " .
+		    " id='icoimg".$res->tid."' src='$ico_url' alt='".
 		    addslashes($smile)."' $ico_tt />&nbsp;";
 		$out .= "</div>\n";
 	    } 
@@ -149,8 +154,8 @@ function get_wpml_comment($postid=0)
 	    {
 		$out .='<td class="wpml_ico_icon" onclick="smile2comment(\''.
 		    $av['commenttextid'].'\',\''.addslashes($smile).'\','.$repl.');">'."\n";
-		$out .= "<img class='wpml_ico' name='icoimg".$res->tid.
-		    "' id='icoimg".$res->tid."' src='$ico_url' alt='".
+		$out .= "<img class='wpml_ico' " . 
+		    " id='icoimg".$res->tid."' src='$ico_url' alt='".
 		    addslashes($smile)."' $ico_tt />&nbsp;";
 		$out .= "</td>\n";	
 	    }
@@ -197,8 +202,8 @@ function get_wpml_comment($postid=0)
     }
 
     if  ( $av['showaspulldown'] == 1 ) {
-	$out .= "<div class='wpml_nav' id='buttonl' >".__("less...","wpml")."</div>"; 
-	$out1strow .= "<div class='wpml_nav' id='buttonm' >".__("more...","wpml")."</div>";
+	$out .= "<div class='wpml_nav' id='buttonl' onclick='wpml_toggle_smilies();'>".__("less...","wpml")."</div>"; 
+	$out1strow .= "<div class='wpml_nav' id='buttonm' onclick='wpml_toggle_smilies();'>".__("more...","wpml")."</div>";
     } 
     
     $out .= "</div>\n";
