@@ -3,7 +3,7 @@ Contributors: tuxlog, woodstock
 Donate link: http://www.tuxlog.de/
 Tags: wordpress, plugin, smiley, smilies, monalisa, comments, post, edit
 Requires at least: 2.7
-Tested up to: 3.3.1
+Tested up to: 3.4
 Stable tag: 2.0
 
 wp-monalisa is the plugin that smiles at you like monalisa does. place the smilies of your choice in posts, pages or comments.
