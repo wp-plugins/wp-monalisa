@@ -78,8 +78,12 @@ function wpml_map_emoticons()
 {
     global $wpdb, $wpml_search, $wpml_smilies;
     
-    $av = unserialize(get_option("wpml-opts"));
-
+    $av=array();
+    if (function_exists('is_multisite') && is_multisite()) { 
+    	$av = maybe_unserialize(get_blog_option(1, "wpml-opts"));
+    }  else
+    	$av = unserialize(get_option("wpml-opts"));
+    
     // null werte auf 0 setzen für sql abfrage
     if (is_null($av['onedit'])) $av['onedit']=0;
     if (is_null($av['oncomment'])) $av['oncomment']=0;
@@ -92,6 +96,10 @@ function wpml_map_emoticons()
     // table name
     $wpml_table = $wpdb->prefix . "monalisa";
 
+    if (function_exists('is_multisite') && is_multisite()) 
+		$wpml_table = $wpdb->base_prefix . "monalisa";
+ 
+ 
     // extend array allowedtags with img tag if necessary
     // to make sure the comment smilies dont geat lost
     if ( $av['oncomment']==1 and $av['replaceicon']==1)
