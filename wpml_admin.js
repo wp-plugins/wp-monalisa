@@ -142,3 +142,4 @@ function wpml_admin_switch()
 	document.editopts.smilies1strow.disabled=true;
     } 
 }
+

@@ -3,8 +3,8 @@ Contributors: tuxlog, woodstock
 Donate link: http://www.tuxlog.de/
 Tags: wordpress, plugin, smiley, smilies, monalisa, comments, post, edit
 Requires at least: 2.7
-Tested up to: 3.2
-Stable tag: 1.5
+Tested up to: 3.3.1
+Stable tag: 2.0
 
 wp-monalisa is the plugin that smiles at you like monalisa does. place the smilies of your choice in posts, pages or comments.
 
@@ -73,6 +73,27 @@ Plase check and double check the path to your smiley directory.
 4. wp-Monalisa import thickbox dialog
 
 == Changelog ==
+
+= v2.0 (2012-06-10) =
+* extended multisite support for easier handling
+
+= v1.9 (2012-03-05) =
+* fixed a typo with trailing spaces in emoticons
+* added default admin email to support form
+* added theme name to support form 
+* work around a bug in bwp minify with jquery events
+
+= v1.8 (2012-02-19) =
+* add new support and donation feature
+* add posibility to disable comments smilies on a single post/page
+* use standard load for wordpress includes
+ 
+= v1.7 (2011-12-21) =
+* clean up more (maybe all?) html5 code errors for 3.3 compatibility
+
+= v1.6 (2011-12-14) =
+* now using wp_enqueue_style for css
+* clean up html5 code errors for 3.3 compatibility
 
 = v1.5 (2011-10-22) =
 * removed russian translation because of a restricton from wordpress.org
