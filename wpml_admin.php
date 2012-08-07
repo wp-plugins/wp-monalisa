@@ -39,19 +39,29 @@ function wpml_admin_init()
 		      site_url("/wp-content/plugins/wp-monalisa") . '/smiley.png');
 	add_action('admin_print_styles-' . $pagejs, 'wpml_add_adminjs');
     }
-   
+    
     
     // add thickbox and jquery for import interface 
     wp_enqueue_script( 'thickbox' );
     wp_enqueue_style ( 'thickbox' );
+    add_action( 'admin_enqueue_scripts', 'wpml_editor_scripts' );
 } 
+
+//
+//
+//
+function wpml_editor_scripts($pagehook)
+{
+	if ($pagehook == "post.php" or $pagehook == "post-new.php")
+		wp_enqueue_script('wpml_script', '/' . PLUGINDIR . '/wp-monalisa/wpml_script.js', array('jquery'), "9999");
+}
 
 //
 // adds the admin javascript, called 
 //
 function wpml_add_adminjs() 
 {
-	wp_enqueue_script('wpml_admin', '/' . PLUGINDIR . '/wp-monalisa/wpml_admin.js', array(), "9999");
+	wp_enqueue_script('wpml_admin', '/' . PLUGINDIR . '/wp-monalisa/wpml_admin.js', array(), "9999");  
 }
 
 //
@@ -61,7 +71,7 @@ function wpml_admin()
 {
   // get sql object
   global $wpdb;
-
+  
   // table name
   $wpml_table = $wpdb->prefix . "monalisa";
 
