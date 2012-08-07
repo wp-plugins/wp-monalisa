@@ -117,7 +117,7 @@ function switch_data() {
 <?php _e("You can contact the author of this plugin at",$supp_td); echo " " . $supp_email;?> <br/>
 <?php _e("Please enter your problem description in the textarea and fill in a valid email address.",$supp_td);?><br/>
 <br /><br />
-<table class="editform" cellspacing="5" cellpadding="5">
+<table class="editform">
 <tr>
 <td><label for="request"><?php _e("Problemdescription",$supp_td);?>:</label></td>
 <td><textarea id="request" class="large-text" ></textarea></td>

@@ -4,7 +4,7 @@ Donate link: http://www.tuxlog.de/
 Tags: wordpress, plugin, smiley, smilies, monalisa, comments, post, edit
 Requires at least: 2.7
 Tested up to: 3.4
-Stable tag: 2.0
+Stable tag: 2.1
 
 wp-monalisa is the plugin that smiles at you like monalisa does. place the smilies of your choice in posts, pages or comments.
 
@@ -26,6 +26,7 @@ Features:
 * while edit posts or pages, pops-up in a draggable meta-box
 * extends your comment form to give you visitors the freedom to smile :-)
 * support for fckeditor (tested with v3.3.1)
+* fully integrated ith BuddyPress
 
 The video shows a short overview of what wp-monalisa can do for you. [youtube http://www.youtube.com/watch?v=uHXlELn27ko]
 
@@ -33,6 +34,7 @@ Credits:
 Thanks go to all who support this plugin, with  hints and suggestions for improvment and specially to
 
 * Michal Maciejewski, polish translation
+* Denny from Vau3.de for testing and giving input for the BuddyPress integration
 
 == Installation ==
 
@@ -56,6 +58,15 @@ Configure: [youtube http://www.youtube.com/watch?v=614Gso38v5g]
 Use: [youtube http://www.youtube.com/watch?v=uHXlELn27ko]
 Import/Export of Smilies: [youtube http://www.youtube.com/watch?v=cedwN0u_XRI]
 
+= The smilies for BuddyPress activities are only shown when the page is reloaded. Is this a bug?
+
+No, BuddyPress uses local ajax to add new activities to your timeline. Therefore the earliest time the Smilies can be loaded is when the page is loaded from the server again.
+
+= I can't see the smilies in the notices shown in the sidebar of BuddyPress. What's wrong?
+
+Nothing, the current version of BuddyPress does not offer a filter to show the smilies in there. But there is a workaround editing one line of bb-messages-template.php, change line 546 to 
+<?php echo apply_filters('bp_get_message_notice_text', stripslashes( wp_filter_kses( $notice->message) )) ?>
+or use the Activity-Stream-Widget for BuddyPress, which is supported by wp-monalisa 
 
 = wp-monalisa does not work with comments. What now? =
 
@@ -73,6 +84,11 @@ Plase check and double check the path to your smiley directory.
 4. wp-Monalisa import thickbox dialog
 
 == Changelog ==
+
+= v2.1 (2012-08-05) =
+* swtiched to load_plugin_textdomain for compatibility
+* load js only when applicable
+* added support for BuddyPress (Acitivties, Messages, Notices, Groups, bbpress-Forums)
 
 = v2.0 (2012-06-10) =
 * extended multisite support for easier handling

@@ -41,15 +41,27 @@ function smile2edit(textid,smile,replace)
    der textarea obj ein. obj ist als objekt zu übergeben
 
 */
-function smile2comment(textid,smile,replace){
-    tarea = document.getElementById(textid);
+function smile2comment(textid,smile,replace,myid){
+    //tarea = document.getElementById(textid);
+    tarea = jQuery('#'+myid).parent().find('textarea')[0];
+    if (tarea == null) 
+    {
+	tarea = jQuery('#'+myid).parent().parent().find('textarea')[0];
+    }
+    if (tarea == null) 
+    {
+    	tarea = jQuery('#'+myid).parent().parent().parent().find('textarea')[0];
+    }
+    if (tarea == null) {
+    	tarea = jQuery('#'+textid)[0];
+	}
     if (tarea == null) 
     {
 	alert('wp-monalisa: Textarea not found. Please contact the webmaster of this site.');
 	return;
     }
     if ( replace == 1)
-	insert_text("<img class='wpml_ico' alt='' src='" + smile + "' />", tarea);
+	insert_text("<img class='wpml_ico' alt='" + smile + "' src='" + smile + "' />", tarea);
     else
 	insert_text(" " + smile + " ", tarea); // add space to separate smilies
 }
@@ -121,9 +133,9 @@ jQuery(function() {
 	    });
     });
 */
-function wpml_toggle_smilies() {
-	jQuery("#smiley1").toggle("slow");
-	jQuery("#smiley2").toggle("slow");
+function wpml_toggle_smilies(uid) {
+	jQuery("#smiley1-"+uid).toggle("slow");
+	jQuery("#smiley2-"+uid).toggle("slow");
 }
 
 //calls wpml_edit with a post call and the id of the post to disable comment smilies on

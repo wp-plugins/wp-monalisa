@@ -35,18 +35,24 @@ function wpml_admin_init()
 
     if (function_exists('add_options_page')) 
     {
-	add_menu_page('wp-Monalisa', 'wp-Monalisa', 6, 
-		      basename(__FILE__), 'wpml_admin',
+	$pagejs=add_menu_page('wp-Monalisa', 'wp-Monalisa', 'manage_options', basename(__FILE__), 'wpml_admin',
 		      site_url("/wp-content/plugins/wp-monalisa") . '/smiley.png');
+	add_action('admin_print_styles-' . $pagejs, 'wpml_add_adminjs');
     }
-    wp_enqueue_script('wpml_admin',
-		      '/' . PLUGINDIR . '/wp-monalisa/wpml_admin.js',
-		      array(), "9999");
+   
     
     // add thickbox and jquery for import interface 
     wp_enqueue_script( 'thickbox' );
     wp_enqueue_style ( 'thickbox' );
 } 
+
+//
+// adds the admin javascript, called 
+//
+function wpml_add_adminjs() 
+{
+	wp_enqueue_script('wpml_admin', '/' . PLUGINDIR . '/wp-monalisa/wpml_admin.js', array(), "9999");
+}
 
 //
 // function to show and maintain the emoticons and the options
@@ -77,12 +83,13 @@ function wpml_admin()
       $av['onedit']           = $_POST['onedit'];
       $av['oncomment']        = $_POST['oncomment'];
       $av['showicon']         = $_POST['showicon'];
-      $av['replaceicon']      = $_POST['replaceicon'];
-      $av['showastable']      = $_POST['showastable'];
+      $av['replaceicon']      = (isset($_POST['replaceicon'])?$_POST['replaceicon']:'');
+      $av['showastable']      = (isset($_POST['showastable'])?$_POST['showastable']:'');
       $av['smiliesperrow']    = (int) $_POST['smiliesperrow'];
       $av['showaspulldown']   = $_POST['showaspulldown'];
       $av['smilies1strow']    = (int) $_POST['smilies1strow'];
-      $av['icontooltip']      = $_POST['icontooltip'];
+      $av['icontooltip']      = $_POST['icontooltip']; 
+      $av['wpml4buddypress']  = $_POST['wpml4buddypress'];
 
       if ( $_POST['commenttextid']=="" )
 	  $av['commenttextid'] = "comment";
@@ -221,13 +228,13 @@ function wpml_admin()
   
   // anzeige der smilies im editor
   $out .= '<tr><th scope="row" ><label for="onedit">'.__('Show smilies on edit','wpml').':</label></th>'."\n";
-  $out .= '<td><input name="onedit" id="onedit" type="checkbox" value="1"'.($av['onedit']=="1"?'checked="checked"':"").' /></td>'."\n";
+  $out .= '<td><input name="onedit" id="onedit" type="checkbox" value="1" '.($av['onedit']=="1"?'checked="checked"':"").' /></td>'."\n";
   
   $out .= '<td>&nbsp;</td><td>&nbsp;</td></tr>';
  
    // anzeige der smilies für kommentare
   $out .= '<tr><th scope="row" ><label for="oncomment">'.__('Show smilies on comment','wpml').':</label></th>'."\n";
-  $out .= '<td><input name="oncomment" id="oncomment" type="checkbox" value="1"'.($av['oncomment']=="1"?'checked="checked"':"").'/></td>'."\n";
+  $out .= '<td><input name="oncomment" id="oncomment" type="checkbox" value="1" '.($av['oncomment']=="1"?'checked="checked"':"").'/></td>'."\n";
 
   // kommentar textarea id
  $out .= '<th scope="row" ><label for="commenttextid">'.__('Comment Textarea ID','wpml').':</label></th>'."\n";
@@ -238,9 +245,9 @@ function wpml_admin()
 
   $out .= '<th scope="row" ><label for="showicon">'.__('Show emoticons in selection as','wpml').':</label></th>'."\n";
   $out .= '<td><select name="showicon" id="showicon" onchange="wpml_admin_switch();" >'."\n";
-  $out .= '<option value="1"'.($av['showicon']=="1"?'selected="selected"':"").'>'.__("Icon",'wpml').'</option>';
-  $out .= '<option value="0"'.($av['showicon']=="0"?'selected="selected"':"").'>'.__("Text",'wpml').'</option>';
-  $out .= '<option value="2"'.($av['showicon']=="2"?'selected="selected"':"").'>'.__("Both",'wpml').'</option>';
+  $out .= '<option value="1" '.($av['showicon']=="1"?'selected="selected"':"").'>'.__("Icon",'wpml').'</option>';
+  $out .= '<option value="0" '.($av['showicon']=="0"?'selected="selected"':"").'>'.__("Text",'wpml').'</option>';
+  $out .= '<option value="2" '.($av['showicon']=="2"?'selected="selected"':"").'>'.__("Both",'wpml').'</option>';
   $out .= "</select></td></tr>\n";
 
   // smilies als tabelle anzeigen
@@ -269,7 +276,16 @@ function wpml_admin()
   $out .= '<th scope="row" >&nbsp;</th>'."\n";
   $out .= '<td>&nbsp;</td>'."\n";
   $out .= "</tr>\n";
-
+  
+  if (defined('BP_VERSION')) {
+  // buddypress unterstützung
+  $out .= '<tr><th scope="row" ><label for="wpml4buddypress">'.__('Activate Smilies for BuddyPress','wpml').':</label></th>'."\n";
+  $out .= '<td><input name="wpml4buddypress" id="wpml4buddypress" type="checkbox" value="1" '.($av['wpml4buddypress']=="1"?'checked="checked"':""). ' onchange="wpml_admin_switch();" /></td>'."\n";
+  $out .= '<th scope="row" >&nbsp;</th>'."\n";
+  $out .= '<td>&nbsp;</td>'."\n";
+  $out .="</tr>\n";
+  }
+  
   $out .= '</table>'."\n";
   $out .= '<script  type="text/javascript">wpml_admin_switch();</script>';
 
@@ -282,7 +298,7 @@ function wpml_admin()
 
   // add link to import/export interface
   $out .= '<div style="text-align:right;padding-bottom:10px;"><a class="button-secondary thickbox" href="../wp-content/plugins/wp-monalisa/wpml_import.php?height=600&amp;width=400" >'.__("Import Smiley-Package","wpml").'</a>&nbsp;&nbsp;&nbsp;'."\n";
-  $out .= '<a class="button-secondary thickbox" href="../wp-content/plugins/wp-monalisa/wpml_export.php?height=640&amp;width=540" class="thickbox" >'.__("Export Smiley-Package (pak-Format)","wpml").'</a></div>'."\n";
+  $out .= '<a class="button-secondary thickbox" href="../wp-content/plugins/wp-monalisa/wpml_export.php?height=640&amp;width=540" >'.__("Export Smiley-Package (pak-Format)","wpml").'</a></div>'."\n";
    
   
   $out .= "</div><hr />\n";
@@ -478,8 +494,8 @@ function wpml_admin()
 	  site_url($av['icondir']).'/wpml_smile.gif" alt="wp-monalisa icon" />';
       $out .= '<script type="text/javascript">updateImage("'.site_url($av['icondir']).'","'.$tid.'")</script></td>';
 
-      $out .= '<td><input name="onpost'.$tid.'" id="onpost'.$tid.'" type="checkbox" value="1"'.($res->onpost=="1"?'checked="checked"':"").' /></td>'."\n";
-      $out .= '<td><input name="oncomment'.$tid.'" id="oncomment'.$tid.'" type="checkbox" value="1"'.($res->oncomment=="1"?'checked="checked"':"").' /></td>'."\n";
+      $out .= '<td><input name="onpost'.$tid.'" id="onpost'.$tid.'" type="checkbox" value="1" '.($res->onpost=="1"?'checked="checked"':"").' /></td>'."\n";
+      $out .= '<td><input name="oncomment'.$tid.'" id="oncomment'.$tid.'" type="checkbox" value="1" '.($res->oncomment=="1"?'checked="checked"':"").' /></td>'."\n";
       // add position buttons
       if ($count != 0)
 	  $out .= '<td><img width="20" src="'.plugins_url().'/wp-monalisa/up.png" onclick="switch_row('.$tid.',\'up\');" alt="down arrow"/></td>';
