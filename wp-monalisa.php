@@ -3,12 +3,12 @@
 Plugin Name: wp-Monalisa
 Plugin URI: http://www.tuxlog.de/wordpress/2009/wp-monalisa/
 Description: wp-Monalisa is the plugin that smiles at you like monalisa does. place the smilies of your choice in posts, pages or comments. 
-Version: 1.5
+Version: 2.1
 Author: Hans Matzen <webmaster at tuxlog dot de>
 Author URI: http://www.tuxlog.de
 */
 
-/*  Copyright 2009-2011 Hans Matzen  (email : webmaster at tuxlog dot de)
+/*  Copyright 2009-2012 Hans Matzen  (email : webmaster at tuxlog dot de)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -47,39 +47,16 @@ $wpml_search = "";
 function wp_monalisa_init()
 {
     // get translation 
-    $locale = get_locale();
-    if ( empty($locale) )
-	$locale = 'en_US';
-    if(function_exists('load_textdomain') and $locale != "en_US") 
-	load_textdomain("wpml",ABSPATH . "wp-content/plugins/wp-monalisa/lang/".$locale.".mo");
-    
-    //
-    // just return the css link
-    // this function is called via the wp_head hook
-    //
-    function wpml_css() 
-    {
-	$def  = "wp-monalisa-default.css";
-	$user = "wp-monalisa.css";
-	
-	if (file_exists( WP_PLUGIN_DIR . "/wp-monalisa/" . $user))
-	    $def =$user;
-	
-	$plugin_url = plugins_url("wp-monalisa/");
-	
-	echo '<link rel="stylesheet" id="wp-monalisa-css" href="'. 
-	    $plugin_url . $def . '" type="text/css" media="screen" />' ."\n";
-	
-    }
+    load_plugin_textdomain('wpml', false, dirname( plugin_basename( __FILE__ ) ) . "/lang/");      
     
     // add css im header hinzufügen 
-    add_action('wp_head', 'wpml_css');
-    add_filter('admin_head', 'wpml_css');
+    add_action('wp_enqueue_scripts', 'wpml_css');
+    add_action('admin_print_styles', 'wpml_css');
 
+    
     // javascript hinzufügen
-    wp_enqueue_script('wpml_script',
-        	      '/' . PLUGINDIR . '/wp-monalisa/wpml_script.js',
-		      array('jquery'), "9999");
+    if (! is_admin()) 
+    	wp_enqueue_script('wpml_script', '/' . PLUGINDIR . '/wp-monalisa/wpml_script.js', array('jquery'), "9999");      	
 }
 
 
@@ -93,7 +70,7 @@ add_action('admin_menu','wpml_admin_init');
 
 // init plugin
 add_action('init', 'wp_monalisa_init');
-// add comment support
+// add comment supportbp_activity_comment_content
 add_action('init', 'wpml_comment_init');
 // add edit dialog support
 add_action('admin_menu', 'wpml_edit_init');
@@ -103,4 +80,49 @@ add_filter('the_content',  'wpml_convert_emoticons',99);
 add_filter('the_excerpt',  'wpml_convert_emoticons',99);
 add_filter('comment_text', 'wpml_convert_emoticons', 99);
 
+// show smilies in buddypress 
+
+// optionen einlesen
+$av=array();
+if (function_exists('is_multisite') && is_multisite()) 
+	$av = maybe_unserialize(get_blog_option(1, "wpml-opts"));
+else
+	$av = unserialize(get_option("wpml-opts"));
+	
+if (defined('BP_VERSION') && $av['wpml4buddypress'] == "1") {
+	add_filter('bp_activity_comment_content','wpml_convert_emoticons', 99);
+
+	add_filter( 'bp_get_activity_action',  				'wpml_convert_emoticons', 99);
+	add_filter( 'bp_get_activity_content_body',			'wpml_convert_emoticons', 99);
+	add_filter( 'bp_get_activity_content',     			'wpml_convert_emoticons', 99);
+	add_filter( 'bp_get_activity_parent_content',		'wpml_convert_emoticons', 99);
+	add_filter( 'bp_get_activity_latest_update', 		'wpml_convert_emoticons', 99);
+	add_filter( 'bp_get_activity_latest_update_excerpt',	'wpml_convert_emoticons', 99);
+	add_filter( 'bp_core_render_message_content', 		'wpml_convert_emoticons', 99);
+	add_filter( 'bp_get_the_topic_title', 				'wpml_convert_emoticons', 99);
+	add_filter( 'bp_get_the_topic_latest_post_excerpt', 	'wpml_convert_emoticons', 99);
+	add_filter( 'bp_get_the_topic_post_content', 		'wpml_convert_emoticons', 99);
+	add_filter( 'bp_get_group_description',      		'wpml_convert_emoticons', 99);
+	add_filter( 'bp_get_group_description_excerpt',		'wpml_convert_emoticons', 99);
+	add_filter( 'bp_get_message_notice_subject', 		'wpml_convert_emoticons', 99);
+	add_filter( 'bp_get_message_notice_text', 			'wpml_convert_emoticons', 99);
+	add_filter( 'bp_get_message_thread_subject',		'wpml_convert_emoticons', 99);
+	add_filter( 'bp_get_message_thread_excerpt',		'wpml_convert_emoticons', 99);
+	add_filter( 'bp_get_the_thread_message_content', 	'wpml_convert_emoticons', 99);
+	add_filter( 'bp_get_the_profile_field_value',    	'wpml_convert_emoticons', 99);  
+
+	add_filter( 'bbp_get_reply_content',     			'wpml_convert_emoticons', 99);  
+	add_filter( 'bbp_get_topic_content', 		    	'wpml_convert_emoticons', 99);  
+	
+	// add img tag so that smilies can be displayed
+	add_filter('init','wpml_bp_allow_tags');
+	
+	function wpml_bp_allow_tags($data) {
+		global $allowedtags;
+		$allowedtags['img'] = array('style'=>array());
+		$allowedtags['p'] = array();
+		return $data;
+	}
+
+}
 ?>

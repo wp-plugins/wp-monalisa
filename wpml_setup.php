@@ -111,6 +111,8 @@ function wp_monalisa_install()
 	$av['smiliesperrow'] = 15;
 	// tooltipp fuer icons anzeigen
 	$av['icontooltip'] = 1;
+	// smilies fuer buddypress aktivieren
+	$av['wpml4buddypress'] = 0;
 
 	add_option( "wpml-opts", serialize($av) );
     }
@@ -135,5 +137,6 @@ function wp_monalisa_deinstall()
   
   // remove options from wp_options
   delete_option("wpml-opts");
+  delete_option("wpml_excludes");
 }
 ?>
