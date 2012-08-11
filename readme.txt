@@ -1,7 +1,7 @@
 === Plugin Name ===
 Contributors: tuxlog, woodstock
 Donate link: http://www.tuxlog.de/
-Tags: wordpress, plugin, smiley, smilies, monalisa, comments, post, edit
+Tags: wordpress, plugin, smiley, smilies, monalisa, comments, post, edit, buddypress, bbpress
 Requires at least: 2.7
 Tested up to: 3.4
 Stable tag: 2.1
@@ -58,11 +58,11 @@ Configure: [youtube http://www.youtube.com/watch?v=614Gso38v5g]
 Use: [youtube http://www.youtube.com/watch?v=uHXlELn27ko]
 Import/Export of Smilies: [youtube http://www.youtube.com/watch?v=cedwN0u_XRI]
 
-= The smilies for BuddyPress activities are only shown when the page is reloaded. Is this a bug?
+= The smilies for BuddyPress activities are only shown when the page is reloaded. Is this a bug? =
 
 No, BuddyPress uses local ajax to add new activities to your timeline. Therefore the earliest time the Smilies can be loaded is when the page is loaded from the server again.
 
-= I can't see the smilies in the notices shown in the sidebar of BuddyPress. What's wrong?
+= I can't see the smilies in the notices shown in the sidebar of BuddyPress. What's wrong? =
 
 Nothing, the current version of BuddyPress does not offer a filter to show the smilies in there. But there is a workaround editing one line of bb-messages-template.php, change line 546 to 
 <?php echo apply_filters('bp_get_message_notice_text', stripslashes( wp_filter_kses( $notice->message) )) ?>
