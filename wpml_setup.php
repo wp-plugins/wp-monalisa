@@ -23,6 +23,7 @@
 function wp_monalisa_install()
 {
     global $wpdb;
+    $wpdb->show_errors();
     
     // tabelle pruefen und ggf. anlegen
     $sql = 'SHOW TABLES LIKE \''.$wpdb->prefix.'monalisa\'';
@@ -70,7 +71,6 @@ function wp_monalisa_install()
 			    $i,
 			    mysql_real_escape_string($emo),
 			    mysql_real_escape_string($ico));
-	    echo $sql1 . $sql2;
 	    $results = $wpdb->query($sql1 . $sql2);  
 	
 	}
