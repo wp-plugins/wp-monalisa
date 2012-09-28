@@ -27,16 +27,32 @@ are not allowed to call this page directly.'); }
 function wpml_comment_init()
 {
     // optionen einlesen
-    $av = unserialize(get_option("wpml-opts"));
-    
-     // in case we are on a multisite try get the settings from blog no one
-    if ($av == false)
-	$av = unserialize(get_blog_option(1, "wpml-opts"));
-
+	$av=array();
+	if (function_exists('is_multisite') && is_multisite()) 
+		$av = maybe_unserialize(get_blog_option(1, "wpml-opts"));
+	else
+		$av = unserialize(get_option("wpml-opts"));
+	
     // show smileys in commentform if not disabled
     if ( $av['oncomment'] == "1" ) {
 		add_action('comment_form','wpml_comment');
     } 
+
+    // show smilies in buddypress
+    if (defined('BP_VERSION') && $av['wpml4buddypress'] == "1") {
+	// add smilis to activities
+		add_action('bp_after_activity_post_form','wpml_comment');  
+      	add_action('bp_activity_entry_comments','wpml_comment'); 
+	// add smilies to messages
+       	add_action('bp_after_messages_compose_content','wpml_comment'); 
+	// add smilies to forums (bbpress)
+   		add_action('bbp_theme_after_topic_form_content','wpml_comment'); 
+		add_action('bbp_theme_after_reply_form_content','wpml_comment',1);
+		add_action('groups_forum_new_topic_after','wpml_comment');
+		add_action('groups_forum_new_reply_after','wpml_comment');
+		add_action('bp_group_after_edit_forum_topic', 'wpml_comment');
+		add_action('bp_after_group_forum_post_new', 'wpml_comment');
+    }
 }
 
 function wpml_comment($postid=0)
@@ -47,21 +63,29 @@ function wpml_comment($postid=0)
 
 function get_wpml_comment($postid=0)
 {
-    global $wpdb;
+    global $wpdb,$post;
+
+    $uid = uniqid();
+    $out1strow="";
+
+    // if this post is excluded return nothing :-)
+    $excludes = unserialize(get_option('wpml_excludes'));
+    if (is_array($excludes) and in_array($post->ID,$excludes)) 
+    	return "";
 
     // table name
     $wpml_table = $wpdb->prefix . "monalisa";
 
     if (function_exists('is_multisite') && is_multisite()) 
-	$wpml_table = $wpdb->base_prefix . "monalisa";
+		$wpml_table = $wpdb->base_prefix . "monalisa";
  
     // optionen einlesen
-    $av = unserialize(get_option("wpml-opts")); 
-
-    // in case we are on a multisite try get the settings from blog no one
-    if ($av == false)
-	$av = unserialize(get_blog_option(1, "wpml-opts"));
-
+    $av=array();
+    if (function_exists('is_multisite') && is_multisite()) 
+    	$av = maybe_unserialize(get_blog_option(1, "wpml-opts"));
+    else
+    	$av = unserialize(get_option("wpml-opts"));
+    
     // abfangen wenn wert nicht gesetzt oder 0 ist, dann nehmen wir einfach 1
     if ( (int) $av['smiliesperrow'] == 0)
 	$av['smiliesperrow'] = 1;
@@ -138,19 +162,19 @@ function get_wpml_comment($postid=0)
 	{
 	    if ( $av['showastable'] == 0 )
 	    {
-		$out .='<div class="wpml_ico_icon" onclick="smile2comment(\''.
-		    $av['commenttextid'].'\',\''.addslashes($smile).'\','.$repl.');">'."\n";
-		$out .= "<img class='wpml_ico' name='icoimg".$res->tid.
-		    "' id='icoimg".$res->tid."' src='$ico_url' alt='".
+		$out .='<div class="wpml_ico_icon" id="icodiv-'.$uid.'-'.$res->tid.'" onclick="smile2comment(\''.
+		    $av['commenttextid'].'\',\''.addslashes($smile).'\','.$repl.',\'icodiv-'.$uid.'-'.$res->tid.'\');">'."\n";
+		$out .= "<img class='wpml_ico' " .
+		    " id='icoimg".$uid.'-'.$res->tid."' src='$ico_url' alt='".
 		    addslashes($smile)."' $ico_tt />&nbsp;";
 		$out .= "</div>\n";
 	    } 
 	    else  // output as a table
 	    {
 		$out .='<td class="wpml_ico_icon" onclick="smile2comment(\''.
-		    $av['commenttextid'].'\',\''.addslashes($smile).'\','.$repl.');">'."\n";
-		$out .= "<img class='wpml_ico' name='icoimg".$res->tid.
-		    "' id='icoimg".$res->tid."' src='$ico_url' alt='".
+		    $av['commenttextid'].'\',\''.addslashes($smile).'\','.$repl.',\'icodiv-'.$uid.'-'.$res->tid.'\');">'."\n";
+		$out .= "<img class='wpml_ico' " . 
+		    " id='icoimg".$res->tid."' src='$ico_url' alt='".
 		    addslashes($smile)."' $ico_tt />&nbsp;";
 		$out .= "</td>\n";	
 	    }
@@ -161,7 +185,7 @@ function get_wpml_comment($postid=0)
 	if ( $av['showicon'] == 2 )
 	{
 	    $out .='<div class="wpml_ico_both" onclick="smile2comment(\''.
-		$av['commenttextid'].'\',\''.addslashes($smile).'\','.$repl.');">'."\n";
+		$av['commenttextid'].'\',\''.addslashes($smile).'\','.$repl.',\'icodiv-'.$uid.'-'.$res->tid.'\');">'."\n";
 	    
 	    $out .= "<img class='wpml_ico' name='icoimg".$res->tid.
 		"' id='icoimg".$res->tid."' src='$ico_url' alt='".
@@ -197,23 +221,25 @@ function get_wpml_comment($postid=0)
     }
 
     if  ( $av['showaspulldown'] == 1 ) {
-	$out .= "<div class='wpml_nav' id='buttonl' >".__("less...","wpml")."</div>"; 
-	$out1strow .= "<div class='wpml_nav' id='buttonm' >".__("more...","wpml")."</div>";
+	$out .= "<div class='wpml_nav' id='buttonl-$uid' onclick='wpml_toggle_smilies(\"$uid\");'>".__("less...","wpml")."</div>"; 
+	$out1strow .= "<div class='wpml_nav' id='buttonm-$uid' onclick='wpml_toggle_smilies(\"$uid\");'>".__("more...","wpml")."</div>";
     } 
     
     $out .= "</div>\n";
     $out1strow .= "</div>\n";
     $out .= '<div style="clear:both;display:none">&nbsp;</div>';
     $out1strow .= '<div style="clear:both;">&nbsp;</div>'."\n";
-    // img ids tauschen um eindeutigkeit zu gewaehrleisten, da es osnt zu xhtml fehlern kommt
+    // ids tauschen um eindeutigkeit zu gewaehrleisten, da es sonst zu xhtml fehlern kommt
     $out1strow=str_replace("icoimg","hicoimg",$out1strow);
+    $out1strow=str_replace("icodiv-","icodiv1-",$out1strow);
+    
 
  
     if  ( $av['showaspulldown'] != 1 )
 		return $out;
     else {
 		// nur erste zeile ausgeben
-		return '<div id="smiley1" >' . $out1strow . "</div>\n" . '<div id="smiley2" style="display:none;">' . $out . "</div>";
+		return "<div id='smiley1-$uid' >" . $out1strow . "</div>\n" . "<div id='smiley2-$uid' style='display:none;'>" . $out . "</div>";
     }
 }
 ?>

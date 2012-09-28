@@ -23,6 +23,7 @@
 function wp_monalisa_install()
 {
     global $wpdb;
+    $wpdb->show_errors();
     
     // tabelle pruefen und ggf. anlegen
     $sql = 'SHOW TABLES LIKE \''.$wpdb->prefix.'monalisa\'';
@@ -70,7 +71,6 @@ function wp_monalisa_install()
 			    $i,
 			    mysql_real_escape_string($emo),
 			    mysql_real_escape_string($ico));
-	    echo $sql1 . $sql2;
 	    $results = $wpdb->query($sql1 . $sql2);  
 	
 	}
@@ -111,6 +111,8 @@ function wp_monalisa_install()
 	$av['smiliesperrow'] = 15;
 	// tooltipp fuer icons anzeigen
 	$av['icontooltip'] = 1;
+	// smilies fuer buddypress aktivieren
+	$av['wpml4buddypress'] = 0;
 
 	add_option( "wpml-opts", serialize($av) );
     }
@@ -135,5 +137,6 @@ function wp_monalisa_deinstall()
   
   // remove options from wp_options
   delete_option("wpml-opts");
+  delete_option("wpml_excludes");
 }
 ?>
