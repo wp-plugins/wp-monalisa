@@ -3,7 +3,7 @@
 Plugin Name: wp-Monalisa
 Plugin URI: http://www.tuxlog.de/wordpress/2009/wp-monalisa/
 Description: wp-Monalisa is the plugin that smiles at you like monalisa does. place the smilies of your choice in posts, pages or comments. 
-Version: 2.2
+Version: 2.3
 Author: Hans Matzen <webmaster at tuxlog dot de>
 Author URI: http://www.tuxlog.de
 */
@@ -43,6 +43,10 @@ global $wpml_smilies, $wpml_search;
 $wpml_smilies = array();
 $wpml_search = "";
 
+// global var for printing imagelist for preload once
+global $wpml_first_preload;
+$wpml_first_preload=true;
+
 // plugin init funktion
 function wp_monalisa_init()
 {
@@ -56,7 +60,7 @@ function wp_monalisa_init()
     
     // javascript hinzufügen
     if (! is_admin()) 
-    	wp_enqueue_script('wpml_script', '/' . PLUGINDIR . '/wp-monalisa/wpml_script.js', array('jquery'), "9999");      	
+    	wp_enqueue_script('wpml_script', plugins_url('wpml_script.js', __FILE__),  array('jquery'),"9999");
 }
 
 
@@ -90,17 +94,18 @@ else
 	$av = unserialize(get_option("wpml-opts"));
 	
 if (defined('BP_VERSION') && $av['wpml4buddypress'] == "1") {
-	add_filter('bp_activity_comment_content','wpml_convert_emoticons', 99);
-
+	
+	
+	add_filter( 'bp_activity_comment_content',          'wpml_convert_emoticons', 99);
 	add_filter( 'bp_get_activity_action',  				'wpml_convert_emoticons', 99);
 	add_filter( 'bp_get_activity_content_body',			'wpml_convert_emoticons', 99);
 	add_filter( 'bp_get_activity_content',     			'wpml_convert_emoticons', 99);
 	add_filter( 'bp_get_activity_parent_content',		'wpml_convert_emoticons', 99);
 	add_filter( 'bp_get_activity_latest_update', 		'wpml_convert_emoticons', 99);
-	add_filter( 'bp_get_activity_latest_update_excerpt',	'wpml_convert_emoticons', 99);
+	add_filter( 'bp_get_activity_latest_update_excerpt','wpml_convert_emoticons', 99);
 	add_filter( 'bp_core_render_message_content', 		'wpml_convert_emoticons', 99);
 	add_filter( 'bp_get_the_topic_title', 				'wpml_convert_emoticons', 99);
-	add_filter( 'bp_get_the_topic_latest_post_excerpt', 	'wpml_convert_emoticons', 99);
+	add_filter( 'bp_get_the_topic_latest_post_excerpt', 'wpml_convert_emoticons', 99);
 	add_filter( 'bp_get_the_topic_post_content', 		'wpml_convert_emoticons', 99);
 	add_filter( 'bp_get_group_description',      		'wpml_convert_emoticons', 99);
 	add_filter( 'bp_get_group_description_excerpt',		'wpml_convert_emoticons', 99);
@@ -119,8 +124,8 @@ if (defined('BP_VERSION') && $av['wpml4buddypress'] == "1") {
 	
 	function wpml_bp_allow_tags($data) {
 		global $allowedtags;
-		$allowedtags['img'] = array('style'=>array());
-		$allowedtags['p'] = array();
+		$allowedtags['img'] = 	$allowedtags['img'] = array('src' => array(), 'alt' => array(), 'title' => array(), 'height' => array(), 'width' => array(), 'style'=>array());
+		//$allowedtags['p'] = array();
 		return $data;
 	}
 

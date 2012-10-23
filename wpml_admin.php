@@ -156,12 +156,19 @@ function wpml_admin()
 	  {
 	      admin_message( __("Emoticon allready used. Record not inserted","wpml") );   
 	  } else {
+	  	  // hoehe und breite des bildes ermitteln fuer die ausgabe des img tags speichern
+	  	  $breite=0; $hoehe=0;
+	  	  $isize=getimagesize(ABSPATH . "/" . $av['icondir'] . "/" . trim($_POST['NEWicon']));
+	  	  if ($isize != false) {
+	  	  	$breite=$isize[0];
+	  	  	$hoehe=$isize[1];
+	  	  }
 	      // satz einfuegen
-	      $sql  = "insert into $wpml_table (tid,emoticon,iconfile,onpost,oncomment) values (0,";
+	      $sql  = "insert into $wpml_table (tid,emoticon,iconfile,onpost,oncomment,width,height) values (0,";
 	      $sql .= "'".trim($_POST['NEWemoticon'])."',";
 	      $sql .= "'".$_POST['NEWicon']."',";
-	      $sql .= ($_POST['NEWonpost']=="1"?"1":"0") . "," . 
-		  ($_POST['NEWoncomment']=="1"?"1":"0") . ");";
+	      $sql .= ($_POST['NEWonpost']=="1"?"1":"0") . "," . ($_POST['NEWoncomment']=="1"?"1":"0");
+	      $sql .= "," . $breite . "," . $hoehe . ");";
 	      $result = $wpdb->query($sql);
 	  }
       }

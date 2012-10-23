@@ -133,6 +133,41 @@ jQuery(function() {
 	    });
     });
 */
+// globale javascript variable um zu kontrollieren, dass jedes bild nur einmal geladen wird
+var wpml_first_preload=true;
+// globales array für die smileyliste
+var wpml_imglist = new Array();
+// globales array für die html strings
+var wpml_more_html = new Array();
+
+// startet das vorladen der smilies an, nach 2000ms
+jQuery(document).load( setTimeout( function() {wpml_preload();}, 2000));
+
+//
+// diese funktion lädt die bilder im hintergrund genau einmal
+// die bilder urls stehen im array wpml_imglist
+//
+function wpml_preload() { 
+	if (wpml_first_preload) {
+		var i=0;
+		for (i = 0; i < wpml_imglist.length; i++) { 
+			var wpml_image = new Image(); 
+			wpml_image.src = wpml_imglist[i];
+		}
+		wpml_first_preload=false;
+	}
+}
+
+//
+// diese funktion fügt das vorbereitete html in das div ein
+// das html steht im array wpml_more_html
+//
+function wpml_more_smilies(muid) { 
+	if (jQuery('#smiley2-'+muid).html() == '&nbsp;' ) {
+		jQuery('#smiley2-'+muid).html(unescape(wpml_more_html[muid]));
+	}
+}
+
 function wpml_toggle_smilies(uid) {
 	jQuery("#smiley1-"+uid).toggle("slow");
 	jQuery("#smiley2-"+uid).toggle("slow");

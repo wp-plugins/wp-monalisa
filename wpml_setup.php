@@ -23,7 +23,6 @@
 function wp_monalisa_install()
 {
     global $wpdb;
-    $wpdb->show_errors();
     
     // tabelle pruefen und ggf. anlegen
     $sql = 'SHOW TABLES LIKE \''.$wpdb->prefix.'monalisa\'';
@@ -37,6 +36,8 @@ function wp_monalisa_install()
             iconfile varchar(80) NOT NULL,
             onpost tinyint NOT NULL,
             oncomment tinyint NOT NULL,
+            width int NOT NULL,
+            height int NOT NULL
             primary key(tid)
           )";
 	$results = $wpdb->query($sql);
@@ -66,13 +67,21 @@ function wp_monalisa_install()
 
 	foreach ($smilies_init as $emo => $ico)
 	{
+		// breite und hoehe ermitteln
+		$breite=0; $hoehe=0;
+		$isize=getimagesize(PLUGINDIR . "/wp-monalisa/icons" . "/" . trim($_POST['NEWicon']));
+		if ($isize != false) {
+			$breite=$isize[0];
+			$hoehe=$isize[1];
+		}
+		
 	    $i++;
-	    $sql2 = sprintf("( %d,'%s', '%s', 1, 1 );", 
+	    $sql2 = sprintf("( %d,'%s', '%s', 1, 1, %d, %d);", 
 			    $i,
 			    mysql_real_escape_string($emo),
-			    mysql_real_escape_string($ico));
+			    mysql_real_escape_string($ico),
+	    		$breite, $hoehe);
 	    $results = $wpdb->query($sql1 . $sql2);  
-	
 	}
     } else
     {
@@ -84,7 +93,37 @@ function wp_monalisa_install()
 	// spaltenbreite der spalte iconfile auf 80 verändern
 	$sql = "alter table ".$wpdb->prefix."monalisa modify column iconfile varchar(80) not null;";
 	$results = $wpdb->query($sql);
-    }    
+	
+	// spalten fuer hoehe und breite ergaenzen falls notwendig
+	$sql="show columns from ".$wpdb->prefix."monalisa like 'width'";
+	$results = $wpdb->get_row($sql);
+	
+	if ($results==NULL) {
+		// neue spalte breite ergaenzen
+		$sql ="alter table ".$wpdb->prefix."monalisa add column width int not null;";
+		$results = $wpdb->query($sql);
+	
+		// neue spalte hoehe ergaenzen
+		$sql ="alter table ".$wpdb->prefix."monalisa add column height int not null;";
+		$results = $wpdb->query($sql);
+	}
+	
+	// hoehe und breite fuer vorhandene eintraege setzen
+	$sql = "select tid, iconfile from ".$wpdb->prefix."monalisa where width=0;";
+	$results = $wpdb->get_results($sql);
+
+	foreach($results as $res)
+	{
+		// breite und hoehe ermitteln
+		$isize=getimagesize(ABSPATH . PLUGINDIR . "/wp-monalisa/icons/" . $res->iconfile);
+		$breite=$isize[0];
+		$hoehe=$isize[1];
+		
+		$usql = "update ".$wpdb->prefix."monalisa set width=" .$breite .", height=" . $hoehe ." where tid=". $res->tid;
+		$results = $wpdb->query($usql);
+	}
+    }
+        
     
     // Optionen / Parameter
     
