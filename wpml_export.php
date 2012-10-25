@@ -1,7 +1,7 @@
 <?php
  /* This file is part of the wp-monalisa plugin for wordpress */
 
-/*  Copyright 2009  Hans Matzen  (email : webmaster at tuxlog.de)
+/*  Copyright 2009-2012  Hans Matzen  (email : webmaster at tuxlog.de)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
 */
 
 // include wordpress stuff
-require_once("../../../wp-config.php");
+require_once(dirname(__FILE__)."/wpml_config.php");
  
 // get sql object
 global $wpdb;
