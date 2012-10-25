@@ -82,6 +82,8 @@ function wpml_admin()
   $av = unserialize(get_option("wpml-opts"));
   $av['wpml-linesperpage'] = get_option("wpml-linesperpage");
 
+  // sets the width and height of icons where width or height = 0 from iconfile using getimagesize
+  set_dimensions($av);
   //
   // post operationen
   //

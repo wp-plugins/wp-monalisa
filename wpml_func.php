@@ -243,4 +243,26 @@ if( !function_exists('scandir') ) {
 		return($files);
 	}
 }
+
+//
+// Funktion zum aktualisieren der Höhe und Breite Einträge in der wp_monaslisa Tabelle
+//
+// hoehe und breite fuer vorhandene eintraege setzen
+//
+function set_dimensions($av) {
+	global $wpdb;
+	$sql = "select tid, iconfile from ".$wpdb->prefix."monalisa where width=0 or height=0;";
+	$results = $wpdb->get_results($sql);
+
+	foreach($results as $res)
+	{
+		// breite und hoehe ermitteln
+		$isize=getimagesize(ABSPATH . $av['icondir'] . "/" . $res->iconfile);
+		$breite=$isize[0];
+		$hoehe=$isize[1];
+
+		$usql = "update ".$wpdb->prefix."monalisa set width=" .$breite .", height=" . $hoehe ." where tid=". $res->tid;
+		$results = $wpdb->query($usql);
+	}
+}
 ?>

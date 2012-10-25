@@ -136,7 +136,14 @@ function get_wpml_comment($postid=0)
 			$out .= "<tr class='wpml_smiley_row' >";
 		}
 
+		// url bauen
 		$ico_url = site_url($av['icondir']) . '/' . $res->iconfile;
+		
+		// hohe und breite bauen
+		$dimensions="";
+		if ($res->width !=0 and $res->height!=0)
+			$dimensions = " width='".$res->width."' height='".$res->height."' ";
+			
 		if ( $av['replaceicon'] == 0)
 		{
 			$smile = $res ->emoticon;
@@ -165,11 +172,12 @@ function get_wpml_comment($postid=0)
 		{
 			if ( $av['showastable'] == 0 )
 			{
+				
 				$out .='<div class="wpml_ico_icon" id="icodiv-'.$uid.'-'.$res->tid.'" onclick="smile2comment(\''.
 		    $av['commenttextid'].'\',\''.addslashes($smile).'\','.$repl.',\'icodiv-'.$uid.'-'.$res->tid.'\');">'."\n";
 				$out .= "<img class='wpml_ico' " .
 						" id='icoimg".$uid.'-'.$res->tid."' src='$ico_url' alt='".
-						addslashes($smile)."' width='".$res->width."' height='".$res->height."' $ico_tt />&nbsp;";
+						addslashes($smile)."' $dimensions $ico_tt />&nbsp;";
 				$out .= "</div>\n";
 			}
 			else  // output as a table
@@ -178,7 +186,7 @@ function get_wpml_comment($postid=0)
 		    $av['commenttextid'].'\',\''.addslashes($smile).'\','.$repl.',\'icodiv-'.$uid.'-'.$res->tid.'\');">'."\n";
 				$out .= "<img class='wpml_ico' " .
 		    " id='icoimg".$res->tid."' src='$ico_url' alt='".
-		    addslashes($smile)."' width='".$res->width."' height='".$res->height."' $ico_tt />&nbsp;";
+		    addslashes($smile)."' $dimensions $ico_tt />&nbsp;";
 				$out .= "</td>\n";
 			}
 			 
@@ -191,8 +199,7 @@ function get_wpml_comment($postid=0)
 					$av['commenttextid'].'\',\''.addslashes($smile).'\','.$repl.',\'icodiv-'.$uid.'-'.$res->tid.'\');">'."\n";
 			 
 			$out .= "<img class='wpml_ico' name='icoimg".$res->tid.
-			"' id='icoimg".$res->tid."' src='$ico_url' alt='".
-			addslashes($smile)."' width='".$res->width."' height='".$res->height."' $ico_tt />&nbsp;";
+			"' id='icoimg".$res->tid."' src='$ico_url' alt='". addslashes($smile)."' $dimensions $ico_tt />&nbsp;";
 			$out .= "<br />" . $res->emoticon ;
 			$out .= "</div>\n";
 		}
