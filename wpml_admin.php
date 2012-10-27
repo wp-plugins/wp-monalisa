@@ -160,7 +160,7 @@ function wpml_admin()
 	  } else {
 	  	  // hoehe und breite des bildes ermitteln fuer die ausgabe des img tags speichern
 	  	  $breite=0; $hoehe=0;
-	  	  $isize=getimagesize(ABSPATH . "/" . $av['icondir'] . "/" . trim($_POST['NEWicon']));
+	  	  $isize=getimagesize(ABSPATH . $av['icondir'] . "/" . trim($_POST['NEWicon']));
 	  	  if ($isize != false) {
 	  	  	$breite=$isize[0];
 	  	  	$hoehe=$isize[1];
@@ -203,11 +203,22 @@ function wpml_admin()
 	      // datensätze updaten
 	      // durch das where tid=$i werden nur vorhandene sätze upgedated
 	      // exitiert kein satz mit tid=$i wird auch kein satz gefunden
+	  	  
+	      // hoehe und breite des bildes ermitteln fuer die ausgabe des img tags speichern
+	  	  $breite=0; $hoehe=0;
+	  	  $isize=getimagesize(ABSPATH . $av['icondir'] . "/" . trim($_POST['icon'.$i]));
+	  	  if ($isize != false) {
+	  	  	$breite=$isize[0];
+	  	  	$hoehe=$isize[1];
+	  	  }
+	  	  
 	      $sql  = "update $wpml_table ";
 	      $sql .= "set emoticon='" . trim($_POST['emoticon'.$i])."',";
 	      $sql .= " iconfile='"    . $_POST['icon'.$i]."',";
 	      $sql .= " onpost="       . ($_POST['onpost'.$i]   == "1"?"1":"0") . ",";
-	      $sql .= " oncomment="    . ($_POST['oncomment'.$i]== "1"?"1":"0") . " ";
+	      $sql .= " oncomment="    . ($_POST['oncomment'.$i]== "1"?"1":"0") . ",";
+	      $sql .= " width=$breite,";
+	      $sql .= " height=$hoehe ";
 	      $sql .= "where tid=".$i.";";
 	      $result = $wpdb->query($sql);
 	  }

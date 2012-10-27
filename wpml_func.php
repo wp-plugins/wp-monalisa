@@ -261,7 +261,7 @@ function set_dimensions($av) {
 		$breite=$isize[0];
 		$hoehe=$isize[1];
 
-		$usql = "update ".$wpdb->prefix."monalisa set width=" .$breite .", height=" . $hoehe ." where tid=". $res->tid;
+		$usql = "update ".$wpdb->prefix."monalisa set width=$breite, height=$hoehe where tid=". $res->tid;
 		$results = $wpdb->query($usql);
 	}
 }

@@ -26,6 +26,7 @@ function wp_monalisa_install()
 
 	// tabelle pruefen und ggf. anlegen
 	$sql = 'SHOW TABLES LIKE \''.$wpdb->prefix.'monalisa\'';
+
 	if($wpdb->get_var($sql) != $wpdb->prefix.'monalisa')
 	{
 		// erzeugen der smiley tabelle
@@ -37,11 +38,11 @@ function wp_monalisa_install()
 		onpost tinyint NOT NULL,
 		oncomment tinyint NOT NULL,
 		width int NOT NULL,
-		height int NOT NULL
+		height int NOT NULL,
 		primary key(tid)
 		)";
 		$results = $wpdb->query($sql);
-		 
+	
 		$smilies_init = array(
 				':bye:'      => 'wpml_bye.gif',
 				':good:'     => 'wpml_good.gif',
@@ -69,7 +70,7 @@ function wp_monalisa_install()
 		{
 			// breite und hoehe ermitteln
 			$breite=0; $hoehe=0;
-			$isize=getimagesize(PLUGINDIR . "/wp-monalisa/icons" . "/" . trim($_POST['NEWicon']));
+			$isize=getimagesize(ABSPATH . PLUGINDIR . "/wp-monalisa/icons" . "/" . $ico);
 			if ($isize != false) {
 				$breite=$isize[0];
 				$hoehe=$isize[1];
@@ -136,8 +137,12 @@ function wp_monalisa_install()
 		$av['commenttextid'] = 'comment';
 		// smilies als table struktur anzeigen
 		$av['showastable'] = 0;
+		// smilies zum aufklappen anzeigen
+		$av['showaspulldown'] = 0;
 		// smilies pro reihe in der tabelle
 		$av['smiliesperrow'] = 15;
+		// Anzahl smilies zugeklappt
+		$av['smilies1strow'] = 7;
 		// tooltipp fuer icons anzeigen
 		$av['icontooltip'] = 1;
 		// smilies fuer buddypress aktivieren

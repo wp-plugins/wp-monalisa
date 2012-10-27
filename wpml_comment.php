@@ -141,7 +141,7 @@ function get_wpml_comment($postid=0)
 		
 		// hohe und breite bauen
 		$dimensions="";
-		if ($res->width !=0 and $res->height!=0)
+		if ($res->width!=0 and $res->height!=0)
 			$dimensions = " width='".$res->width."' height='".$res->height."' ";
 			
 		if ( $av['replaceicon'] == 0)
