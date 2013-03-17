@@ -182,7 +182,7 @@ function get_wpml_comment($postid=0)
 			}
 			else  // output as a table
 			{
-				$out .='<td class="wpml_ico_icon" onclick="smile2comment(\''.
+				$out .='<td class="wpml_ico_icon" id="icodiv-'.$uid.'-'.$res->tid.'" onclick="smile2comment(\''.
 		    $av['commenttextid'].'\',\''.addslashes($smile).'\','.$repl.',\'icodiv-'.$uid.'-'.$res->tid.'\');">'."\n";
 				$out .= "<img class='wpml_ico' " .
 		    " id='icoimg".$res->tid."' src='$ico_url' alt='".

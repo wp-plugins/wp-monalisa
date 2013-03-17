@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wp-monalisa v0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-07 06:30+0200\n"
-"PO-Revision-Date: 2012-08-07 06:31+0100\n"
+"POT-Creation-Date: 2013-01-09 17:28+0100\n"
+"PO-Revision-Date: 2013-01-09 17:30+0100\n"
 "Last-Translator: tuxlog <webmaster@tuxlog.de>\n"
 "Language-Team: Hans Matzen <webmaster@tuxlog.de>\n"
 "Language: \n"
@@ -18,43 +18,43 @@ msgstr ""
 "X-Poedit-Language: German\n"
 "X-Poedit-Country: GERMANY\n"
 
-#: wpml_admin.php:101
+#: wpml_admin.php:113
 msgid "Iconpath is no valid directory, resetting it. Please enter the path relative to the wordpress main directory."
 msgstr "Das Icon-Verzeichnis ist ungültig und wurde nicht gespeichert. Bitte gebe einen Pfad ausgehend vom Wordpress Verzeichnis an."
 
-#: wpml_admin.php:104
+#: wpml_admin.php:116
 msgid "Settings saved"
 msgstr "Einstellungen gespeichert"
 
-#: wpml_admin.php:122
+#: wpml_admin.php:134
 msgid "Deleted record "
 msgstr "Satz löschen"
 
-#: wpml_admin.php:147
+#: wpml_admin.php:159
 msgid "Emoticon allready used. Record not inserted"
 msgstr "Emoticon bereits vorhanden. Der Satz konnte nicht gespeichert werden."
 
-#: wpml_admin.php:182
+#: wpml_admin.php:201
 msgid "Emoticon allready used. Record not updated"
 msgstr "Emoticon bereits vorhanden. Der Satz konnte nicht geändert werden."
 
-#: wpml_admin.php:196
+#: wpml_admin.php:226
 msgid "Records updated"
 msgstr "Sätze aktualisiert"
 
-#: wpml_admin.php:205
+#: wpml_admin.php:235
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: wpml_admin.php:218
-msgid "Please turn off Options -> Write -> 'Convert emoticons like...' to use wp-Monalisa smilies)."
+#: wpml_admin.php:248
+msgid "Please turn off Settings -> Writing -> 'Convert emoticons like...' to use wp-Monalisa smilies)."
 msgstr "Bitte deaktiviere: Einstellungen -> Schreiben -> 'Wandle Emoticons wie...', um die wp-Monalisa Smilies zu verwenden."
 
-#: wpml_admin.php:224
+#: wpml_admin.php:254
 msgid "Iconpath"
 msgstr "Icon-Verzeichnis"
 
-#: wpml_admin.php:227
+#: wpml_admin.php:257
 msgid ""
 "You are about to change the iconpath.\\n"
 " Please be careful and make sure the icons are still accessible.\\n"
@@ -64,19 +64,19 @@ msgstr ""
 " Bitte achten Sie darauf, das sich die Icons in diesem Verzeichnis befinden müssen.\\n"
 " Um die neue Einstellung zu speichern klicken Sie Einstellungen speichern"
 
-#: wpml_admin.php:230
+#: wpml_admin.php:260
 msgid "Show smilies on edit"
 msgstr "Smilies im Edit-Dialog anzeigen"
 
-#: wpml_admin.php:236
+#: wpml_admin.php:266
 msgid "Show smilies on comment"
 msgstr "Smilies im Kommentarformular anzeigen"
 
-#: wpml_admin.php:240
+#: wpml_admin.php:270
 msgid "Comment Textarea ID"
 msgstr "ID des Kommentar-Textfelds"
 
-#: wpml_admin.php:241
+#: wpml_admin.php:271
 msgid ""
 "You are about to change the id of the textarea of your comment form.\\n"
 " Please make sure you enter the correct id, to make wp-monalisa work correctly"
@@ -84,115 +84,115 @@ msgstr ""
 "Sie sind dabei die ID des Kommentar-Textfelds zu ändern.\\n"
 " Bitte prüfen Sie ob die ID korrekt ist, da wp-monalisa sonst nicht in Kommentaren funktioniert."
 
-#: wpml_admin.php:243
+#: wpml_admin.php:273
 msgid "Replace emoticons with html-images"
 msgstr "Ersetze Emoticons durch HTML Images"
 
-#: wpml_admin.php:246
+#: wpml_admin.php:276
 msgid "Show emoticons in selection as"
 msgstr "Zeige Emoticons in der Auswahl als"
 
-#: wpml_admin.php:248
-#: wpml_admin.php:389
-#: wpml_admin.php:400
+#: wpml_admin.php:278
+#: wpml_admin.php:419
+#: wpml_admin.php:430
 msgid "Icon"
 msgstr "Icon"
 
-#: wpml_admin.php:249
+#: wpml_admin.php:279
 msgid "Text"
 msgstr "Text"
 
-#: wpml_admin.php:250
+#: wpml_admin.php:280
 msgid "Both"
 msgstr "beide"
 
-#: wpml_admin.php:255
+#: wpml_admin.php:285
 msgid "Show smilies in a table"
 msgstr "Smilies als Tabelle ausgeben"
 
-#: wpml_admin.php:257
+#: wpml_admin.php:287
 msgid "Smilies per row"
 msgstr "Smilies pro Zeile"
 
-#: wpml_admin.php:265
+#: wpml_admin.php:295
 msgid "Show smilies as Pulldown"
 msgstr "Smilies als Klappliste anzeigen"
 
-#: wpml_admin.php:267
+#: wpml_admin.php:297
 msgid "Smilies in 1st row"
 msgstr "Anzahl Smilies in der ersten Zeile"
 
-#: wpml_admin.php:274
+#: wpml_admin.php:304
 msgid "Show tooltip for icons"
 msgstr "Tooltipps für Icons anzeigen"
 
-#: wpml_admin.php:282
+#: wpml_admin.php:312
 msgid "Activate Smilies for BuddyPress"
 msgstr "Smilies für BuddyPress aktivieren"
 
-#: wpml_admin.php:295
+#: wpml_admin.php:325
 msgid "Save Settings"
 msgstr "Einstellungen speichern"
 
-#: wpml_admin.php:300
+#: wpml_admin.php:330
 msgid "Import Smiley-Package"
 msgstr "Smiley-Paket einlesen"
 
-#: wpml_admin.php:301
+#: wpml_admin.php:331
 msgid "Export Smiley-Package (pak-Format)"
 msgstr "Smiley-Paket exportieren (pak-Format)"
 
-#: wpml_admin.php:317
+#: wpml_admin.php:347
 msgid "Smilies"
 msgstr "Smilies"
 
-#: wpml_admin.php:321
+#: wpml_admin.php:351
 msgid "Iconpath is empty or invalid"
 msgstr "Das Icon-Verzeichnis ist leer oder ungültig."
 
-#: wpml_admin.php:367
-#: wpml_admin.php:382
-#: wpml_admin.php:516
-#: wpml_admin.php:530
+#: wpml_admin.php:397
+#: wpml_admin.php:412
+#: wpml_admin.php:546
+#: wpml_admin.php:560
 msgid "Save"
 msgstr "Speichern"
 
-#: wpml_admin.php:367
-#: wpml_admin.php:516
+#: wpml_admin.php:397
+#: wpml_admin.php:546
 msgid "Delete marked"
 msgstr "markierte löschen"
 
-#: wpml_admin.php:371
-#: wpml_admin.php:520
+#: wpml_admin.php:401
+#: wpml_admin.php:550
 msgid "Show all"
 msgstr "Alle anzeigen"
 
-#: wpml_admin.php:380
-#: wpml_admin.php:529
+#: wpml_admin.php:410
+#: wpml_admin.php:559
 msgid "Lines per Page:"
 msgstr "Zeilen pro Seite:"
 
-#: wpml_admin.php:388
-#: wpml_admin.php:399
+#: wpml_admin.php:418
+#: wpml_admin.php:429
 msgid "Emoticon"
 msgstr "Emoticon"
 
-#: wpml_admin.php:389
-#: wpml_admin.php:400
+#: wpml_admin.php:419
+#: wpml_admin.php:430
 msgid "not mapped yet"
 msgstr "nicht zugeordnet"
 
-#: wpml_admin.php:390
-#: wpml_admin.php:401
+#: wpml_admin.php:420
+#: wpml_admin.php:431
 msgid "On Post"
 msgstr "in Posts"
 
-#: wpml_admin.php:391
-#: wpml_admin.php:402
+#: wpml_admin.php:421
+#: wpml_admin.php:432
 msgid "On Comment"
 msgstr "in Kommentaren"
 
-#: wpml_admin.php:409
+#: wpml_admin.php:439
 msgid "New Entry"
 msgstr "Neuer Eintrag"
 
@@ -327,11 +327,11 @@ msgstr "Aktive Plugins"
 msgid "Plugin Settings"
 msgstr "Plugin Einstellungen"
 
-#: wpml_comment.php:224
+#: wpml_comment.php:237
 msgid "less..."
 msgstr "weniger..."
 
-#: wpml_comment.php:225
+#: wpml_comment.php:238
 msgid "more..."
 msgstr "mehr..."
 

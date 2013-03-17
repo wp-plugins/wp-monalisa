@@ -52,9 +52,15 @@ function smile2comment(textid,smile,replace,myid){
     {
     	tarea = jQuery('#'+myid).parent().parent().parent().find('textarea')[0];
     }
+    // if tables are active search for the table tag first
+    if (tarea == null) 
+    {
+    	tarea = jQuery('#'+myid).parents('table').parent().parent().parent().find('textarea')[0];
+    }
     if (tarea == null) {
     	tarea = jQuery('#'+textid)[0];
 	}
+   
     if (tarea == null) 
     {
 	alert('wp-monalisa: Textarea not found. Please contact the webmaster of this site.');

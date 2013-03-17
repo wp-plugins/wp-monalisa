@@ -89,8 +89,8 @@ function wpml_map_emoticons()
 	if (is_null($av['oncomment'])) $av['oncomment']=0;
 
 	// if disabled do nothing but return
-	if ($av['onedit']==0 and $av['oncomment']==0)
-		return;
+	//if ($av['onedit']==0 and $av['oncomment']==0)
+	//	return;
 
 
 	// table name
@@ -102,7 +102,7 @@ function wpml_map_emoticons()
 
 	// extend array allowedtags with img tag if necessary
 	// to make sure the comment smilies dont geat lost
-	if ( $av['oncomment']==1 and $av['replaceicon']==1)
+	if ( $av['replaceicon']==1)
 	{
 		global $allowedtags;
 		if ( ! array_key_exists("img",$allowedtags) )
@@ -115,8 +115,8 @@ function wpml_map_emoticons()
 
 
 	// select all valid smiley entries
-	$sql="select tid,emoticon,iconfile,width,height from $wpml_table where ( oncomment=".$av['oncomment']." and oncomment=1 ) or ( onpost=".$av['onedit']." and onpost=1 ) order by tid;";
-
+	//$sql="select tid,emoticon,iconfile,width,height from $wpml_table where ( oncomment=".$av['oncomment']." and oncomment=1 ) or ( onpost=".$av['onedit']." and onpost=1 ) order by tid;";
+	$sql="select tid,emoticon,iconfile,width,height from $wpml_table where oncomment=1 or onpost=1 order by tid;";
 	$results = $wpdb->get_results($sql);
 
 	// icon url begin including directory

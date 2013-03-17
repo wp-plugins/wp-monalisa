@@ -245,7 +245,7 @@ function wpml_admin()
   
   // hinweis auf wordpress smilies schalter deaktivieren
   if (get_option("use_smilies") == "1")
-      $out .= '<div class="error" id="error"><strong>' . __("Please turn off Options -> Write -> 'Convert emoticons like...' to use wp-Monalisa smilies).","wpml") . "</strong></div>\n";
+      $out .= '<div class="error" id="error"><strong>' . __("Please turn off Settings -> Writing -> 'Convert emoticons like...' to use wp-Monalisa smilies).","wpml") . "</strong></div>\n";
 
   $out .= '<form name="editopts" id="editopts" method="post" action="#">';
   $out .= '<input type="hidden" name="action" value="editopts" />';
