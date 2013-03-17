@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Monalisa\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-13 07:03+0100\n"
+"POT-Creation-Date: 2013-01-09 17:28+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Fat Cow <zhr@tut.by>\n"
 "Language-Team: ilyuha <iliamrv@ya.ru>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "X-Poedit-Language: Belarusian\n"
 "X-Poedit-Country: BELARUS\n"
 
-#: wpml_admin.php:88
+#: wpml_admin.php:113
 msgid ""
 "Iconpath is no valid directory, resetting it. Please enter the path relative "
 "to the wordpress main directory."
@@ -22,41 +22,41 @@ msgstr ""
 "Шлях да дырэкторыі абразкоў паказаны некарэктна, скіньце яго. Увядзіце шлях, "
 "адносны дырэкторыі wordpress "
 
-#: wpml_admin.php:91
+#: wpml_admin.php:116
 msgid "Settings saved"
 msgstr "Налады захаваны"
 
-#: wpml_admin.php:109
+#: wpml_admin.php:134
 msgid "Deleted record "
 msgstr "Запіс выдалена"
 
-#: wpml_admin.php:134
+#: wpml_admin.php:159
 msgid "Emoticon allready used. Record not inserted"
 msgstr "Абразок ужо выкарыстоўваецца. Запіс не ўстаўлена"
 
-#: wpml_admin.php:169
+#: wpml_admin.php:201
 msgid "Emoticon allready used. Record not updated"
 msgstr "Смайлік ужо выкарыстоўваецца. Запіс не абноўлена."
 
-#: wpml_admin.php:183
+#: wpml_admin.php:226
 msgid "Records updated"
 msgstr "Записьи абноўлены."
 
-#: wpml_admin.php:192
+#: wpml_admin.php:235
 msgid "Settings"
 msgstr "Налады"
 
-#: wpml_admin.php:197
+#: wpml_admin.php:248
 msgid ""
-"Please turn off Options -> Write -> 'Convert emoticons like...' to use wp-"
+"Please turn off Settings -> Writing -> 'Convert emoticons like...' to use wp-"
 "Monalisa smilies)."
 msgstr ""
 
-#: wpml_admin.php:203
+#: wpml_admin.php:254
 msgid "Iconpath"
 msgstr "Шлях да абразка"
 
-#: wpml_admin.php:206
+#: wpml_admin.php:257
 msgid ""
 "You are about to change the iconpath.\\n Please be careful and make sure the "
 "icons are still accessible.\\n To update your settings klick Save Settings"
@@ -64,136 +64,128 @@ msgstr ""
 "Змена шляху да абразка.\\n Please be careful and make sure the icons are "
 "still accessible.\\nДля одновления налад націсніце Абнавіць налады"
 
-#: wpml_admin.php:209
+#: wpml_admin.php:260
 msgid "Show smilies on edit"
 msgstr "Паказаць смайлы пры рэдагаванні"
 
-#: wpml_admin.php:215
+#: wpml_admin.php:266
 msgid "Show smilies on comment"
 msgstr "Паказаць смайлы пры каментаванні"
 
-#: wpml_admin.php:219
+#: wpml_admin.php:270
 msgid "Comment Textarea ID"
 msgstr "ID палі ўводу каментара"
 
-#: wpml_admin.php:220
+#: wpml_admin.php:271
 msgid ""
 "You are about to change the id of the textarea of your comment form.\\n "
 "Please make sure you enter the correct id, to make wp-monalisa work correctly"
 msgstr "Змена ID формы каментавання.\\n Пераканаецеся, што id карэктны."
 
-#: wpml_admin.php:222
+#: wpml_admin.php:273
 msgid "Replace emoticons with html-images"
 msgstr "Замяніць абразкі html-аналогамі"
 
-#: wpml_admin.php:225
+#: wpml_admin.php:276
 msgid "Show emoticons in selection as"
 msgstr "Паказваць иконкикак"
 
-#: wpml_admin.php:227 wpml_admin.php:358 wpml_admin.php:369
+#: wpml_admin.php:278 wpml_admin.php:419 wpml_admin.php:430
 msgid "Icon"
 msgstr "Абразок"
 
-#: wpml_admin.php:228
+#: wpml_admin.php:279
 msgid "Text"
 msgstr "Тэкст"
 
-#: wpml_admin.php:229
+#: wpml_admin.php:280
 msgid "Both"
 msgstr "Абодва"
 
-#: wpml_admin.php:234
+#: wpml_admin.php:285
 #, fuzzy
 msgid "Show smilies in a table"
 msgstr "Паказаць смайлы пры рэдагаванні"
 
-#: wpml_admin.php:236
+#: wpml_admin.php:287
 #, fuzzy
 msgid "Smilies per row"
 msgstr "Смайлы"
 
-#: wpml_admin.php:244
+#: wpml_admin.php:295
 #, fuzzy
 msgid "Show smilies as Pulldown"
 msgstr "Паказаць смайлы пры рэдагаванні"
 
-#: wpml_admin.php:246
+#: wpml_admin.php:297
 #, fuzzy
 msgid "Smilies in 1st row"
 msgstr "Смайлы"
 
-#: wpml_admin.php:253
+#: wpml_admin.php:304
 msgid "Show tooltip for icons"
 msgstr ""
 
-#: wpml_admin.php:265
+#: wpml_admin.php:312
+msgid "Activate Smilies for BuddyPress"
+msgstr ""
+
+#: wpml_admin.php:325
 msgid "Save Settings"
 msgstr "Захаваць налады"
 
-#: wpml_admin.php:270
+#: wpml_admin.php:330
 msgid "Import Smiley-Package"
 msgstr "Імпарт набору смайлікаў"
 
-#: wpml_admin.php:271
+#: wpml_admin.php:331
 #, fuzzy
 msgid "Export Smiley-Package (pak-Format)"
 msgstr "Імпарт набору смайлікаў"
 
-#: wpml_admin.php:286
+#: wpml_admin.php:347
 msgid "Smilies"
 msgstr "Смайлы"
 
-#: wpml_admin.php:290
+#: wpml_admin.php:351
 msgid "Iconpath is empty or invalid"
 msgstr "Шлях да абразкоў пусты ці няправільны"
 
-#: wpml_admin.php:336 wpml_admin.php:351 wpml_admin.php:485 wpml_admin.php:499
+#: wpml_admin.php:397 wpml_admin.php:412 wpml_admin.php:546 wpml_admin.php:560
 msgid "Save"
 msgstr "Захаваць"
 
-#: wpml_admin.php:336 wpml_admin.php:485
+#: wpml_admin.php:397 wpml_admin.php:546
 msgid "Delete marked"
 msgstr "Выдаліць адзначанае"
 
-#: wpml_admin.php:340 wpml_admin.php:489
+#: wpml_admin.php:401 wpml_admin.php:550
 msgid "Show all"
 msgstr ""
 
-#: wpml_admin.php:349 wpml_admin.php:498
+#: wpml_admin.php:410 wpml_admin.php:559
 msgid "Lines per Page:"
 msgstr ""
 
-#: wpml_admin.php:357 wpml_admin.php:368
+#: wpml_admin.php:418 wpml_admin.php:429
 msgid "Emoticon"
 msgstr "Абразок"
 
-#: wpml_admin.php:358 wpml_admin.php:369
+#: wpml_admin.php:419 wpml_admin.php:430
 msgid "not mapped yet"
 msgstr ""
 
-#: wpml_admin.php:359 wpml_admin.php:370
+#: wpml_admin.php:420 wpml_admin.php:431
 msgid "On Post"
 msgstr "У пасце"
 
-#: wpml_admin.php:360 wpml_admin.php:371
+#: wpml_admin.php:421 wpml_admin.php:432
 msgid "On Comment"
 msgstr "У каментары"
 
-#: wpml_admin.php:378
+#: wpml_admin.php:439
 msgid "New Entry"
 msgstr "Новы элемент"
-
-#: wpml_comment.php:181
-msgid "less..."
-msgstr ""
-
-#: wpml_comment.php:182
-msgid "more..."
-msgstr ""
-
-#: wpml_edit.php:53 wpml_edit.php:57
-msgid "wp-Monalisa"
-msgstr "wp-Monalisa"
 
 #: wpml_export.php:72
 #, fuzzy
@@ -209,6 +201,18 @@ msgstr ""
 #: wpml_export.php:88 wpml_import.php:111
 msgid "Close"
 msgstr "Зачыніць"
+
+#: wpml_edit.php:39
+msgid "saved"
+msgstr ""
+
+#: wpml_edit.php:73 wpml_edit.php:77
+msgid "wp-Monalisa"
+msgstr "wp-Monalisa"
+
+#: wpml_edit.php:114
+msgid "Disable comment smilies on this page/post?"
+msgstr ""
 
 #: wpml_import.php:41
 msgid "Smilies deleted."
@@ -229,3 +233,104 @@ msgstr "Выдаліць бягучыя смайлы перад імпартам
 #: wpml_import.php:108
 msgid "Start import"
 msgstr "Пачатак імпарту"
+
+#: support/support.php:65 support/support.php:114
+msgid "Support Request"
+msgstr ""
+
+#: support/support.php:68
+msgid "Thanks for your request, you will get feedback as soon as possible."
+msgstr ""
+
+#: support/support.php:70
+msgid ""
+"Sorry, there was a problem sending your mail. Please send the contents of "
+"this fram to support@tuxlog.de manually."
+msgstr ""
+
+#: support/support.php:116
+msgid ""
+"Please notice, the following data will be send via email to analyze your "
+"support request."
+msgstr ""
+
+#: support/support.php:117
+msgid "You can contact the author of this plugin at"
+msgstr ""
+
+#: support/support.php:118
+msgid ""
+"Please enter your problem description in the textarea and fill in a valid "
+"email address."
+msgstr ""
+
+#: support/support.php:122
+msgid "Problemdescription"
+msgstr ""
+
+#: support/support.php:126
+msgid "Enter your email address"
+msgstr ""
+
+#: support/support.php:131
+msgid "Send request"
+msgstr ""
+
+#: support/support.php:132
+msgid "Close window"
+msgstr ""
+
+#: support/support.php:134
+msgid "Messages..."
+msgstr ""
+
+#: support/support.php:137
+msgid "In addition the following data is transmitted to analyze your request"
+msgstr ""
+
+#: support/support.php:140
+#, fuzzy
+msgid "General Settings"
+msgstr "Захаваць налады"
+
+#: support/support.php:141
+msgid "Your wordpress version"
+msgstr ""
+
+#: support/support.php:142
+msgid "Your wordpress language"
+msgstr ""
+
+#: support/support.php:143
+msgid "Your local package"
+msgstr ""
+
+#: support/support.php:144
+msgid "Your timezone setting"
+msgstr ""
+
+#: support/support.php:145
+msgid "Active theme"
+msgstr ""
+
+#: support/support.php:149
+msgid ""
+"Fetching the plugin information from wordpress.org...this may take a while"
+msgstr ""
+
+#: support/support.php:151
+msgid "Active Plugins"
+msgstr ""
+
+#: support/support.php:163
+#, fuzzy
+msgid "Plugin Settings"
+msgstr "Налады"
+
+#: wpml_comment.php:237
+msgid "less..."
+msgstr ""
+
+#: wpml_comment.php:238
+msgid "more..."
+msgstr ""

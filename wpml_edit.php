@@ -2,7 +2,7 @@
 
 /* This file is part of the wp-monalisa plugin for wordpress */
 
-/*  Copyright 2009  Hans Matzen  (email : webmaster at tuxlog.de)
+/*  Copyright 2009-2012  Hans Matzen  (email : webmaster at tuxlog.de)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -20,9 +20,25 @@
 */
 
 // sicherheitshalber pruefen, ob wir direkt aufgerufen werden
-if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You 
-are not allowed to call this page directly.'); }
-
+if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF']) and !empty($_POST)) {
+	require_once(dirname(__FILE__)."/wpml_config.php");
+	$postid = $_POST['postid'];
+	$excludes = unserialize(get_option('wpml_excludes'));
+	if (!is_array($excludes))
+		$excludes=array();
+	if (!in_array($postid,$excludes)) {
+		array_push($excludes,$postid);
+	} else {
+		foreach($excludes as $key=>&$value){
+            if($postid ==$value)
+              	unset($excludes[$key]);
+            
+         }
+	}
+	update_option('wpml_excludes',serialize($excludes));
+	_e('saved','wpml');
+	exit(0);
+}
 
 // stellt fest ob wir uns in einem der edit dialoge befinden
 function in_edit() 
@@ -66,7 +82,7 @@ function wpml_edit_init()
 
 function wpml_metabox()
 {
-    global $wpdb;
+    global $wpdb,$post;
 
     // table name
     $wpml_table = $wpdb->prefix . "monalisa";
@@ -84,9 +100,24 @@ function wpml_metabox()
     // icons lesen
     $sql="select tid,emoticon,iconfile from $wpml_table where onpost=1 order by tid;";
     $results = $wpdb->get_results($sql);
-
+    
+    // check if this post is excluded to set the checkbox correctly
+    $excludes = unserialize(get_option('wpml_excludes'));
+    $check="";
+    if (is_array($excludes) and in_array($post->ID,$excludes)) {
+    	$check = "checked='checked'";
+    }
+    
+    $out = "";
+    // ausgabe der checkbox zum abstellen der smilies aufbauen
+    $out .= "<label for='smileyswitch'>";
+    $out .= __('Disable comment smilies on this page/post?','wpml') . "</label>";
+    $out .= "<input type='checkbox' id='smileyswitch' value='1' $check onchange='wpml_comment_exclude(".$post->ID.");'>";
+    $out .= "<div id='wpml_messages'></div>";
+    
+    
     // ausgabe der icons aufbauen
-    $out = "\n\n";
+    $out .= "<br/>\n\n";
 
     if ( $av['showicon'] == 0)
 	$out .= "<div class='wpml_commentbox_text'>\n";
@@ -145,8 +176,7 @@ function wpml_metabox()
 	{
 	    $out .='<div class="wpml_ico_icon" onclick="smile2edit(\'content\',\''.
 		addslashes($smile).'\','.$repl.');">'."\n";
-	    $out .= "<img class='wpml_ico' name='icoimg".$res->tid.
-		"' id='icoimg".$res->tid."' src='$ico_url' alt='wp-monalisa icon' $ico_tt />&nbsp;";
+	    $out .= "<img class='wpml_ico' id='icoimg".$res->tid."' src='$ico_url' alt='wp-monalisa icon' $ico_tt />&nbsp;";
 	    $out .= "</div>";
 	}
 
@@ -155,8 +185,7 @@ function wpml_metabox()
 	{
 	    $out .='<div class="wpml_ico_both" onclick="smile2edit(\'content\',\''.
 		addslashes($smile).'\','.$repl.');">'."\n";
-	    $out .= "<img class='wpml_ico' name='icoimg".$res->tid.
-		"' id='icoimg".$res->tid."' src='$ico_url' alt='wp-monalisa icon' $ico_tt/>&nbsp;";
+	    $out .= "<img class='wpml_ico' id='icoimg".$res->tid."' src='$ico_url' alt='wp-monalisa icon' $ico_tt/>&nbsp;";
 	    $out .= "<br />" . $res->emoticon ; 
 	    $out .= "</div>\n";
 	}
