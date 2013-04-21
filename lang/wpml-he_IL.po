@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Monalisa\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-09 17:28+0100\n"
+"POT-Creation-Date: 2013-04-21 09:08+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: שגיב SEO <info@sagive.co.il>\n"
 "Language-Team: Sagive SEO <info@sagive.co.il>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "X-Poedit-Language: Hebrew\n"
 "X-Poedit-Country: ISRAEL\n"
 
-#: wpml_admin.php:113
+#: wpml_admin.php:114
 msgid ""
 "Iconpath is no valid directory, resetting it. Please enter the path relative "
 "to the wordpress main directory."
@@ -22,31 +22,31 @@ msgstr ""
 "Iconpath הוא לא תיקייה תקינה, אני מאפס את זה. אנא הכנס את המסלול היחסי "
 "לתיקייה הראשית של וורדפרס."
 
-#: wpml_admin.php:116
+#: wpml_admin.php:117
 msgid "Settings saved"
 msgstr "ההגדרות נשמרו"
 
-#: wpml_admin.php:134
+#: wpml_admin.php:135
 msgid "Deleted record "
 msgstr "הערך נמחק"
 
-#: wpml_admin.php:159
+#: wpml_admin.php:160
 msgid "Emoticon allready used. Record not inserted"
 msgstr "סמיילי כבר בשימוש. הערך לא הוכנס."
 
-#: wpml_admin.php:201
+#: wpml_admin.php:202
 msgid "Emoticon allready used. Record not updated"
 msgstr "סמיילי כבר בשימוש. הערך לא עודכן"
 
-#: wpml_admin.php:226
+#: wpml_admin.php:227
 msgid "Records updated"
 msgstr "ערכים עודכנו"
 
-#: wpml_admin.php:235
+#: wpml_admin.php:236
 msgid "Settings"
 msgstr "הגדרות"
 
-#: wpml_admin.php:248
+#: wpml_admin.php:249
 #, fuzzy
 msgid ""
 "Please turn off Settings -> Writing -> 'Convert emoticons like...' to use wp-"
@@ -55,11 +55,11 @@ msgstr ""
 "אנא כבה את האפשרות - הגדרות -> כתיבה -> 'חיוכים כמו...' בכדי להשתמש בתוסף wp-"
 "Monalisa"
 
-#: wpml_admin.php:254
+#: wpml_admin.php:255
 msgid "Iconpath"
 msgstr "Iconpath"
 
-#: wpml_admin.php:257
+#: wpml_admin.php:258
 msgid ""
 "You are about to change the iconpath.\\n Please be careful and make sure the "
 "icons are still accessible.\\n To update your settings klick Save Settings"
@@ -67,19 +67,19 @@ msgstr ""
 "אתה עומד לשנות את המסלול לאייקונים (iconpath).\\nאנא הזהר וודא כי כל "
 "האייקונים עדיין זמינים.\\nבכדי לעדכן הקלק על שמור הגדרות"
 
-#: wpml_admin.php:260
+#: wpml_admin.php:261
 msgid "Show smilies on edit"
 msgstr "הצג סמיילים בעריכה"
 
-#: wpml_admin.php:266
+#: wpml_admin.php:267
 msgid "Show smilies on comment"
 msgstr "הצג סמיילים בתגובה"
 
-#: wpml_admin.php:270
+#: wpml_admin.php:271
 msgid "Comment Textarea ID"
 msgstr "הID של שדה הטקסט בתגובה"
 
-#: wpml_admin.php:271
+#: wpml_admin.php:272
 msgid ""
 "You are about to change the id of the textarea of your comment form.\\n "
 "Please make sure you enter the correct id, to make wp-monalisa work correctly"
@@ -87,103 +87,107 @@ msgstr ""
 "אתה עומד לשנות את הID בשדה הטקסט של טופס התגובות.\\nאנא וודא כי אתה מכניס את "
 "הID הנכון כדי שתוסף wp-monalisa יעבוד בצורה תקינה."
 
-#: wpml_admin.php:273
+#: wpml_admin.php:274
 msgid "Replace emoticons with html-images"
 msgstr "החלף סמיילים בתמונות בעזרת HTML"
 
-#: wpml_admin.php:276
+#: wpml_admin.php:277
 msgid "Show emoticons in selection as"
 msgstr "הצג סמיילים אשר נבחרו כ.."
 
-#: wpml_admin.php:278 wpml_admin.php:419 wpml_admin.php:430
+#: wpml_admin.php:279 wpml_admin.php:429 wpml_admin.php:440
 msgid "Icon"
 msgstr "אייקון"
 
-#: wpml_admin.php:279
+#: wpml_admin.php:280
 msgid "Text"
 msgstr "טקסט"
 
-#: wpml_admin.php:280
+#: wpml_admin.php:281
 msgid "Both"
 msgstr "שניהם"
 
-#: wpml_admin.php:285
+#: wpml_admin.php:286
 msgid "Show smilies in a table"
 msgstr "הצג סמיילים בטבלה"
 
-#: wpml_admin.php:287
+#: wpml_admin.php:288
 msgid "Smilies per row"
 msgstr "סמיילים לכל שורה"
 
-#: wpml_admin.php:295
+#: wpml_admin.php:296
 msgid "Show smilies as Pulldown"
 msgstr "הצג סמיילים בתפריט נפתח"
 
-#: wpml_admin.php:297
+#: wpml_admin.php:298
 msgid "Smilies in 1st row"
 msgstr "סמיילים בשורה ראשונה"
 
-#: wpml_admin.php:304
+#: wpml_admin.php:305
 msgid "Show tooltip for icons"
 msgstr "הצג טיפ במעבר עכבר מעל אייקון"
 
-#: wpml_admin.php:312
+#: wpml_admin.php:313
 msgid "Activate Smilies for BuddyPress"
 msgstr ""
 
-#: wpml_admin.php:325
+#: wpml_admin.php:322
+msgid "Activate Smilies for bbPress"
+msgstr ""
+
+#: wpml_admin.php:335
 msgid "Save Settings"
 msgstr "שמור הגדרות"
 
-#: wpml_admin.php:330
+#: wpml_admin.php:340
 msgid "Import Smiley-Package"
 msgstr "ייבוא חבילת סמיילים"
 
-#: wpml_admin.php:331
+#: wpml_admin.php:341
 msgid "Export Smiley-Package (pak-Format)"
 msgstr "ייצא את חבילת הסמיילים (פורמט pak)"
 
-#: wpml_admin.php:347
+#: wpml_admin.php:357
 msgid "Smilies"
 msgstr "סמיילים"
 
-#: wpml_admin.php:351
+#: wpml_admin.php:361
 msgid "Iconpath is empty or invalid"
 msgstr "המסלול של Iconpath ריק או אינו תקין"
 
-#: wpml_admin.php:397 wpml_admin.php:412 wpml_admin.php:546 wpml_admin.php:560
+#: wpml_admin.php:407 wpml_admin.php:422 wpml_admin.php:556 wpml_admin.php:570
 msgid "Save"
 msgstr "שמור"
 
-#: wpml_admin.php:397 wpml_admin.php:546
+#: wpml_admin.php:407 wpml_admin.php:556
 msgid "Delete marked"
 msgstr "מחק מסומנים"
 
-#: wpml_admin.php:401 wpml_admin.php:550
+#: wpml_admin.php:411 wpml_admin.php:560
 msgid "Show all"
 msgstr "הצג הכל"
 
-#: wpml_admin.php:410 wpml_admin.php:559
+#: wpml_admin.php:420 wpml_admin.php:569
 msgid "Lines per Page:"
 msgstr "שורות לכל עמוד:"
 
-#: wpml_admin.php:418 wpml_admin.php:429
+#: wpml_admin.php:428 wpml_admin.php:439
 msgid "Emoticon"
 msgstr "סמיילי"
 
-#: wpml_admin.php:419 wpml_admin.php:430
+#: wpml_admin.php:429 wpml_admin.php:440
 msgid "not mapped yet"
 msgstr "עדיין לא עבר מיפוי"
 
-#: wpml_admin.php:420 wpml_admin.php:431
+#: wpml_admin.php:430 wpml_admin.php:441
 msgid "On Post"
 msgstr "בפוסט"
 
-#: wpml_admin.php:421 wpml_admin.php:432
+#: wpml_admin.php:431 wpml_admin.php:442
 msgid "On Comment"
 msgstr "בתגובה"
 
-#: wpml_admin.php:439
+#: wpml_admin.php:449
 msgid "New Entry"
 msgstr "בחלון פוסט חדש"
 
@@ -329,10 +333,10 @@ msgstr ""
 msgid "Plugin Settings"
 msgstr "הגדרות"
 
-#: wpml_comment.php:237
+#: wpml_comment.php:244
 msgid "less..."
 msgstr "פחות..."
 
-#: wpml_comment.php:238
+#: wpml_comment.php:245
 msgid "more..."
 msgstr "יותר..."

@@ -3,12 +3,12 @@
 Plugin Name: wp-Monalisa
 Plugin URI: http://www.tuxlog.de/wordpress/2009/wp-monalisa/
 Description: wp-Monalisa is the plugin that smiles at you like monalisa does. place the smilies of your choice in posts, pages or comments. 
-Version: 2.6
+Version: 2.7
 Author: Hans Matzen <webmaster at tuxlog dot de>
 Author URI: http://www.tuxlog.de
 */
 
-/*  Copyright 2009-2012 Hans Matzen  (email : webmaster at tuxlog dot de)
+/*  Copyright 2009-2013 Hans Matzen  (email : webmaster at tuxlog dot de)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -84,8 +84,7 @@ add_filter('the_content',  'wpml_convert_emoticons',99);
 add_filter('the_excerpt',  'wpml_convert_emoticons',99);
 add_filter('comment_text', 'wpml_convert_emoticons', 99);
 
-// show smilies in buddypress 
-
+// show smilies in buddypress and bbpress
 // optionen einlesen
 $av=array();
 if (function_exists('is_multisite') && is_multisite()) 
@@ -116,9 +115,6 @@ if (defined('BP_VERSION') && $av['wpml4buddypress'] == "1") {
 	add_filter( 'bp_get_the_thread_message_content', 	'wpml_convert_emoticons', 99);
 	add_filter( 'bp_get_the_profile_field_value',    	'wpml_convert_emoticons', 99);  
 
-	add_filter( 'bbp_get_reply_content',     			'wpml_convert_emoticons', 99);  
-	add_filter( 'bbp_get_topic_content', 		    	'wpml_convert_emoticons', 99);  
-	
 	// add img tag so that smilies can be displayed
 	add_filter('init','wpml_bp_allow_tags');
 	
@@ -128,6 +124,11 @@ if (defined('BP_VERSION') && $av['wpml4buddypress'] == "1") {
 		//$allowedtags['p'] = array();
 		return $data;
 	}
-
 }
+
+if (class_exists( 'bbPress' ) && $av['wpml4bbpress'] == "1") {
+	add_filter( 'bbp_get_reply_content',     			'wpml_convert_emoticons', 99);
+	add_filter( 'bbp_get_topic_content', 		    	'wpml_convert_emoticons', 99);
+}
+
 ?>

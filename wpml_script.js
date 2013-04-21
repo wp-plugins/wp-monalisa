@@ -24,14 +24,13 @@ function smile2edit(textid,smile,replace)
 
     if ( tedit == null || tedit.isHidden() == true)
     {
-	// text in html editor einfügen
-	tarea = document.getElementById(textid);
+    	// text in html editor einfügen
+    	tarea = document.getElementById(textid);
     	insert_text(itext, tarea);
     } else if ( (tedit.isHidden() == false) && window.tinyMCE)
     { 
 	// füge den text in den tinymce ein
-	window.tinyMCE.execInstanceCommand('content', 'mceInsertContent', 
-					   false, itext);
+	window.tinyMCE.execInstanceCommand('content', 'mceInsertContent', false, itext);
     }
 }
 
@@ -43,7 +42,9 @@ function smile2edit(textid,smile,replace)
 */
 function smile2comment(textid,smile,replace,myid){
     //tarea = document.getElementById(textid);
-    tarea = jQuery('#'+myid).parent().find('textarea')[0];
+	var tedit = null;
+
+	tarea = jQuery('#'+myid).parent().find('textarea')[0];
     if (tarea == null) 
     {
 	tarea = jQuery('#'+myid).parent().parent().find('textarea')[0];
@@ -60,16 +61,36 @@ function smile2comment(textid,smile,replace,myid){
     if (tarea == null) {
     	tarea = jQuery('#'+textid)[0];
 	}
-   
-    if (tarea == null) 
-    {
-	alert('wp-monalisa: Textarea not found. Please contact the webmaster of this site.');
-	return;
+    
+    // maybe we are using TinyMCE
+    // editor objekt holen, falls vorhanden
+    if ( typeof tinyMCE != "undefined" ) {
+    	teid=tinyMCE.activeEditor.editorId;
+    	tedit = tinyMCE.get(teid);
     }
+    
+    if (tarea == null && tedit == null) {
+    	alert('wp-monalisa: Textarea not found. Please contact the webmaster of this site.');
+    	return;
+    }
+    
+    // calculate text to insert
+    var itext="";
     if ( replace == 1)
-	insert_text("<img class='wpml_ico' alt='" + smile + "' src='" + smile + "' />", tarea);
+    	itext="<img class='wpml_ico' alt='" + smile + "' src='" + smile + "' />";
     else
-	insert_text(" " + smile + " ", tarea); // add space to separate smilies
+    	itext=" " + smile + " "; // add space to separate smilies
+
+    
+    // insert text into editor and or textarea
+    if ( tarea != null) {
+    	insert_text(itext, tarea);
+    }
+    
+    if ( tedit != null && tedit.isHidden() == false)
+    {
+       	window.tinyMCE.execInstanceCommand(teid, 'mceInsertContent', false, itext);
+    }
 }
 
 /*

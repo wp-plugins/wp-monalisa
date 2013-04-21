@@ -55,6 +55,13 @@ function wpml_comment_init()
 		add_action('bp_group_after_edit_forum_topic', 'wpml_comment');
 		add_action('bp_after_group_forum_post_new', 'wpml_comment');
 	}
+	
+	// show smilies in bbpress
+	if (class_exists( 'bbPress' ) && $av['wpml4bbpress'] == "1") {
+		// add smilies to forums (bbpress)
+		add_action('bbp_theme_after_topic_form_content','wpml_comment');
+		add_action('bbp_theme_after_reply_form_content','wpml_comment',1);
+	}
 }
 
 function wpml_comment($postid=0)

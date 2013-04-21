@@ -137,7 +137,7 @@ function wpml_metabox()
 	    $double_check[] = $res->iconfile;
 
 	// prüfe ob eine neue zeile anfängt, bei tabellenausgabe
-	if ( ( $sm_count == 0 || 
+	if (  isset($sm_count) && ($sm_count == 0 || 
 	       $sm_count % $av['smiliesperrow'] == 0 ) && 
 	     $av['showastable'] == 1 && 
 		 $av['showicon'] == 1 

@@ -97,12 +97,13 @@ function wpml_admin()
       $av['showicon']         = $_POST['showicon'];
       $av['replaceicon']      = (isset($_POST['replaceicon'])?$_POST['replaceicon']:'');
       $av['showastable']      = (isset($_POST['showastable'])?$_POST['showastable']:'');
-      $av['smiliesperrow']    = (int) $_POST['smiliesperrow'];
+      $av['smiliesperrow']    = (isset($_POST['smiliesperrow'])?(int) $_POST['smiliesperrow']:0);
       $av['showaspulldown']   = $_POST['showaspulldown'];
       $av['smilies1strow']    = (int) $_POST['smilies1strow'];
       $av['icontooltip']      = $_POST['icontooltip']; 
-      $av['wpml4buddypress']  = $_POST['wpml4buddypress'];
-
+      $av['wpml4buddypress']  = (isset($_POST['wpml4buddypress'])?$_POST['wpml4buddypress']:'');
+      $av['wpml4bbpress']     = (isset($_POST['wpml4bbpress'])?$_POST['wpml4bbpress']:'');
+      
       if ( $_POST['commenttextid']=="" )
 	  $av['commenttextid'] = "comment";
       else
@@ -152,7 +153,7 @@ function wpml_admin()
       if ( trim($_POST['NEWemoticon']) != "" )
       {
 	  // pruefen ob bereits ein satz mit dem gleichen emoticon vorhanden ist
-	  $sql  = "select count(*) from $wpml_table where emoticon='".$_POST['NEWemoticon']."';";
+	  $sql  = "select count(*) from $wpml_table where BINARY(emoticon)=BINARY('".$_POST['NEWemoticon']."');";
 	  $vorhanden = $wpdb->get_var($sql);
 	  if ($vorhanden > 0)
 	  {
@@ -314,6 +315,15 @@ function wpml_admin()
   $out .= '<th scope="row" >&nbsp;</th>'."\n";
   $out .= '<td>&nbsp;</td>'."\n";
   $out .="</tr>\n";
+  }
+  
+  if (class_exists( 'bbPress' )) {
+  	// bbpress unterstützung
+  	$out .= '<tr><th scope="row" ><label for="wpml4bbpress">'.__('Activate Smilies for bbPress','wpml').':</label></th>'."\n";
+  	$out .= '<td><input name="wpml4bbpress" id="wpml4bbpress" type="checkbox" value="1" '.($av['wpml4bbpress']=="1"?'checked="checked"':""). ' onchange="wpml_admin_switch();" /></td>'."\n";
+  	$out .= '<th scope="row" >&nbsp;</th>'."\n";
+  	$out .= '<td>&nbsp;</td>'."\n";
+  	$out .="</tr>\n";
   }
   
   $out .= '</table>'."\n";

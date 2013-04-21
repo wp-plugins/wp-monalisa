@@ -143,8 +143,26 @@ function wpml_admin_switch()
 	document.editopts.smilies1strow.disabled=true;
     } 
     
-    u=document.editopts.wpml4buddypress.checked;
+    if (typeof document.editopts.wpml4buddypress === "undefined")
+    	u=false;
+    else
+    	u=document.editopts.wpml4buddypress.checked;
+    
     if ( u==true) // buddypress is active
+    {
+    document.editopts.replaceicon.checked=false;
+	document.editopts.replaceicon.disabled=true;
+    } else {    
+	document.editopts.replaceicon.disabled=false;
+    }
+    
+    if (typeof document.editopts.wpml4bbpress.checked === "undefined")
+    	u=false;
+    else
+    	u=document.editopts.wpml4bbpress.checked;
+    
+    u=document.editopts.wpml4bbpress.checked;
+    if ( u==true) // bbPress is active
     {
     document.editopts.replaceicon.checked=false;
 	document.editopts.replaceicon.disabled=true;
