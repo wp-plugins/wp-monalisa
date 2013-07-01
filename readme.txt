@@ -1,10 +1,10 @@
 === Plugin Name ===
 Contributors: tuxlog, woodstock
 Donate link: http://www.tuxlog.de/
-Tags: wordpress, plugin, smiley, smilies, monalisa, comments, post, edit
+Tags: wordpress, plugin, smiley, smilies, monalisa, comments, post, edit, buddypress, bbpress
 Requires at least: 2.7
-Tested up to: 3.2
-Stable tag: 1.5
+Tested up to: 3.5.1
+Stable tag: 2.9
 
 wp-monalisa is the plugin that smiles at you like monalisa does. place the smilies of your choice in posts, pages or comments.
 
@@ -26,6 +26,7 @@ Features:
 * while edit posts or pages, pops-up in a draggable meta-box
 * extends your comment form to give you visitors the freedom to smile :-)
 * support for fckeditor (tested with v3.3.1)
+* fully integrated ith BuddyPress
 
 The video shows a short overview of what wp-monalisa can do for you. [youtube http://www.youtube.com/watch?v=uHXlELn27ko]
 
@@ -33,6 +34,7 @@ Credits:
 Thanks go to all who support this plugin, with  hints and suggestions for improvment and specially to
 
 * Michal Maciejewski, polish translation
+* Denny from http://www.vau3.de for testing and giving input for the BuddyPress integration
 
 == Installation ==
 
@@ -56,6 +58,15 @@ Configure: [youtube http://www.youtube.com/watch?v=614Gso38v5g]
 Use: [youtube http://www.youtube.com/watch?v=uHXlELn27ko]
 Import/Export of Smilies: [youtube http://www.youtube.com/watch?v=cedwN0u_XRI]
 
+= The smilies for BuddyPress activities are only shown when the page is reloaded. Is this a bug? =
+
+No, BuddyPress uses local ajax to add new activities to your timeline. Therefore the earliest time the Smilies can be loaded is when the page is loaded from the server again.
+
+= I can't see the smilies in the notices shown in the sidebar of BuddyPress. What's wrong? =
+
+Nothing, the current version of BuddyPress does not offer a filter to show the smilies in there. But there is a workaround editing one line of bb-messages-template.php, change line 546 to 
+<?php echo apply_filters('bp_get_message_notice_text', stripslashes( wp_filter_kses( $notice->message) )) ?>
+or use the Activity-Stream-Widget for BuddyPress, which is supported by wp-monalisa 
 
 = wp-monalisa does not work with comments. What now? =
 
@@ -73,6 +84,63 @@ Plase check and double check the path to your smiley directory.
 4. wp-Monalisa import thickbox dialog
 
 == Changelog ==
+
+= v2.9 (2013-07-01) =
+* fixed problems with smilies and BuddyPress profiles
+
+
+= v2.8 (2013-07-01) =
+* added support to integrate smilies into bp profile messaging ux free plugin
+
+= v2.7 (2013-04-20) =
+* extended wpml to allow using :yes: and :YES: as different emoticons
+* separate the support for bbPress and BuddyPress and support bbPress tinyMCE
+
+= v2.6 (2013-03-16) =
+* changed hint text to new WordPress labels
+* extendd support of use from within php
+* fixed bug with BuddyPress when using tables for output
+
+= v2.5 (2012-10-26) =
+* with special configurations smilies disappeared or where shown with wrong dimensions
+
+= v2.4 (2012-10-24) =
+* with special configurations smilies disappeared due to lack of dimensions
+
+= v2.3 (2012-10-01) =
+* added width and height attribute to img tags speeding up browser rendering if many smilies are used
+* added deferred loading for the hidden smilies if pulldown smilies are active
+* added "more..." Smilies are inserted when "more..." is clicked 
+* removed an incompatibility with Better WP Minify
+
+= v2.2 (2012-09-28) =
+* fixed warning during plugin activation
+
+= v2.1 (2012-08-05) =
+* swtiched to load_plugin_textdomain for compatibility
+* load js only when applicable
+* added support for BuddyPress (Acitivties, Messages, Notices, Groups, bbpress-Forums)
+
+= v2.0 (2012-06-10) =
+* extended multisite support for easier handling
+
+= v1.9 (2012-03-05) =
+* fixed a typo with trailing spaces in emoticons
+* added default admin email to support form
+* added theme name to support form 
+* work around a bug in bwp minify with jquery events
+
+= v1.8 (2012-02-19) =
+* add new support and donation feature
+* add posibility to disable comments smilies on a single post/page
+* use standard load for wordpress includes
+ 
+= v1.7 (2011-12-21) =
+* clean up more (maybe all?) html5 code errors for 3.3 compatibility
+
+= v1.6 (2011-12-14) =
+* now using wp_enqueue_style for css
+* clean up html5 code errors for 3.3 compatibility
 
 = v1.5 (2011-10-22) =
 * removed russian translation because of a restricton from wordpress.org
