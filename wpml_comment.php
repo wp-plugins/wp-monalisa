@@ -21,8 +21,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 // sicherheitshalber pruefen, ob wir direkt aufgerufen werden
 if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) {
-	die('You
-			are not allowed to call this page directly.');
+	die('You are not allowed to call this page directly.');
 }
 
 // init funktion fuer die kommentarunterstuetzung
@@ -76,7 +75,7 @@ function get_wpml_comment($postid=0)
 
 	$uid = uniqid();
 	$out1strow="";
-
+	
 	// if this post is excluded return nothing :-)
 	$excludes = unserialize(get_option('wpml_excludes'));
 	if (is_array($excludes) and in_array($post->ID,$excludes))

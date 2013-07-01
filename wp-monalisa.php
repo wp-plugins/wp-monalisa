@@ -3,7 +3,7 @@
 Plugin Name: wp-Monalisa
 Plugin URI: http://www.tuxlog.de/wordpress/2009/wp-monalisa/
 Description: wp-Monalisa is the plugin that smiles at you like monalisa does. place the smilies of your choice in posts, pages or comments. 
-Version: 2.7
+Version: 2.8
 Author: Hans Matzen <webmaster at tuxlog dot de>
 Author URI: http://www.tuxlog.de
 */
@@ -114,7 +114,12 @@ if (defined('BP_VERSION') && $av['wpml4buddypress'] == "1") {
 	add_filter( 'bp_get_message_thread_excerpt',		'wpml_convert_emoticons', 99);
 	add_filter( 'bp_get_the_thread_message_content', 	'wpml_convert_emoticons', 99);
 	add_filter( 'bp_get_the_profile_field_value',    	'wpml_convert_emoticons', 99);  
-
+	
+	// BP Profile Message UX filters
+	add_filter( 'bp_get_send_public_message_button',    'wpml_convert_emoticons', 99);
+	add_filter( 'bp_get_send_message_button',    		'wpml_convert_emoticons', 99);
+	
+	
 	// add img tag so that smilies can be displayed
 	add_filter('init','wpml_bp_allow_tags');
 	
