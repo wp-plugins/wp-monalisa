@@ -4,7 +4,7 @@ Donate link: http://www.tuxlog.de/
 Tags: wordpress, plugin, smiley, smilies, monalisa, comments, post, edit, buddypress, bbpress
 Requires at least: 2.7
 Tested up to: 3.5.1
-Stable tag: 2.8
+Stable tag: 2.9
 
 wp-monalisa is the plugin that smiles at you like monalisa does. place the smilies of your choice in posts, pages or comments.
 
@@ -84,6 +84,9 @@ Plase check and double check the path to your smiley directory.
 4. wp-Monalisa import thickbox dialog
 
 == Changelog ==
+
+= v2.9 (2013-07-01) =
+* fixed problems with smilies and BuddyPress profiles
 
 
 = v2.8 (2013-07-01) =
