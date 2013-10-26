@@ -207,7 +207,9 @@ function wpml_convert_emoticons($text)
 	$stop = count($textarr);// loop stuff
 	for ($i = 0; $i < $stop; $i++) {
 		$content = $textarr[$i];
+		
 		if ((strlen($content) > 0) && ('<' != $content{0})) {
+			
 			//If it's not a tag
 			$content = preg_replace_callback($wpml_search,
 					'wpml_translate_emoticon',

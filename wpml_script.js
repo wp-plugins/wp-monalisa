@@ -53,6 +53,11 @@ function smile2comment(textid,smile,replace,myid){
     {
     	tarea = jQuery('#'+myid).parent().parent().parent().find('textarea')[0];
     }
+    // for jetpack support #FIXME
+    if (tarea == null) 
+    {
+    	tarea = jQuery('jetpack_remote_comment').contents().find('textarea')[1];
+    }
     // if tables are active search for the table tag first
     if (tarea == null) 
     {

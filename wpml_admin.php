@@ -1,7 +1,7 @@
 <?php
 /* This file is part of the wp-monalisa plugin for wordpress */
 
-/*  Copyright 2009-2012  Hans Matzen  (email : webmaster at tuxlog.de)
+/*  Copyright 2009-2013  Hans Matzen  (email : webmaster at tuxlog.de)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -128,6 +128,10 @@ function wpml_admin()
       $maxnum = $wpdb->get_var($sql);
       for ($i = 1; $i <= $maxnum; $i++) 
       {
+      	// nur fuer gefüllte felder updaten
+      	if ( ! isset($_POST['mark'.$i]) )
+      		continue;
+      	
 	  if ( $_POST['mark' . $i] == $i )
 	  {
 	      $sql = "delete from $wpml_table where tid=$i;";
@@ -189,7 +193,7 @@ function wpml_admin()
 	  for ($j=1; $j <= $maxnum; $j++)
 	  {
 	      // nur für gefüllte felder prüfen
-	      if ( ! isset($_POST['emoticon'.$i]) )
+	      if ( ! isset($_POST['emoticon'.$j]) )
 		  continue;
 
 	      if ($_POST['emoticon'.$j] == $_POST['emoticon'.$i])
