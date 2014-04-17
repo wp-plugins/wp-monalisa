@@ -1,0 +1,354 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: wp-Monalisa 0.2 po polsku\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-04-21 09:08+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: jelena kovacevic <jecajeca260@gmail.com>\n"
+"Language-Team: Galareta 1 Man Band <admin@inwit.pl>\n"
+"Language: pl_PL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: ..\\\n"
+"X-Poedit-KeywordsList: __;_e;_c;__ngettext:1,2;__ngettext_noop:1,2\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: wpml_admin.php:114
+msgid ""
+"Iconpath is no valid directory, resetting it. Please enter the path relative "
+"to the wordpress main directory."
+msgstr ""
+"conPath no es un directorio válido, Reiniciándolo. Por favor, introduzca la "
+"ruta relativa al directorio principal de wordpress."
+
+#: wpml_admin.php:117
+msgid "Settings saved"
+msgstr "Ajustes salvados"
+
+#: wpml_admin.php:135
+msgid "Deleted record "
+msgstr "Eliminar registro"
+
+#: wpml_admin.php:160
+msgid "Emoticon allready used. Record not inserted"
+msgstr "Carita ya utilizada. El registro no se insertó"
+
+#: wpml_admin.php:202
+msgid "Emoticon allready used. Record not updated"
+msgstr "Carita ya utilizada. El Registro no se actualizó"
+
+#: wpml_admin.php:227
+msgid "Records updated"
+msgstr "Registro actualizado"
+
+#: wpml_admin.php:236
+msgid "Settings"
+msgstr "Ajustes"
+
+#: wpml_admin.php:249
+msgid ""
+"Please turn off Settings -> Writing -> 'Convert emoticons like...' to use wp-"
+"Monalisa smilies)."
+msgstr ""
+"Por favor, cierre la Configuración -> Escritura -> \"Convertir caritas "
+"como ... ' para utilizar caritas wp-Monalisa)."
+
+#: wpml_admin.php:255
+msgid "Iconpath"
+msgstr "Iconpath"
+
+#: wpml_admin.php:258
+msgid ""
+"You are about to change the iconpath.\\n Please be careful and make sure the "
+"icons are still accessible.\\n To update your settings klick Save Settings"
+msgstr ""
+"Usted está a punto de cambiar la dirección del icono.\\n Por favor, tenga "
+"cuidado y asegúrese de que los iconos siguen siendo accesibles.\\n Para "
+"actualizar la configuración haga clic en Guardar los Ajustes"
+
+#: wpml_admin.php:261
+msgid "Show smilies on edit"
+msgstr "Mostrar caritas en edición"
+
+#: wpml_admin.php:267
+msgid "Show smilies on comment"
+msgstr "Mostrar caritas en comentario"
+
+#: wpml_admin.php:271
+msgid "Comment Textarea ID"
+msgstr "ID de Comentario de la Caja de texto "
+
+#: wpml_admin.php:272
+msgid ""
+"You are about to change the id of the textarea of your comment form.\\n "
+"Please make sure you enter the correct id, to make wp-monalisa work correctly"
+msgstr ""
+"Usted está a punto de cambiar el id de la caja de texto del formulario de "
+"comentarios.\\n Por favor, asegúrese de introducir el ID correcto, para que "
+"hacer que wp-monalisa trabaje correctamente"
+
+#: wpml_admin.php:274
+msgid "Replace emoticons with html-images"
+msgstr "Vuelva a colocar caritas con imágenes html"
+
+#: wpml_admin.php:277
+msgid "Show emoticons in selection as"
+msgstr "Mostrar caritas en la selección como"
+
+#: wpml_admin.php:279 wpml_admin.php:429 wpml_admin.php:440
+msgid "Icon"
+msgstr "Icono"
+
+#: wpml_admin.php:280
+msgid "Text"
+msgstr "Texto"
+
+#: wpml_admin.php:281
+msgid "Both"
+msgstr "Ambos"
+
+#: wpml_admin.php:286
+msgid "Show smilies in a table"
+msgstr "Mostrar caritas en una tabla"
+
+#: wpml_admin.php:288
+msgid "Smilies per row"
+msgstr "Caritas por fila"
+
+#: wpml_admin.php:296
+msgid "Show smilies as Pulldown"
+msgstr "Mostrar caritas como Pulldown"
+
+#: wpml_admin.php:298
+msgid "Smilies in 1st row"
+msgstr "Caritas en primera fila"
+
+#: wpml_admin.php:305
+msgid "Show tooltip for icons"
+msgstr "Mostrar información sobre herramientas para los iconos"
+
+#: wpml_admin.php:313
+msgid "Activate Smilies for BuddyPress"
+msgstr "Activar Caritas para BuddyPress"
+
+#: wpml_admin.php:322
+msgid "Activate Smilies for bbPress"
+msgstr "Activar Caritas para bbPress"
+
+#: wpml_admin.php:335
+msgid "Save Settings"
+msgstr "Salvar ajustes"
+
+#: wpml_admin.php:340
+msgid "Import Smiley-Package"
+msgstr "Importar Paquete de Caritas "
+
+#: wpml_admin.php:341
+msgid "Export Smiley-Package (pak-Format)"
+msgstr "Exportar Paquete de Caritas (pak-Format)"
+
+#: wpml_admin.php:357
+msgid "Smilies"
+msgstr "Caritas"
+
+#: wpml_admin.php:361
+msgid "Iconpath is empty or invalid"
+msgstr "La dirección del icono está vacía o no es válida"
+
+#: wpml_admin.php:407 wpml_admin.php:422 wpml_admin.php:556 wpml_admin.php:570
+msgid "Save"
+msgstr "Salvar"
+
+#: wpml_admin.php:407 wpml_admin.php:556
+msgid "Delete marked"
+msgstr "Eliminar marcados"
+
+#: wpml_admin.php:411 wpml_admin.php:560
+msgid "Show all"
+msgstr "Mostrar todos"
+
+#: wpml_admin.php:420 wpml_admin.php:569
+msgid "Lines per Page:"
+msgstr "Líneas por Página:"
+
+#: wpml_admin.php:428 wpml_admin.php:439
+msgid "Emoticon"
+msgstr "Caritas"
+
+#: wpml_admin.php:429 wpml_admin.php:440
+msgid "not mapped yet"
+msgstr "no asignado todavía"
+
+#: wpml_admin.php:430 wpml_admin.php:441
+msgid "On Post"
+msgstr "En post"
+
+#: wpml_admin.php:431 wpml_admin.php:442
+msgid "On Comment"
+msgstr "El comentario"
+
+#: wpml_admin.php:449
+msgid "New Entry"
+msgstr "Nueva entrada"
+
+#: wpml_export.php:72
+msgid "Export"
+msgstr "Exportar"
+
+#: wpml_export.php:84
+msgid ""
+"You can mark the .pak-export with Ctrl-a, copy it with Ctrl-c and paste it "
+"to your favourite editor with Ctrl-v."
+msgstr ""
+"Puede marcar el .pak-export con Ctrl-a, cópielo con Ctrl-c y péguelo en su "
+"editor favorito con Ctrl-v."
+
+#: wpml_export.php:88 wpml_import.php:111
+msgid "Close"
+msgstr "Cerrar"
+
+#: wpml_edit.php:39
+msgid "saved"
+msgstr "salvado"
+
+#: wpml_edit.php:73 wpml_edit.php:77
+msgid "wp-Monalisa"
+msgstr "wp-Monalisa"
+
+#: wpml_edit.php:114
+msgid "Disable comment smilies on this page/post?"
+msgstr "¿Deshabilitar caritas de comentario en esta página/post?"
+
+#: wpml_import.php:41
+msgid "Smilies deleted."
+msgstr "Caritas borradas."
+
+#: wpml_import.php:78
+msgid "Import"
+msgstr "Importar"
+
+#: wpml_import.php:81
+msgid "Select smiley package"
+msgstr "Seleccione el paquete de caritas"
+
+#: wpml_import.php:101
+msgid "Delete current smilies before import"
+msgstr "Eliminar caritas actuales antes de la importación"
+
+#: wpml_import.php:108
+msgid "Start import"
+msgstr "Comenzar la importación"
+
+#: support/support.php:65 support/support.php:114
+msgid "Support Request"
+msgstr "Soporte de pedidos"
+
+#: support/support.php:68
+msgid "Thanks for your request, you will get feedback as soon as possible."
+msgstr ""
+"Gracias por su solicitud, usted conseguirá feedback tan pronto como sea "
+"posible."
+
+#: support/support.php:70
+msgid ""
+"Sorry, there was a problem sending your mail. Please send the contents of "
+"this fram to support@tuxlog.de manually."
+msgstr ""
+"Lo sentimos, hubo un problema al enviar su correo. Por favor, enviar el "
+"contenido de este frame a support@tuxlog.de manualmente."
+
+#: support/support.php:116
+msgid ""
+"Please notice, the following data will be send via email to analyze your "
+"support request."
+msgstr ""
+"Por favor note, los siguientes datos se enviarán a través de correo "
+"electrónico para analizar su solicitud de soporte."
+
+#: support/support.php:117
+msgid "You can contact the author of this plugin at"
+msgstr "Puede ponerse en contacto con el autor de este plugin en"
+
+#: support/support.php:118
+msgid ""
+"Please enter your problem description in the textarea and fill in a valid "
+"email address."
+msgstr ""
+"Introduzca su descripción del problema en el área de texto y rellene la "
+"dirección de correo electrónico válida."
+
+#: support/support.php:122
+msgid "Problemdescription"
+msgstr "Descripción del problema"
+
+#: support/support.php:126
+msgid "Enter your email address"
+msgstr "Ingrese su dirección de correo electrónico"
+
+#: support/support.php:131
+msgid "Send request"
+msgstr "Enviar solicitud"
+
+#: support/support.php:132
+msgid "Close window"
+msgstr "Cerrar ventana"
+
+#: support/support.php:134
+msgid "Messages..."
+msgstr "Mensajes..."
+
+#: support/support.php:137
+msgid "In addition the following data is transmitted to analyze your request"
+msgstr "En adición los siguientes datos se transmiten para analizar su pedido"
+
+#: support/support.php:140
+msgid "General Settings"
+msgstr "Ajustes Generales"
+
+#: support/support.php:141
+msgid "Your wordpress version"
+msgstr "Su versión de wordpress"
+
+#: support/support.php:142
+msgid "Your wordpress language"
+msgstr "Su lenguaje de wordpress"
+
+#: support/support.php:143
+msgid "Your local package"
+msgstr "Su paquete local"
+
+#: support/support.php:144
+msgid "Your timezone setting"
+msgstr "Su configuración de zona horaria"
+
+#: support/support.php:145
+msgid "Active theme"
+msgstr "Tema activo"
+
+#: support/support.php:149
+msgid ""
+"Fetching the plugin information from wordpress.org...this may take a while"
+msgstr ""
+"Recopilando la información del plugin desde wordpress.org… esto puede llevar "
+"un tiempo"
+
+#: support/support.php:151
+msgid "Active Plugins"
+msgstr "Plugins Activos"
+
+#: support/support.php:163
+msgid "Plugin Settings"
+msgstr "Ajustes del plugin"
+
+#: wpml_comment.php:244
+msgid "less..."
+msgstr "menos.."
+
+#: wpml_comment.php:245
+msgid "more..."
+msgstr "más..."
