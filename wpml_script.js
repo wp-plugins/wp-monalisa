@@ -30,7 +30,12 @@ function smile2edit(textid,smile,replace)
     } else if ( (tedit.isHidden() == false) && window.tinyMCE)
     { 
 	// füge den text in den tinymce ein
-	window.tinyMCE.execInstanceCommand('content', 'mceInsertContent', false, itext);
+	var tmce_ver=window.tinyMCE.majorVersion;
+       if (tmce_ver=="4") {
+      	  window.tinyMCE.execCommand('mceInsertContent', false, itext);
+       } else {
+	 window.tinyMCE.execInstanceCommand('content', 'mceInsertContent', false, itext);
+       }
     }
 }
 
@@ -94,7 +99,12 @@ function smile2comment(textid,smile,replace,myid){
     
     if ( tedit != null && tedit.isHidden() == false)
     {
-       	window.tinyMCE.execInstanceCommand(teid, 'mceInsertContent', false, itext);
+       var tmce_ver=window.tinyMCE.majorVersion;
+       if (tmce_ver=="4") {
+      	  window.tinyMCE.execCommand('mceInsertContent', false, itext);
+       } else {
+	  window.tinyMCE.execInstanceCommand(teid, 'mceInsertContent', false, itext);
+       }
     }
 }
 

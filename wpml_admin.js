@@ -143,10 +143,10 @@ function wpml_admin_switch()
 	document.editopts.smilies1strow.disabled=true;
     } 
     
-    if (typeof document.editopts.wpml4buddypress === "undefined")
-    	u=false;
+    if (document.editopts.wpml4bbpress && typeof(document.editopts.wpml4buddypress) != "undefined")
+       	u=document.editopts.wpml4buddypress.checked;
     else
-    	u=document.editopts.wpml4buddypress.checked;
+    	u=false;
     
     if ( u==true) // buddypress is active
     {
@@ -156,10 +156,10 @@ function wpml_admin_switch()
 	document.editopts.replaceicon.disabled=false;
     }
     
-    if (typeof document.editopts.wpml4bbpress.checked === "undefined")
-    	u=false;
+    if (document.editopts.wpml4bbpress && typeof(document.editopts.wpml4bbpress.checked) != "undefined")
+       	u=document.editopts.wpml4bbpress.checked;
     else
-    	u=document.editopts.wpml4bbpress.checked;
+        u=false;
     
     u=document.editopts.wpml4bbpress.checked;
     if ( u==true) // bbPress is active

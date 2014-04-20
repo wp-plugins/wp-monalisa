@@ -252,7 +252,7 @@ function get_wpml_comment($postid=0)
 	$out1strow=str_replace("icoimg","hicoimg",$out1strow);
 	$out1strow=str_replace("icodiv-","icodiv1-",$out1strow);
 
-	$loaderout = addslashes(str_replace(array("\n", "\r"), '', $out));
+	  $loaderout = addslashes(str_replace(array("\n", "\r"), '', $out));
 	// die Liste mit den images wird nur beim ersten Mal ausgegeben
 	if ($wpml_first_preload) 
 		$wpml_first_preload=false;
@@ -260,7 +260,7 @@ function get_wpml_comment($postid=0)
 		$loader="";
 	
 	$loader .= "wpml_more_html['$uid']=\"$loaderout\";\n";
-	$loader  = "<script type='text/javascript'>\n<!--\n$loader\n//-->\n</script>\n";
+	$loader  = "<script type='text/javascript'>\n$loader\n</script>\n";
 	
 	if  ( $av['showaspulldown'] != 1 )
 		return $out;
