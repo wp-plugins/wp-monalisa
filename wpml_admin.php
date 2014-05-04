@@ -32,6 +32,9 @@ function wpml_admin_init()
 	if ($siteid != 1)
 	    return;
     }
+    
+    // add contextual help
+    add_filter('contextual_help', 'wp_monalisa_contextual_help', 10, 2);
 
     if (function_exists('add_options_page')) 
     {
@@ -240,11 +243,8 @@ function wpml_admin()
   $out .= '<div class="wrap"><h2>wp-Monalisa '.__('Settings',"wpml").'</h2>';
 
   // add support link
-  if (file_exists(plugin_dir_path(__FILE__) . "/support/supp.php")) {
-  	require_once(plugin_dir_path(__FILE__) . "/support/supp.php");
-  	$out .= tl_add_supp();
-  }
-  
+  require_once(plugin_dir_path(__FILE__) . "/supp/supp.php");
+  $out .= tl_add_supp();  
   
   $out .= '<div id="ajax-response"></div>'."\n"; 
   
@@ -577,6 +577,74 @@ function wpml_admin()
   $out .= '</form></div>'."\n";
   
   echo $out;
+}
+
+// this function returns the contextual help 
+function wp_monalisa_contextual_help($contextual_help, $screen_id) {
+
+  $locale = get_locale();
+  if ( empty($locale) )
+    $locale = 'en_US'; 
+
+  if(function_exists('load_plugin_textdomain')) {
+    load_plugin_textdomain("wp-forecast_".$locale, false, dirname( plugin_basename( __FILE__ ) ) . "
+/lang/");
+  }
+
+  //echo 'Screen ID = '.$screen_id.'<br />';
+  switch( $screen_id ) {
+  case 'toplevel_page_wpml_admin' :
+    $contextual_help .= "<p>";
+    $contextual_help .= __( 'If you are looking for instructions or help on wp-monalisa, 
+   please use the following ressources. If you are stuck you can 
+   always write an email to','wpml');
+    $contextual_help .= ' <a href="mailto:support@tuxlog.de">support@tuxlog.de</a>.';
+    $contextual_help .= "</p>";
+
+    $contextual_help .= '<ul>';
+    $contextual_help .= '<li><a href="http://www.tuxlog.de/wordpress/2009/wp-monalisa-manual/" target="_blank">';
+    $contextual_help .= __('English Manual','wpml');
+    $contextual_help .= '</a></li>';
+    $contextual_help .= '<li><a href="http://www.tuxlog.de/wordpress/2009/wp-monalisa-handbuch/" target="_blank">'
+;
+    $contextual_help .= __('German Manual','wpml');
+    $contextual_help .= '</a></li>';
+    $contextual_help .= '<li><a href="http://www.tuxlog.de/wordpress/2009/wp-monalisa-in-dmsguestbook-integrieren/" target="_blank">';
+    $contextual_help .= __('Integrate wp-monalisa with dmsGuestbook (german)','wpml' );
+    $contextual_help .= '</a></li>';
+ 
+    $contextual_help .= '<li><a href="http://www.youtube.com/watch?v=5w8hiteU8gA" target="_blank">';
+    $contextual_help .= __('Screencast wp-monalisa installation','wpml' );
+    $contextual_help .= '</a></li>';
+
+    $contextual_help .= '<li><a href="http://www.youtube.com/watch?v=614Gso38v5g" target="_blank">';
+    $contextual_help .= __('Screencast wp-monalisa configuration','wpml' );
+    $contextual_help .= '</a></li>';
+
+ $contextual_help .= '<li><a href="http://www.youtube.com/watch?v=uHXlELn27ko" target="_blank">';
+    $contextual_help .= __('Screencast wp-monalisa usage','wpml' );
+    $contextual_help .= '</a></li>';
+
+ $contextual_help .= '<li><a href="http://www.youtube.com/watch?v=cedwN0u_XRI" target="_blank">';
+    $contextual_help .= __('Screencast wp-monalisa import/export of smilies','wpml' );
+    $contextual_help .= '</a></li>';
+
+    $contextual_help .= '<li><a href="http://www.wordpress.org/extend/plugins/wp-monalisa" target="_
+blank">';
+    $contextual_help .= __('wp-monalisa on WordPress.org', 'wpml' );
+    $contextual_help .= '</a></li>';
+    $contextual_help .= '<li><a href="http://www.tuxlog.de/wp-monalisa/" target="_blank">';
+    $contextual_help .= __('German wp-monalisa Site', 'wpml' );
+    $contextual_help .= '</a></li>';
+    $contextual_help .= '<li><a href="http://wordpress.org/plugins/wp-monalisa/changelog/" target="_blank">';
+    $contextual_help .= __('Changelog', 'wpml' );
+    $contextual_help .= '</a></li></ul>';
+    $contextual_help .= '<p>';
+    $contextual_help .= __('Links will open in new Window/Tab.', 'wpml' );
+    $contextual_help .= '</p>';
+    break;
+  }
+  return $contextual_help;
 }
 
 ?>

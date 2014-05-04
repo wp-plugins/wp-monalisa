@@ -194,6 +194,7 @@ function wpml_translate_emoticon($smiley) {
 function wpml_convert_emoticons($text)
 {
 	global $wpml_search;
+
 	// no smilies to change, return original text
 	if ( empty($wpml_search) )
 		return $text;
@@ -207,8 +208,9 @@ function wpml_convert_emoticons($text)
 	$stop = count($textarr);// loop stuff
 	for ($i = 0; $i < $stop; $i++) {
 		$content = $textarr[$i];
-		
-		if ((strlen($content) > 0) && ('<' != $content{0})) {
+
+		if ((strlen($content) > 0)) {
+		    //	  && ('<' != $content{0})) {
 			
 			//If it's not a tag
 			$content = preg_replace_callback($wpml_search,

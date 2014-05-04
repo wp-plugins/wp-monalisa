@@ -76,9 +76,12 @@ function smile2comment(textid,smile,replace,myid){
     // editor objekt holen, falls vorhanden
     if ( typeof tinyMCE != "undefined" ) {
     	teid=tinyMCE.activeEditor.editorId;
+        // this is for bbPress with tinyMCE 4
+        if (typeof teid == "undefined")
+           teid=tinyMCE.activeEditor.id;
     	tedit = tinyMCE.get(teid);
     }
-    
+
     if (tarea == null && tedit == null) {
     	alert('wp-monalisa: Textarea not found. Please contact the webmaster of this site.');
     	return;
@@ -100,6 +103,7 @@ function smile2comment(textid,smile,replace,myid){
     if ( tedit != null && tedit.isHidden() == false)
     {
        var tmce_ver=window.tinyMCE.majorVersion;
+
        if (tmce_ver=="4") {
       	  window.tinyMCE.execCommand('mceInsertContent', false, itext);
        } else {

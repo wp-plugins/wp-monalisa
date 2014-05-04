@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wp-Monalisa 0.2 po polsku\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-21 09:08+0200\n"
+"POT-Creation-Date: 2014-05-04 17:28+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: jelena kovacevic <jecajeca260@gmail.com>\n"
 "Language-Team: Galareta 1 Man Band <admin@inwit.pl>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Generator: Poedit 1.5.5\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: wpml_admin.php:114
+#: wpml_admin.php:117
 msgid ""
 "Iconpath is no valid directory, resetting it. Please enter the path relative "
 "to the wordpress main directory."
@@ -26,31 +26,31 @@ msgstr ""
 "conPath no es un directorio válido, Reiniciándolo. Por favor, introduzca la "
 "ruta relativa al directorio principal de wordpress."
 
-#: wpml_admin.php:117
+#: wpml_admin.php:120
 msgid "Settings saved"
 msgstr "Ajustes salvados"
 
-#: wpml_admin.php:135
+#: wpml_admin.php:142
 msgid "Deleted record "
 msgstr "Eliminar registro"
 
-#: wpml_admin.php:160
+#: wpml_admin.php:167
 msgid "Emoticon allready used. Record not inserted"
 msgstr "Carita ya utilizada. El registro no se insertó"
 
-#: wpml_admin.php:202
+#: wpml_admin.php:209
 msgid "Emoticon allready used. Record not updated"
 msgstr "Carita ya utilizada. El Registro no se actualizó"
 
-#: wpml_admin.php:227
+#: wpml_admin.php:234
 msgid "Records updated"
 msgstr "Registro actualizado"
 
-#: wpml_admin.php:236
+#: wpml_admin.php:243
 msgid "Settings"
 msgstr "Ajustes"
 
-#: wpml_admin.php:249
+#: wpml_admin.php:253
 msgid ""
 "Please turn off Settings -> Writing -> 'Convert emoticons like...' to use wp-"
 "Monalisa smilies)."
@@ -58,11 +58,11 @@ msgstr ""
 "Por favor, cierre la Configuración -> Escritura -> \"Convertir caritas "
 "como ... ' para utilizar caritas wp-Monalisa)."
 
-#: wpml_admin.php:255
+#: wpml_admin.php:259
 msgid "Iconpath"
 msgstr "Iconpath"
 
-#: wpml_admin.php:258
+#: wpml_admin.php:262
 msgid ""
 "You are about to change the iconpath.\\n Please be careful and make sure the "
 "icons are still accessible.\\n To update your settings klick Save Settings"
@@ -71,19 +71,19 @@ msgstr ""
 "cuidado y asegúrese de que los iconos siguen siendo accesibles.\\n Para "
 "actualizar la configuración haga clic en Guardar los Ajustes"
 
-#: wpml_admin.php:261
+#: wpml_admin.php:265
 msgid "Show smilies on edit"
 msgstr "Mostrar caritas en edición"
 
-#: wpml_admin.php:267
+#: wpml_admin.php:271
 msgid "Show smilies on comment"
 msgstr "Mostrar caritas en comentario"
 
-#: wpml_admin.php:271
+#: wpml_admin.php:275
 msgid "Comment Textarea ID"
 msgstr "ID de Comentario de la Caja de texto "
 
-#: wpml_admin.php:272
+#: wpml_admin.php:276
 msgid ""
 "You are about to change the id of the textarea of your comment form.\\n "
 "Please make sure you enter the correct id, to make wp-monalisa work correctly"
@@ -92,109 +92,160 @@ msgstr ""
 "comentarios.\\n Por favor, asegúrese de introducir el ID correcto, para que "
 "hacer que wp-monalisa trabaje correctamente"
 
-#: wpml_admin.php:274
+#: wpml_admin.php:278
 msgid "Replace emoticons with html-images"
 msgstr "Vuelva a colocar caritas con imágenes html"
 
-#: wpml_admin.php:277
+#: wpml_admin.php:281
 msgid "Show emoticons in selection as"
 msgstr "Mostrar caritas en la selección como"
 
-#: wpml_admin.php:279 wpml_admin.php:429 wpml_admin.php:440
+#: wpml_admin.php:283 wpml_admin.php:433 wpml_admin.php:444
 msgid "Icon"
 msgstr "Icono"
 
-#: wpml_admin.php:280
+#: wpml_admin.php:284
 msgid "Text"
 msgstr "Texto"
 
-#: wpml_admin.php:281
+#: wpml_admin.php:285
 msgid "Both"
 msgstr "Ambos"
 
-#: wpml_admin.php:286
+#: wpml_admin.php:290
 msgid "Show smilies in a table"
 msgstr "Mostrar caritas en una tabla"
 
-#: wpml_admin.php:288
+#: wpml_admin.php:292
 msgid "Smilies per row"
 msgstr "Caritas por fila"
 
-#: wpml_admin.php:296
+#: wpml_admin.php:300
 msgid "Show smilies as Pulldown"
 msgstr "Mostrar caritas como Pulldown"
 
-#: wpml_admin.php:298
+#: wpml_admin.php:302
 msgid "Smilies in 1st row"
 msgstr "Caritas en primera fila"
 
-#: wpml_admin.php:305
+#: wpml_admin.php:309
 msgid "Show tooltip for icons"
 msgstr "Mostrar información sobre herramientas para los iconos"
 
-#: wpml_admin.php:313
+#: wpml_admin.php:317
 msgid "Activate Smilies for BuddyPress"
 msgstr "Activar Caritas para BuddyPress"
 
-#: wpml_admin.php:322
+#: wpml_admin.php:326
 msgid "Activate Smilies for bbPress"
 msgstr "Activar Caritas para bbPress"
 
-#: wpml_admin.php:335
+#: wpml_admin.php:339
 msgid "Save Settings"
 msgstr "Salvar ajustes"
 
-#: wpml_admin.php:340
+#: wpml_admin.php:344
 msgid "Import Smiley-Package"
 msgstr "Importar Paquete de Caritas "
 
-#: wpml_admin.php:341
+#: wpml_admin.php:345
 msgid "Export Smiley-Package (pak-Format)"
 msgstr "Exportar Paquete de Caritas (pak-Format)"
 
-#: wpml_admin.php:357
+#: wpml_admin.php:361
 msgid "Smilies"
 msgstr "Caritas"
 
-#: wpml_admin.php:361
+#: wpml_admin.php:365
 msgid "Iconpath is empty or invalid"
 msgstr "La dirección del icono está vacía o no es válida"
 
-#: wpml_admin.php:407 wpml_admin.php:422 wpml_admin.php:556 wpml_admin.php:570
+#: wpml_admin.php:411 wpml_admin.php:426 wpml_admin.php:560 wpml_admin.php:574
 msgid "Save"
 msgstr "Salvar"
 
-#: wpml_admin.php:407 wpml_admin.php:556
+#: wpml_admin.php:411 wpml_admin.php:560
 msgid "Delete marked"
 msgstr "Eliminar marcados"
 
-#: wpml_admin.php:411 wpml_admin.php:560
+#: wpml_admin.php:415 wpml_admin.php:564
 msgid "Show all"
 msgstr "Mostrar todos"
 
-#: wpml_admin.php:420 wpml_admin.php:569
+#: wpml_admin.php:424 wpml_admin.php:573
 msgid "Lines per Page:"
 msgstr "Líneas por Página:"
 
-#: wpml_admin.php:428 wpml_admin.php:439
+#: wpml_admin.php:432 wpml_admin.php:443
 msgid "Emoticon"
 msgstr "Caritas"
 
-#: wpml_admin.php:429 wpml_admin.php:440
+#: wpml_admin.php:433 wpml_admin.php:444
 msgid "not mapped yet"
 msgstr "no asignado todavía"
 
-#: wpml_admin.php:430 wpml_admin.php:441
+#: wpml_admin.php:434 wpml_admin.php:445
 msgid "On Post"
 msgstr "En post"
 
-#: wpml_admin.php:431 wpml_admin.php:442
+#: wpml_admin.php:435 wpml_admin.php:446
 msgid "On Comment"
 msgstr "El comentario"
 
-#: wpml_admin.php:449
+#: wpml_admin.php:453
 msgid "New Entry"
 msgstr "Nueva entrada"
+
+#: wpml_admin.php:598
+msgid ""
+"If you are looking for instructions or help on wp-monalisa, \n"
+"   please use the following ressources. If you are stuck you can \n"
+"   always write an email to"
+msgstr ""
+
+#: wpml_admin.php:606
+msgid "English Manual"
+msgstr ""
+
+#: wpml_admin.php:610
+msgid "German Manual"
+msgstr ""
+
+#: wpml_admin.php:613
+msgid "Integrate wp-monalisa with dmsGuestbook (german)"
+msgstr ""
+
+#: wpml_admin.php:617
+msgid "Screencast wp-monalisa installation"
+msgstr ""
+
+#: wpml_admin.php:621
+msgid "Screencast wp-monalisa configuration"
+msgstr ""
+
+#: wpml_admin.php:625
+msgid "Screencast wp-monalisa usage"
+msgstr ""
+
+#: wpml_admin.php:629
+msgid "Screencast wp-monalisa import/export of smilies"
+msgstr ""
+
+#: wpml_admin.php:634
+msgid "wp-monalisa on WordPress.org"
+msgstr ""
+
+#: wpml_admin.php:637
+msgid "German wp-monalisa Site"
+msgstr ""
+
+#: wpml_admin.php:640
+msgid "Changelog"
+msgstr ""
+
+#: wpml_admin.php:643
+msgid "Links will open in new Window/Tab."
+msgstr ""
 
 #: wpml_export.php:72
 msgid "Export"
@@ -244,111 +295,92 @@ msgstr "Eliminar caritas actuales antes de la importación"
 msgid "Start import"
 msgstr "Comenzar la importación"
 
-#: support/support.php:65 support/support.php:114
-msgid "Support Request"
-msgstr "Soporte de pedidos"
-
-#: support/support.php:68
-msgid "Thanks for your request, you will get feedback as soon as possible."
-msgstr ""
-"Gracias por su solicitud, usted conseguirá feedback tan pronto como sea "
-"posible."
-
-#: support/support.php:70
-msgid ""
-"Sorry, there was a problem sending your mail. Please send the contents of "
-"this fram to support@tuxlog.de manually."
-msgstr ""
-"Lo sentimos, hubo un problema al enviar su correo. Por favor, enviar el "
-"contenido de este frame a support@tuxlog.de manualmente."
-
-#: support/support.php:116
-msgid ""
-"Please notice, the following data will be send via email to analyze your "
-"support request."
-msgstr ""
-"Por favor note, los siguientes datos se enviarán a través de correo "
-"electrónico para analizar su solicitud de soporte."
-
-#: support/support.php:117
-msgid "You can contact the author of this plugin at"
-msgstr "Puede ponerse en contacto con el autor de este plugin en"
-
-#: support/support.php:118
-msgid ""
-"Please enter your problem description in the textarea and fill in a valid "
-"email address."
-msgstr ""
-"Introduzca su descripción del problema en el área de texto y rellene la "
-"dirección de correo electrónico válida."
-
-#: support/support.php:122
-msgid "Problemdescription"
-msgstr "Descripción del problema"
-
-#: support/support.php:126
-msgid "Enter your email address"
-msgstr "Ingrese su dirección de correo electrónico"
-
-#: support/support.php:131
-msgid "Send request"
-msgstr "Enviar solicitud"
-
-#: support/support.php:132
-msgid "Close window"
-msgstr "Cerrar ventana"
-
-#: support/support.php:134
-msgid "Messages..."
-msgstr "Mensajes..."
-
-#: support/support.php:137
-msgid "In addition the following data is transmitted to analyze your request"
-msgstr "En adición los siguientes datos se transmiten para analizar su pedido"
-
-#: support/support.php:140
-msgid "General Settings"
-msgstr "Ajustes Generales"
-
-#: support/support.php:141
-msgid "Your wordpress version"
-msgstr "Su versión de wordpress"
-
-#: support/support.php:142
-msgid "Your wordpress language"
-msgstr "Su lenguaje de wordpress"
-
-#: support/support.php:143
-msgid "Your local package"
-msgstr "Su paquete local"
-
-#: support/support.php:144
-msgid "Your timezone setting"
-msgstr "Su configuración de zona horaria"
-
-#: support/support.php:145
-msgid "Active theme"
-msgstr "Tema activo"
-
-#: support/support.php:149
-msgid ""
-"Fetching the plugin information from wordpress.org...this may take a while"
-msgstr ""
-"Recopilando la información del plugin desde wordpress.org… esto puede llevar "
-"un tiempo"
-
-#: support/support.php:151
-msgid "Active Plugins"
-msgstr "Plugins Activos"
-
-#: support/support.php:163
-msgid "Plugin Settings"
-msgstr "Ajustes del plugin"
-
-#: wpml_comment.php:244
+#: wpml_comment.php:243
 msgid "less..."
 msgstr "menos.."
 
-#: wpml_comment.php:245
+#: wpml_comment.php:244
 msgid "more..."
 msgstr "más..."
+
+#~ msgid "Support Request"
+#~ msgstr "Soporte de pedidos"
+
+#~ msgid "Thanks for your request, you will get feedback as soon as possible."
+#~ msgstr ""
+#~ "Gracias por su solicitud, usted conseguirá feedback tan pronto como sea "
+#~ "posible."
+
+#~ msgid ""
+#~ "Sorry, there was a problem sending your mail. Please send the contents of "
+#~ "this fram to support@tuxlog.de manually."
+#~ msgstr ""
+#~ "Lo sentimos, hubo un problema al enviar su correo. Por favor, enviar el "
+#~ "contenido de este frame a support@tuxlog.de manualmente."
+
+#~ msgid ""
+#~ "Please notice, the following data will be send via email to analyze your "
+#~ "support request."
+#~ msgstr ""
+#~ "Por favor note, los siguientes datos se enviarán a través de correo "
+#~ "electrónico para analizar su solicitud de soporte."
+
+#~ msgid "You can contact the author of this plugin at"
+#~ msgstr "Puede ponerse en contacto con el autor de este plugin en"
+
+#~ msgid ""
+#~ "Please enter your problem description in the textarea and fill in a valid "
+#~ "email address."
+#~ msgstr ""
+#~ "Introduzca su descripción del problema en el área de texto y rellene la "
+#~ "dirección de correo electrónico válida."
+
+#~ msgid "Problemdescription"
+#~ msgstr "Descripción del problema"
+
+#~ msgid "Enter your email address"
+#~ msgstr "Ingrese su dirección de correo electrónico"
+
+#~ msgid "Send request"
+#~ msgstr "Enviar solicitud"
+
+#~ msgid "Close window"
+#~ msgstr "Cerrar ventana"
+
+#~ msgid "Messages..."
+#~ msgstr "Mensajes..."
+
+#~ msgid ""
+#~ "In addition the following data is transmitted to analyze your request"
+#~ msgstr ""
+#~ "En adición los siguientes datos se transmiten para analizar su pedido"
+
+#~ msgid "General Settings"
+#~ msgstr "Ajustes Generales"
+
+#~ msgid "Your wordpress version"
+#~ msgstr "Su versión de wordpress"
+
+#~ msgid "Your wordpress language"
+#~ msgstr "Su lenguaje de wordpress"
+
+#~ msgid "Your local package"
+#~ msgstr "Su paquete local"
+
+#~ msgid "Your timezone setting"
+#~ msgstr "Su configuración de zona horaria"
+
+#~ msgid "Active theme"
+#~ msgstr "Tema activo"
+
+#~ msgid ""
+#~ "Fetching the plugin information from wordpress.org...this may take a while"
+#~ msgstr ""
+#~ "Recopilando la información del plugin desde wordpress.org… esto puede "
+#~ "llevar un tiempo"
+
+#~ msgid "Active Plugins"
+#~ msgstr "Plugins Activos"
+
+#~ msgid "Plugin Settings"
+#~ msgstr "Ajustes del plugin"
