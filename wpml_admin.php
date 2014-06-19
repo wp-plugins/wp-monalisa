@@ -582,13 +582,8 @@ function wpml_admin()
 // this function returns the contextual help 
 function wp_monalisa_contextual_help($contextual_help, $screen_id) {
 
-  $locale = get_locale();
-  if ( empty($locale) )
-    $locale = 'en_US'; 
-
   if(function_exists('load_plugin_textdomain')) {
-    load_plugin_textdomain("wp-forecast_".$locale, false, dirname( plugin_basename( __FILE__ ) ) . "
-/lang/");
+    load_plugin_textdomain("wpml", false, dirname( plugin_basename( __FILE__ ) ) . "/lang/");
   }
 
   //echo 'Screen ID = '.$screen_id.'<br />';
