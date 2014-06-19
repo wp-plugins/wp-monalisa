@@ -29,7 +29,7 @@ function updateImage(icondir,myid){
 */
 function switch_row(tid,direction)
 {
-    var c;
+    
     // finde naechste oder vorherige id der zeile
     if ( direction == "up" )
     {
@@ -102,6 +102,7 @@ function switch_row(tid,direction)
 
 function wpml_markall(objid)
 {
+	var i;
     // get newvalue for checkboxes
     newval  = document.getElementById(objid).checked;
 
@@ -141,4 +142,32 @@ function wpml_admin_switch()
     } else {
 	document.editopts.smilies1strow.disabled=true;
     } 
+    
+    if (document.editopts.wpml4bbpress && typeof(document.editopts.wpml4buddypress) != "undefined")
+       	u=document.editopts.wpml4buddypress.checked;
+    else
+    	u=false;
+    
+    if ( u==true) // buddypress is active
+    {
+    document.editopts.replaceicon.checked=false;
+	document.editopts.replaceicon.disabled=true;
+    } else {    
+	document.editopts.replaceicon.disabled=false;
+    }
+    
+    if (document.editopts.wpml4bbpress && typeof(document.editopts.wpml4bbpress.checked) != "undefined")
+       	u=document.editopts.wpml4bbpress.checked;
+    else
+        u=false;
+    
+    u=document.editopts.wpml4bbpress.checked;
+    if ( u==true) // bbPress is active
+    {
+    document.editopts.replaceicon.checked=false;
+	document.editopts.replaceicon.disabled=true;
+    } else {    
+	document.editopts.replaceicon.disabled=false;
+    } 
 }
+
