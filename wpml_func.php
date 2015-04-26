@@ -184,7 +184,7 @@ function wpml_translate_emoticon($smiley) {
 	$height = $wpml_smilies[$smiley][3];
 	$smiley_masked = esc_attr($smiley);
 
-	return " <img src='$img' alt='$smiley_masked' width='$width' height='$height' class='wp-smiley' /> ";
+	return " <img src='$img' alt='$smiley_masked' width='$width' height='$height' class='wpml_ico' /> ";
 }
 
 
